@@ -1,0 +1,2838 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NRails.Net</name>
+    </assembly>
+    <members>
+        <member name="T:NRails.Net.NetException">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Net.NetException.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Net.NetException.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:NRails.Net.NetException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            
+            </summary>
+            <param name="info"></param>
+            <param name="context"></param>
+        </member>
+        <member name="T:NRails.Net.StateDic`1">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Net.StateDic`1.GetAllState(NRails.Threading.CTSQueue)">
+            <summary>
+            获取当前已连接的列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:NRails.Net.ConnectionState">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:NRails.Net.ConnectionState.DisConnected">
+            <summary>
+            在客户端断开连接时触发
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ConnectionState.EndPoint">
+            <summary>
+            远程地址
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ConnectionState.Protocol">
+            <summary>
+            协议类型
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ConnectionState.EndPointName">
+            <summary>
+            远程地址名称
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ConnectionState.ConnectTime">
+            <summary>
+            连接时间
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ConnectionState.ReceiveTime">
+            <summary>
+            数据接收时间
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ConnectionState.DisConnectTime">
+            <summary>
+            断开连接时间
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ConnectionState.IsAlive">
+            <summary>
+            true=客户端还处于连接状态
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ConnectionState.IsServerDisconnect">
+            <summary>
+            true=被服务器强制断开连接，false=客户端主动断开连接
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ConnectionState.ForceDispose">
+            <summary>
+            等待链接断开超时，强制释放链接
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ConnectionState._isAlive">
+            <summary>
+            在调用Dispose()函数或者析构函数时，该值会被设置为0
+            </summary>
+        </member>
+        <member name="M:NRails.Net.ConnectionState.Dispose(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:NRails.Net.ConnectionState.Send(System.ArraySegment{System.Byte}[])">
+            <summary>
+            
+            </summary>
+            <param name="array"></param>
+        </member>
+        <member name="M:NRails.Net.ConnectionState.Send(System.ArraySegment{System.Byte})">
+            <summary>
+            
+            </summary>
+            <param name="array"></param>
+        </member>
+        <member name="M:NRails.Net.ConnectionState.Send(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            发送数据
+            </summary>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="len"></param>
+            <param name="endPoint"></param>
+        </member>
+        <member name="M:NRails.Net.ConnectionState.Send(System.Byte[],System.Int32)">
+            <summary>
+            发送数据
+            </summary>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="len"></param>
+            <param name="endPoint"></param>
+        </member>
+        <member name="M:NRails.Net.ConnectionState.Send(System.Byte[])">
+            <summary>
+            发送数据
+            </summary>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="len"></param>
+            <param name="endPoint"></param>
+        </member>
+        <member name="M:NRails.Net.ConnectionState.Disconnect">
+            <summary>
+            断开客户端连接
+            </summary>
+        </member>
+        <member name="M:NRails.Net.ConnectionState.Dispose">
+            <summary>
+            释放所占用的资源
+            </summary>
+        </member>
+        <member name="P:NRails.Net.ConnectionState.IsDisposed">
+            <summary>
+            获取该对象是否已经被释放
+            </summary>
+        </member>
+        <member name="M:NRails.Net.ConnectionState.OnDisConnected">
+            <summary>
+            引发DisConnected事件
+            </summary>
+        </member>
+        <member name="P:NRails.Net.ConnectionState.Handle">
+            <summary>
+            套接字句柄
+            </summary>
+        </member>
+        <member name="T:NRails.Net.SocketClientNew">
+            <summary>
+            用于提供TCP和UDP协议的套接字客户端
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketClientNew.AutoReconnect">
+            <summary>
+            true = 设置当服务器强制断开连接时自动重连
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketClientNew.AutoReconnectInterval">
+            <summary>
+            定义重连的时间间隔，单位为：秒，默认为：10 秒
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketClientNew.EndPointName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketClientNew._protocol">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketClientNew.InstanceCount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketClientNew.PulseInterval">
+            <summary>
+            设置引发心跳的时间间隔，单位：毫秒，默认值为1分钟，即60000
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketClientNew._isAlive">
+            <summary>
+            在调用Dispose()函数或者析构函数时，该值会被设置为0
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketClientNew.EndPoint">
+            <summary>
+            远程地址
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketClientNew.socket">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketClientNew.IsConnected">
+            <summary>
+            true=此操作器的Socket已连接
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketClientNew.KeepAliveTest">
+            <summary>
+            true=开启KeepAlive检测
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketClientNew.MaxPackSize">
+            <summary>
+            最大单次发送的数据字节大小，在发送前以此为依据对数据进行分包
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketClientNew.Tag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketClientNew.ReceivedSize">
+            <summary>
+            指示已收到的字节数
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketClientNew.WaitSendSize">
+            <summary>
+            指示等待发送的字节数
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketClientNew.SentSize">
+            <summary>
+            指示已对该连接发送的数据总数（字节为单位）
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketClientNew.Dispose(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:NRails.Net.SocketClientNew.#ctor(System.String,System.Net.Sockets.ProtocolType,System.Boolean,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="serverPoint">需要连接的服务端IP地址</param>
+            <param name="protocol">指定协议类型</param>
+            <param name="connectImmeditly">设置是否在实例化后立即连接</param>
+            <param name="localPort">指定本地端口号</param>
+        </member>
+        <member name="M:NRails.Net.SocketClientNew.#ctor(System.Net.EndPoint,System.Net.Sockets.ProtocolType,System.Boolean,System.Int32)">
+            <summary>
+            创建一个SocketClient的实例
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketClientNew.Remember(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            缓存一个字节数据，用于下次数据接收完毕后进行合并
+            </summary>
+            <param name="buffer"></param>
+            <param name="bufferOffset"></param>
+            <param name="len"></param>
+        </member>
+        <member name="M:NRails.Net.SocketClientNew.ClearRemember">
+            <summary>
+            清除已经缓存的数据
+            </summary>
+        </member>
+        <member name="E:NRails.Net.SocketClientNew.Pulse">
+            <summary>
+            心跳事件，在此事件引发时，客户端应该立即向服务端发送一个心跳数据包
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketClientNew.OnPulse">
+            <summary>
+            引发心跳事件
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketClientNew.Send(NRails.Net.SocketClientNew,System.Collections.Generic.IList{System.ArraySegment{System.Byte}})">
+            <summary>
+            发送数据
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketClientNew.Send(System.Collections.Generic.IList{System.ArraySegment{System.Byte}})">
+            <summary>
+            发送数据
+            </summary>
+            <param name="array"></param>
+        </member>
+        <member name="M:NRails.Net.SocketClientNew.Send(System.ArraySegment{System.Byte}[])">
+            <summary>
+            
+            </summary>
+            <param name="array"></param>
+        </member>
+        <member name="M:NRails.Net.SocketClientNew.Send(System.ArraySegment{System.Byte})">
+            <summary>
+            
+            </summary>
+            <param name="array"></param>
+        </member>
+        <member name="M:NRails.Net.SocketClientNew.Send(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            发送数据
+            </summary>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="len"></param>
+            <param name="endPoint"></param>
+        </member>
+        <member name="M:NRails.Net.SocketClientNew.Send(System.Byte[],System.Int32)">
+            <summary>
+            发送数据
+            </summary>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="len"></param>
+            <param name="endPoint"></param>
+        </member>
+        <member name="M:NRails.Net.SocketClientNew.Send(System.Byte[])">
+            <summary>
+            发送数据
+            </summary>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="len"></param>
+            <param name="endPoint"></param>
+        </member>
+        <member name="M:NRails.Net.SocketClientNew.Connect">
+            <summary>
+            尝试连接到服务端
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketClientNew.DisConnect">
+            <summary>
+            从服务器断开连接,该操作会将AutoReconnect设置为false
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketClientNew.Id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketClientNew.Finalize">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketClientNew.Dispose">
+            <summary>
+            释放所占用的资源
+            </summary>
+        </member>
+        <member name="P:NRails.Net.SocketClientNew.IsDisposed">
+            <summary>
+            获取该对象是否已经被释放
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketClientNew.ReleaseSocket">
+            <summary>
+            释放当前所占用的套接字
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketClientNew.InitSocket">
+            <summary>
+            初始化套接字
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketClientNew.OnDisConnected">
+            <summary>
+            引发DisConnected事件
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketClientNew.OnBeforeConnect">
+            <summary>
+            引发BeforeConnect事件
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketClientNew.OnAfterConnect(System.Net.Sockets.SocketError)">
+            <summary>
+            引发AfterConnect事件
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketClientNew.OnDataReceived(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            引发DataReceived事件
+            </summary>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="len"></param>
+        </member>
+        <member name="E:NRails.Net.SocketClientNew.BeforeConnect">
+            <summary>
+            在准备尝试连接到服务器的时候引发
+            </summary>
+        </member>
+        <member name="E:NRails.Net.SocketClientNew.DisConnected">
+            <summary>
+            到服务器端的连接被断开时引发
+            </summary>
+        </member>
+        <member name="E:NRails.Net.SocketClientNew.DataReceived">
+            <summary>
+            当收到数据时引发
+            </summary>
+        </member>
+        <member name="E:NRails.Net.SocketClientNew.AfterConnect">
+            <summary>
+            在尝试连接到服务器之后引发
+            </summary>
+        </member>
+        <member name="T:NRails.Net.SocketClientNew.SocketClient3EventHandler">
+            <summary>
+            
+            </summary>
+            <param name="client"></param>
+        </member>
+        <member name="T:NRails.Net.SocketClientNew.SocketClient3DataReceivedEventHandler">
+            <summary>
+            
+            </summary>
+            <param name="client"></param>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="len"></param>
+        </member>
+        <member name="T:NRails.Net.SocketClientNew.SocketClient3AfterConnectEventHandler">
+            <summary>
+            
+            </summary>
+            <param name="client"></param>
+            <param name="error"></param>
+        </member>
+        <member name="P:NRails.Net.SocketClientNew.Protocol">
+            <summary>
+            获取或设置监听的协议类型
+            </summary>
+        </member>
+        <member name="P:NRails.Net.SocketClientNew.BufferSize">
+            <summary>
+            设置数据接收缓存大小，默认值：8192，单位：字节
+            </summary>
+        </member>
+        <member name="T:NRails.Net.SocketServerNew`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="TState"></typeparam>
+        </member>
+        <member name="F:NRails.Net.SocketServerNew`1.AliveTest">
+            <summary>
+            true = 设置TCP链路探测功能为打开的状态
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketServerNew`1.MaxPackSize">
+            <summary>
+            最大单次发送的数据字节大小，在发送前以此为依据对数据进行分包
+            </summary>
+        </member>
+        <member name="E:NRails.Net.SocketServerNew`1.ServerStart">
+            <summary>
+            当服务启动时引发
+            </summary>
+        </member>
+        <member name="E:NRails.Net.SocketServerNew`1.ClientDataReceived">
+            <summary>
+            当接收到客户端数据是引发
+            </summary>
+        </member>
+        <member name="E:NRails.Net.SocketServerNew`1.ClientConnected">
+            <summary>
+            当有客户端连接时引发事件
+            </summary>
+        </member>
+        <member name="E:NRails.Net.SocketServerNew`1.ClientDisConnected">
+            <summary>
+            当有客户端断开连接时引发
+            </summary>
+        </member>
+        <member name="E:NRails.Net.SocketServerNew`1.Tick">
+            <summary>
+            定时引发的事件，时间间隔由TickInterval指定
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketServerNew`1._isAlive">
+            <summary>
+            在调用Dispose()函数或者析构函数时，该值会被设置为0
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketServerNew`1.Dispose(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:NRails.Net.SocketServerNew`1.#ctor(System.Int32,System.Net.Sockets.ProtocolType)">
+            <summary>
+            
+            </summary>
+            <param name="port"></param>
+            <param name="protocolType"></param>
+        </member>
+        <member name="M:NRails.Net.SocketServerNew`1.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketServerNew`1.Start">
+            <summary>
+            启动服务
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketServerNew`1.Stop">
+            <summary>
+            停止服务
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketServerNew`1.Disconnect(`0)">
+            <summary>
+            
+            </summary>
+            <param name="state"></param>
+        </member>
+        <member name="M:NRails.Net.SocketServerNew`1.DisconnectAllClients">
+            <summary>
+            关闭现有连接
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketServerNew`1.Send(`0,System.Collections.Generic.IList{System.ArraySegment{System.Byte}})">
+            <summary>
+            发送数据
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketServerNew`1.UpdateState(`0)">
+            <summary>
+            客户端状态对象被更新时执行
+            </summary>
+            <param name="state"></param>
+        </member>
+        <member name="M:NRails.Net.SocketServerNew`1.GetState(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="endPointName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Net.SocketServerNew`1.GetAllClientStates">
+            <summary>
+            获取当前已连接的列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:NRails.Net.SocketServerNew`1.MaxWaitDisconnect">
+            <summary>
+            最长等待连接关闭时间，单位：分钟，默认3分钟
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketServerNew`1.MaxAlive">
+            <summary>
+            默认连接保持的最大时间（单位：分钟），默认值是5分钟
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketServerNew`1.TickInterval">
+            <summary>
+            设置该服务引发Tick的时间间隔,单位:毫秒，默认为10秒
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketServerNew`1.CleanInterval">
+            <summary>
+            设置该服务进行连接清理的时间间隔,单位:毫秒，默认20秒
+            </summary>
+        </member>
+        <member name="P:NRails.Net.SocketServerNew`1.Port">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NRails.Net.SocketServerNew`1.Protocol">
+            <summary>
+            获取或设置监听的协议类型
+            </summary>
+        </member>
+        <member name="P:NRails.Net.SocketServerNew`1.Running">
+            <summary>
+            true=服务正在运行
+            </summary>
+        </member>
+        <member name="P:NRails.Net.SocketServerNew`1.BufferSize">
+            <summary>
+            设置数据接收缓存大小，默认值：8192，单位：字节
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketServerNew`1.OnTick">
+            <summary>
+            执行一次定时操作
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketServerNew`1.Dispose">
+            <summary>
+            释放所占用的资源
+            </summary>
+        </member>
+        <member name="P:NRails.Net.SocketServerNew`1.IsDisposed">
+            <summary>
+            获取该对象是否已经被释放
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketServerNew`1.OnStart">
+            <summary>
+            引发ServerStart事件
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketServerNew`1.OnClientDataReceived(`0,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="state"></param>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="len"></param>
+        </member>
+        <member name="M:NRails.Net.SocketServerNew`1.OnClientDisConnected(`0)">
+            <summary>
+            
+            </summary>
+            <param name="state"></param>
+        </member>
+        <member name="M:NRails.Net.SocketServerNew`1.OnClientConnected(`0)">
+            <summary>
+            
+            </summary>
+            <param name="state"></param>
+        </member>
+        <member name="T:NRails.Net.SocketServerNew`1.SocketDataReceivedEventHandler">
+            <summary>
+            客户端数据接收事件代理
+            </summary>
+            <param name="server"></param>
+            <param name="state"></param>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="len"></param>
+        </member>
+        <member name="T:NRails.Net.SocketServerNew`1.ClientConnectedEventHandler">
+            <summary>
+            客户端连接事件代理
+            </summary>
+            <param name="server"></param>
+            <param name="state"></param>
+        </member>
+        <member name="T:NRails.Net.SocketServerNew`1.ClientDisConnectedEventHandler">
+            <summary>
+            客户端断开连接事件代理
+            </summary>
+            <param name="server"></param>
+            <param name="state"></param>
+        </member>
+        <member name="T:NRails.Net.SocketServerNew`1.SocketServer4ActionHandler">
+            <summary>
+            服务端执行一次心跳检测时的事件代理
+            </summary>
+            <param name="server"></param>
+            <param name="state"></param>
+        </member>
+        <member name="T:NRails.Net.SocketServerNew">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketServerNew.#ctor(System.Int32,System.Net.Sockets.ProtocolType)">
+            <summary>
+            
+            </summary>
+            <param name="port"></param>
+            <param name="protocolType"></param>
+        </member>
+        <member name="M:NRails.Net.SocketServerNew.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ArraySegmentQueue`1.totalCount">
+            <summary>
+            总元素个数, 不要手动修改这个字段
+            </summary>
+        </member>
+        <member name="T:NRails.Net.Socks5State">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Net.Socks5State.Action">
+            <summary>
+            指示当前客户端的执行状态
+            </summary>
+        </member>
+        <member name="T:NRails.Net.Socks5Action">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Net.Socks5Action.Negotiation">
+            <summary>
+            握手
+            </summary>
+        </member>
+        <member name="T:NRails.Net.Socks5.Socks5Server">
+            <summary>
+            Socks5代理服务器
+            </summary>
+        </member>
+        <member name="M:NRails.Net.Socks5.Socks5Server.#ctor(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="port"></param>
+        </member>
+        <member name="M:NRails.Net.Socks5.Socks5Server.Start">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NRails.Net.ProtoState">
+            <summary>
+            协议层状态
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ProtoState.IProto">
+            <summary>
+            协议解释器
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ProtoState.IsVersionChecked">
+            <summary>
+            true=已进行传输协议版本检查，不需要再对传输协议做自动的二次检查
+            </summary>
+        </member>
+        <member name="M:NRails.Net.ProtoState.Send(System.ArraySegment{System.Byte}[])">
+            <summary>
+            发送数据到客户端
+            </summary>
+            <param name="array">不包括通讯协议信息的业务数据</param>
+        </member>
+        <member name="M:NRails.Net.ProtoState.SetDefaultProtoVersion(NRails.Net.DefaultProtoVersion)">
+            <summary>
+            设置默认协议解释器版本
+            </summary>
+            <param name="version"></param>
+        </member>
+        <member name="M:NRails.Net.ProtoState.Send(System.Collections.Generic.IList{System.ArraySegment{System.Byte}},System.Byte)">
+            <summary>
+            
+            </summary>
+            <param name="array"></param>
+            <param name="channel">从1开始的通道编号</param>
+        </member>
+        <member name="M:NRails.Net.ProtoState.Reset">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NRails.Net.PackSlot">
+            <summary>
+            线程不安全
+            </summary>
+        </member>
+        <member name="T:NRails.Net.PackInfo">
+            <summary>
+            报文信息
+            </summary>
+        </member>
+        <member name="M:NRails.Net.PackInfo.#ctor(System.Int32,System.Int32,System.Byte[])">
+            <summary>
+            
+            </summary>
+            <param name="start">数据包起始位</param>
+            <param name="len">完整数据包长度，包含头，数据体，校验码</param>
+            <param name="buffer"></param>
+        </member>
+        <member name="M:NRails.Net.PackInfo.#ctor(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="start">数据包起始位</param>
+        </member>
+        <member name="F:NRails.Net.PackInfo.Start">
+            <summary>
+            数据报文起始位，该值一定是有效的
+            </summary>
+        </member>
+        <member name="F:NRails.Net.PackInfo.Length">
+            <summary>
+            数据报文的长度,包含包头，数据体，校验，如果该值为-1表示接收到数据太少（还没有组成包头信息）
+            </summary>
+        </member>
+        <member name="F:NRails.Net.PackInfo.IsCompress">
+            <summary>
+            true=数据体是被压缩过的
+            </summary>
+        </member>
+        <member name="F:NRails.Net.PackInfo.IsEncrypt">
+            <summary>
+            true=数据体是被加密过的
+            </summary>
+        </member>
+        <member name="F:NRails.Net.PackInfo.Split">
+            <summary>
+            true=这是一个分割的数据包
+            </summary>
+        </member>
+        <member name="F:NRails.Net.PackInfo.SplitIdx">
+            <summary>
+            当Split=true时，该字段指示了分包编号（从1开始编号），所有相同PackId的数据包收集完毕后才能组成一个完整的数据包
+            </summary>
+        </member>
+        <member name="F:NRails.Net.PackInfo.SplitCount">
+            <summary>
+            当Split=true时,该字段指示了分包个数
+            </summary>
+        </member>
+        <member name="F:NRails.Net.PackInfo.SplitId">
+            <summary>
+            当Split=true时,该字段指示了当前分包的Id
+            </summary>
+        </member>
+        <member name="F:NRails.Net.PackInfo.SplitRealLen">
+            <summary>
+            当Split=true时,该字段指示了分包前的数据真实大小（用户数据长度+校验码）
+            </summary>
+        </member>
+        <member name="F:NRails.Net.PackInfo.UserFlag">
+            <summary>
+            二次开发携带的标签
+            </summary>
+        </member>
+        <member name="F:NRails.Net.PackInfo.UserDataStart">
+            <summary>
+            用户数据起始位
+            </summary>
+        </member>
+        <member name="F:NRails.Net.PackInfo.UserDataLen">
+            <summary>
+            用户数据长度
+            </summary>
+        </member>
+        <member name="F:NRails.Net.PackInfo.Version">
+            <summary>
+            协议版本号
+            </summary>
+        </member>
+        <member name="F:NRails.Net.PackInfo.Buffer">
+            <summary>
+            原始数据报文
+            </summary>
+        </member>
+        <member name="T:NRails.Net.LowerData">
+            <summary>
+            数据报文协议解释器
+            </summary>
+        </member>
+        <member name="F:NRails.Net.LowerData.proto_version">
+            <summary>
+            默认通讯协议解释性版本号
+            </summary>
+        </member>
+        <member name="T:NRails.Net.DefaultProto">
+            <summary>
+            默认协议解释器
+            </summary>
+        </member>
+        <member name="F:NRails.Net.DefaultProto.Version">
+            <summary>
+            当前协议版本
+            </summary>
+        </member>
+        <member name="F:NRails.Net.DefaultProto.HeadSize">
+            <summary>
+            包头大小，包含包头 2A23,version,flag，userFlag,dataLen(userDataLen+crcLen)
+            </summary>
+        </member>
+        <member name="F:NRails.Net.DefaultProto.SplitTrig">
+            <summary>
+            拆包触发器，当Split=true时，如果数据包的大小超过这个值将会触发拆包
+            </summary>
+        </member>
+        <member name="F:NRails.Net.DefaultProto.SplitInfoSize">
+            <summary>
+            当触发拆包时，该值指示了在包头后面所跟随的拆包信息的数据大小
+            </summary>
+        </member>
+        <member name="F:NRails.Net.DefaultProto.SplitHeadSize">
+            <summary>
+            当触发拆包时，该值指示了实际包头大小
+            </summary>
+        </member>
+        <member name="F:NRails.Net.DefaultProto.HeadSymbol">
+            <summary>
+            帧头
+            </summary>
+        </member>
+        <member name="F:NRails.Net.DefaultProto.Instance">
+            <summary>
+            默认实例，版本2协议
+            </summary>
+        </member>
+        <member name="M:NRails.Net.DefaultProto.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Net.DefaultProto.#ctor(NRails.Net.DefaultProtoVersion)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Net.DefaultProto.GetPackInfo(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="len"></param>
+            <returns></returns>
+        </member>
+        <member name="F:NRails.Net.DefaultProto.packIdSeed">
+            <summary>
+            用于指示分包组合的种子，具有相同PackId的分包可以组成一个完整数据包
+            </summary>
+        </member>
+        <member name="M:NRails.Net.DefaultProto.Pack(System.Collections.Generic.IList{System.ArraySegment{System.Byte}},System.Byte)">
+            <summary>
+            将给定的数据进行协议封包处理
+            </summary>
+            <param name="arrayToPack"></param>
+            <param name="userFlag"></param>
+            <param name="maxPackSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Net.DefaultProto.UnPack(System.Collections.Generic.IList{NRails.Net.PackInfo})">
+            <summary>
+            解包，一次只能解一个
+            </summary>
+            <param name="array">一个无拆包的包信息或多个</param>
+            <returns></returns>
+        </member>
+        <member name="T:NRails.Net.DefaultProtoVersion">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Net.DefaultProtoVersion.Version2">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Net.DefaultProtoVersion.Version3">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_COMMAND_VAL">
+            <summary>
+            Imap Command Identifier value:Initial 0
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_MSG_FLAG_SEEN">
+            <summary>
+            Message flag:seen
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_MSG_FLAG_ANSWERED">
+            <summary>
+            Message flag: answered
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_MSG_FLAG_FLAGGED">
+            <summary>
+            Message flag: flagged
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_MSG_FLAG_DRAFT">
+            <summary>
+            Message flag: draft
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_MSG_FLAG_DELETED">
+            <summary>
+            Message flag: deleted
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_MAX_MSG_FLAGS">
+            <summary>
+            Max Message flags: 10
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_DEFAULT_PORT">
+            <summary>
+            Imap default port: 143
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_DEFAULT_TIMEOUT">
+            <summary>
+            Imap default timeout:30 sec
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_COMMAND_PREFIX">
+            <summary>
+            Imap command Identified prefix: IMAP00
+            </summary>
+        </member>
+        <member name="P:NRails.Net.ImapClient.IMAP_COMMAND_IDENTIFIER">
+            <summary>
+            Imap command identified which is combination of
+            Imap identifier prefix and val
+            eg. Prefix:IMAP00, Val: 1
+            Imap command Identified= IMAP001
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_UNTAGGED_RESPONSE_PREFIX">
+            <summary>
+            Imap Untagged response prefix: *
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_BAD_SERVER_RESPONSE">
+            <summary>
+            Imap bad server response : "* BAD"
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_OK_SERVER_RESPONSE">
+            <summary>
+            Imap ok server response: "* OK"
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_CAPABILITY_SERVER_RESPONSE">
+            <summary>
+            Imap Server response "* CAPABILITY"
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_CONNECT_COMMAND">
+            <summary>
+            Imap connect command :CONNECT
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_LOGIN_COMMAND">
+            <summary>
+            Imap login command : LOGIN userid  password
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_LOGOUT_COMMAND">
+            <summary>
+            Imap logout command : LOGOUT
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_SELECT_COMMAND">
+            <summary>
+            Imap select command : SELECT INBOX
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_EXAMINE_COMMAND">
+            <summary>
+            Imap examine command : EXAMINE INBOX
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_APPEND_COMMAND">
+            <summary>
+            Imap append command : APPEND
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_QUOTA_RESPONSE">
+            <summary>
+            Imap quota response : QUOTA
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_GETQUOTA_COMMAND">
+            <summary>
+            Imap get quota command : GETQUOTAROOT 
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_APPEND_RESPONSE_START">
+            <summary>
+            Imap append response start : [
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_APPEND_RESPONSE_END">
+            <summary>
+            Imap append response end : ]
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_GO_AHEAD_RESPONSE">
+            <summary>
+            Imap go ahead response: +
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_SEARCH_COMMAND">
+            <summary>
+            Imap uid search command : UID SEARCH
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_SEARCH_RESPONSE">
+            <summary>
+            Imap search command : SEARCH
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_UIDFETCH_COMMAND">
+            <summary>
+            Imap uid fetch command : UID FETCH
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_FETCH_COMMAND">
+            <summary>
+            Imap fetch command : FETCH
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_BODYSTRUCTURE_COMMAND">
+            <summary>
+            Imap BodyStructure command
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_UIDSTORE_COMMAND">
+            <summary>
+            Imap uid store command
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_UIDCOPY_COMMAND">
+            <summary>
+            Imap uid copy command
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_EXPUNGE_COMMAND">
+            <summary>
+            Imap expunge command
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_NOOP_COMMAND">
+            <summary>
+            Imap noop command : NOOP
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_SETFLAGS_COMMAND">
+            <summary>
+            Imap add flags +flags
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_REMOVEFLAGS_COMMAND">
+            <summary>
+            Imap remove flags -flags
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_RFC822_SIZE_COMMAND">
+            <summary>
+            Imap RFC822.SIZE
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_MESSAGE_NIL">
+            <summary>
+            Imap message nil size : NIL
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_MESSAGE_SIZE_START">
+            <summary>
+            Imap message size start : '{'
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_MESSAGE_SIZE_END">
+            <summary>
+            Imap message size end : '}'
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_MESSAGE_CONTENT_TYPE">
+            <summary>
+            Imap message content type : "Content-Type: "
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_MESSAGE_RFC822">
+            <summary>
+            Imap mesage content type: rfc822
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_MESSAGE_ID">
+            <summary>
+            Imap message id
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_MESSAGE_MULTIPART">
+            <summary>
+            Imap mesage content type: multipart
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_MESSAGE_CONTENT_ENCODING">
+            <summary>
+            Imap content encoding : "Content-Transfer-Encoding: "
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_MESSAGE_CONTENT_DESC">
+            <summary>
+            Imap content description : "Content-Description: "
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_MESSAGE_CONTENT_DISP">
+            <summary>
+            Imap content disposition : "Content-Disposition: "
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_MESSAGE_CONTENT_SIZE">
+            <summary>
+            Imap content size
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_MESSAGE_CONTENT_LINES">
+            <summary>
+            Imap content lines
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_MESSAGE_BASE64_ENCODING">
+            <summary>
+            Imap message base64 encoding : BASE64
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_MSG_DEFAULT_PART">
+            <summary>
+            Imap message default part : 1
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_HEADER_SENDER_TAG">
+            <summary>
+            Imap header Sender tag
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_HEADER_FROM_TAG">
+            <summary>
+            Imap header from tag
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_HEADER_IN_REPLY_TO_TAG">
+            <summary>
+            Imap header in-reply-to tag
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_HEADER_REPLY_TO_TAG">
+            <summary>
+            IKmap header reply-to tag
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_HEADER_TO_TAG">
+            <summary>
+            Imap header to tag
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_HEADER_CC_TAG">
+            <summary>
+            Imap header cc tag
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_HEADER_BCC_TAG">
+            <summary>
+            Imap header bcc tag
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_HEADER_SUBJECT_TAG">
+            <summary>
+            Imap header subject tag
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_HEADER_DATE_TAG">
+            <summary>
+            Imap header date tag
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_PLAIN_TEXT">
+            <summary>
+            Imap body type
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_AUDIO_WAV">
+            <summary>
+            Imap audio wave:  audio/wav
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapClient.IMAP_VIDEO_MPEG4">
+            <summary>
+            Imap video mpeg4  : video/mpeg4
+            </summary>
+        </member>
+        <member name="M:NRails.Net.ImapClient.Decode_IMAP_UTF7_String(System.String)">
+            <summary>
+            Decodes IMAP modified UTF7 encoded data. Defined in RFC 3501 5.1.3.  Mailbox International Naming Convention.
+            Example: &amp;APYA9g- is decoded to 鲻.
+            </summary>
+            <param name="text">Text to encode.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Net.ImapClient.Base64DecodeEx(System.Byte[],System.Char[])">
+            <summary>
+            Decodes base64 data. Defined in RFC 2045 6.8.  Base64 Content-Transfer-Encoding.
+            </summary>
+            <param name="base64Data">Base64 decoded data.</param>
+            <param name="base64Chars">Custom base64 chars (64 chars) or null if default chars used.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Net.ImapClient.EncodeMailbox(System.String)">
+            <summary>
+            Encodes mailbox name.
+            </summary>
+            <param name="mailbox">Mailbox name.</param>
+            <param name="encoding">Mailbox name encoding mechanism.</param>
+            <returns>Renturns encoded mailbox name.</returns>
+            <exception cref="T:System.ArgumentNullException">Is raised when <b>mailbox</b> is null reference.</exception>
+        </member>
+        <member name="M:NRails.Net.ImapClient.Encode_IMAP_UTF7_String(System.String)">
+            <summary>
+            Encodes specified data with IMAP modified UTF7 encoding. Defined in RFC 3501 5.1.3.  Mailbox International Naming Convention.
+            Example: 鲻 is encoded to &amp;APYA9g-.
+            </summary>
+            <param name="text">Text to encode.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Net.ImapClient.Base64EncodeEx(System.Byte[],System.Char[],System.Boolean)">
+            <summary>
+            Encodes specified data with bas64 encoding.
+            </summary>
+            <param name="data">Data to to encode.</param>
+            <param name="base64Chars">Custom base64 chars (64 chars) or null if default chars used.</param>
+            <param name="padd">Padd missing block chars. Normal base64 must be 4 bytes blocks, if not 4 bytes in block, 
+            missing bytes must be padded with '='. Modified base64 just skips missing bytes.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Net.ImapClient.SendCommand(System.String,System.Boolean)">
+            <summary>
+            发送一个指令，并且返回该指令的唯一编码
+            </summary>
+            <param name="command"></param>
+            <param name="checkResponse"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NRails.Net.ImapException">
+            <summary>
+            Imap Exception class which implements Imap releted exceptions
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapException.message">
+            <summary>
+            Exception message string
+            </summary>
+        </member>
+        <member name="T:NRails.Net.ImapException.ImapErrorEnum">
+            <summary>
+            enum for Imap exception errors
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapException.ImapErrorEnum.IMAP_ERR_URI">
+            <summary>
+            failure parsing the url
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapException.ImapErrorEnum.IMAP_ERR_MESSAGEUID">
+            <summary>
+            invalid message uid in the url
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapException.ImapErrorEnum.IMAP_ERR_AUTHFAILED">
+            <summary>
+            invalid username/password in the url
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapException.ImapErrorEnum.IMAP_ERR_CONNECT">
+            <summary>
+            failure connecting to imap server
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapException.ImapErrorEnum.IMAP_ERR_NOTCONNECTED">
+            <summary>
+            not connected to any IMAP
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapException.ImapErrorEnum.IMAP_ERR_LOGIN">
+            <summary>
+            failure logging into imap server
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapException.ImapErrorEnum.IMAP_ERR_LOGOUT">
+            <summary>
+            failure to logout from imap server
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapException.ImapErrorEnum.IMAP_ERR_INSUFFICIENT_DATA">
+            <summary>
+            not enough data to restore
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapException.ImapErrorEnum.IMAP_ERR_TIMEOUT">
+            <summary>
+            timeout while waiting for response
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapException.ImapErrorEnum.IMAP_ERR_SOCKET">
+            <summary>
+            socket error while receiving
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapException.ImapErrorEnum.IMAP_ERR_QUOTA">
+            <summary>
+            failure getting the quota information
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapException.ImapErrorEnum.IMAP_ERR_SELECT">
+            <summary>
+            failure selecting a IMAP folder
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapException.ImapErrorEnum.IMAP_ERR_EXAMINE">
+            <summary>
+            failure examining an IMAP folder
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapException.ImapErrorEnum.IMAP_ERR_NOTSELECTED">
+            <summary>
+             No folder is currently selected
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapException.ImapErrorEnum.IMAP_ERR_SEARCH">
+            <summary>
+            failure to search
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapException.ImapErrorEnum.IMAP_ERR_SEARCH_EXACT">
+            <summary>
+            failed to do exact match after search
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapException.ImapErrorEnum.IMAP_ERR_INVALIDSEARCHKEY">
+            <summary>
+            unsupported search key
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapException.ImapErrorEnum.IMAP_ERR_GETMIME">
+            <summary>
+            failure to get message MIME
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapException.ImapErrorEnum.IMAP_ERR_INVALIDHEADER">
+            <summary>
+            Message Header is in invalid format
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapException.ImapErrorEnum.IMAP_ERR_FETCHBODYSTRUCT">
+            <summary>
+            Failed to fetch the bodystructure
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapException.ImapErrorEnum.IMAP_ERR_FETCHMSG">
+            <summary>
+            failure to fetch a IMAP message
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapException.ImapErrorEnum.IMAP_ERR_FETCHSIZE">
+            <summary>
+            failure to fetch a IMAP message size
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapException.ImapErrorEnum.IMAP_ERR_MEMALLOC">
+            <summary>
+            failure to allocate memory
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapException.ImapErrorEnum.IMAP_ERR_ENCODINGERROR">
+            <summary>
+            failure to encode the audio content
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapException.ImapErrorEnum.IMAP_ERR_FILEIO">
+            <summary>
+            failure to read/write the audio content
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapException.ImapErrorEnum.IMAP_ERR_STOREMSG">
+            <summary>
+            failure to store the message in IMAP
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapException.ImapErrorEnum.IMAP_ERR_EXPUNGE">
+            <summary>
+            failure to issue expunge command
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapException.ImapErrorEnum.IMAP_ERR_INVALIDPARAM">
+            <summary>
+            invalid parameter to API
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapException.ImapErrorEnum.IMAP_ERR_CAPABILITY">
+            <summary>
+            Capability command error
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapException.ImapErrorEnum.IMAP_ERR_SERIOUS">
+            <summary>
+            Serious Problem
+            </summary>
+        </member>
+        <member name="P:NRails.Net.ImapException.Message">
+            <summary>
+            Property Message (string)
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ImapException.errorType">
+            <summary>
+            Error Type: ImapErrorEnum
+            </summary>
+        </member>
+        <member name="P:NRails.Net.ImapException.Type">
+            <summary>
+            Property : Type (ImapErrorEnum)
+            </summary>
+        </member>
+        <member name="M:NRails.Net.ImapException.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="message">string</param>
+        </member>
+        <member name="M:NRails.Net.ImapException.#ctor(System.String,System.Exception)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="message">string</param>
+            <param name="inner">Exception</param>
+        </member>
+        <member name="M:NRails.Net.ImapException.#ctor(NRails.Net.ImapException.ImapErrorEnum)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Type">ImapErrorEnum</param>
+        </member>
+        <member name="M:NRails.Net.ImapException.#ctor(NRails.Net.ImapException.ImapErrorEnum,System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Type">ImapErrorEnum</param>
+            <param name="error">string</param>
+        </member>
+        <member name="M:NRails.Net.ImapException.GetDescription(NRails.Net.ImapException.ImapErrorEnum)">
+            <summary>
+            Get Description for specified Type
+            </summary>
+            <param name="Type">ImapErrorEnum type</param>
+            <returns>string</returns>
+        </member>
+        <member name="T:NRails.Net.IProto">
+            <summary>
+            数据报文协议解释器
+            </summary>
+        </member>
+        <member name="F:NRails.Net.IProto.MiniBytesRequire">
+            <summary>
+            设定最小协议包，当收到的数据少于这个值时不进行数据分析并且缓存数据等待下一次收到数据后一起处理
+            </summary>
+        </member>
+        <member name="F:NRails.Net.IProto.Split">
+            <summary>
+            true=在此模式下，如果封包数据大于1024将会进行拆包处理
+            </summary>
+        </member>
+        <member name="F:NRails.Net.IProto.Encrypt">
+            <summary>
+            true=加密传输数据
+            </summary>
+        </member>
+        <member name="F:NRails.Net.IProto.CompressSizeTrig">
+            <summary>
+            压缩触发器，该值指示着当需要传输的数据大于这个值时，数据将会被压缩传输，默认值：3K
+            </summary>
+        </member>
+        <member name="F:NRails.Net.IProto.empty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Net.IProto.GetPackInfo(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            在给定的字节序列区间内找到报文信息,如果返回null则表示数据不合法，应该丢弃
+            </summary>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="len"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Net.IProto.Pack(System.Collections.Generic.IList{System.ArraySegment{System.Byte}},System.Byte)">
+            <summary>
+            将给定的用户数据进行协议封包处理
+            </summary>
+            <param name="array"></param>
+            <param name="userFlg">传输过程的通道编号，如果所定义的协议没有通道的概念可以忽略此参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Net.IProto.UnPack(System.Collections.Generic.IList{NRails.Net.PackInfo})">
+            <summary>
+            从给定的分包数据中解析出用户数据，一次只能解一个
+            </summary>
+            <param name="array">一个无拆包的包信息或多个已拆包的分包信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Net.IProto.#ctor(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="miniBytesRequire">设定最小协议包，当收到的数据少于这个值时不进行数据分析并且缓存数据等待下一次收到数据后一起处理</param>
+        </member>
+        <member name="M:NRails.Net.IProto.Pack(System.ArraySegment{System.Byte}[])">
+            <summary>
+            将给定的数据进行协议封包处理
+            </summary>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Net.IProto.Pack(System.Collections.Generic.IList{System.ArraySegment{System.Byte}})">
+            <summary>
+            
+            </summary>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Net.IProto.Pack(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            将给定的数据进行协议封包处理
+            </summary>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="len"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Net.IProto.Pack(System.Byte[])">
+            <summary>
+            将给定的数据进行协议封包处理
+            </summary>
+            <param name="buffer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Net.IProto.UnPack(NRails.Net.PackInfo)">
+            <summary>
+            
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Net.INetSender.Send(System.ArraySegment{System.Byte})">
+            <summary>
+            发送数据
+            </summary>
+            <param name="bytes"></param>
+        </member>
+        <member name="M:NRails.Net.INetSender.Send(System.ArraySegment{System.Byte}[])">
+            <summary>
+            发送数据
+            </summary>
+            <param name="bytes"></param>
+        </member>
+        <member name="T:NRails.Net.ProtoServer`1">
+            <summary>
+            协议层封装
+            </summary>
+            <typeparam name="TState"></typeparam>
+        </member>
+        <member name="F:NRails.Net.ProtoServer`1.isDefaultProto">
+            <summary>
+            true=使用默认的协议解释器
+            </summary>
+        </member>
+        <member name="M:NRails.Net.ProtoServer`1.#ctor(System.Int32,System.Net.Sockets.ProtocolType,System.Type)">
+            <summary>
+            构造
+            </summary>
+            <param name="port">该服务所使用的端口</param>
+            <param name="protocol">所使用的协议类型，TCP或者UDP</param>
+            <param name="protoType">协议解释器</param>
+        </member>
+        <member name="M:NRails.Net.ProtoServer`1.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Net.ProtoServer`1.OnClientDataReceived(`0,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            收到客户端数据时执行该方法
+            </summary>
+            <param name="state"></param>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="bytesLen"></param>
+        </member>
+        <member name="M:NRails.Net.ProtoServer`1.OnProtoDataReceived(`0,System.Byte[],NRails.Net.PackInfo)">
+            <summary>
+            
+            </summary>
+            <param name="state"></param>
+            <param name="buffer"></param>
+            <param name="info"></param>
+        </member>
+        <member name="M:NRails.Net.ProtoServer`1.CheckProtoVersion(`0,NRails.Net.PackInfo)">
+            <summary>
+            检查客户端使用的传输协议版本，并将服务器的协议版本调节为和客户端的一致
+            </summary>
+            <param name="state"></param>
+            <param name="info"></param>
+        </member>
+        <member name="M:NRails.Net.ProtoServer`1.OnClientConnected(`0)">
+            <summary>
+            
+            </summary>
+            <param name="state"></param>
+        </member>
+        <member name="T:NRails.Net.ProtoServer`1.UserDataReceivedEventHandler">
+            <summary>
+            协议层事件代理
+            </summary>
+            <param name="state"></param>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="len"></param>
+            <param name="channel"></param>
+        </member>
+        <member name="E:NRails.Net.ProtoServer`1.UserDataReceived">
+            <summary>
+            当收到一个数据包时引发
+            </summary>
+        </member>
+        <member name="M:NRails.Net.ProtoServer`1.OnUserDataReceived(`0,System.Byte[],System.Int32,System.Int32,System.Byte)">
+            <summary>
+            收到客户端完整组包后的数据后执行该方法
+            </summary>
+        </member>
+        <member name="T:NRails.Net.ProtoServer">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Net.ProtoServer.#ctor(System.Int32,System.Net.Sockets.ProtocolType,NRails.Net.IProto)">
+            <summary>
+            
+            </summary>
+            <param name="port"></param>
+            <param name="protocol"></param>
+            <param name="ipro"></param>
+        </member>
+        <member name="M:NRails.Net.ProtoServer.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NRails.Net.ServerState">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServerState.EndPointName">
+            <summary>
+            远程地址名称
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServerState.EndPoint">
+            <summary>
+            远程地址
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServerState.KeepAlive">
+            <summary>
+            是否保持连接，这个值默认为true，当这个值被设置为false之后，连接会在处理完事件之后被断开
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServerState.Protocol">
+            <summary>
+            协议类型
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServerState.ConnectTime">
+            <summary>
+            连接时间
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServerState.ReceiveTime">
+            <summary>
+            数据接收时间
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServerState.DisConnectTime">
+            <summary>
+            断开连接的时间
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServerState.IsAlive">
+            <summary>
+            true=客户端还处于连接状态
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServerState.ReceivedSize">
+            <summary>
+            指示已收到的字节数
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServerState.IsServerDisconnect">
+            <summary>
+            true=被服务器强制断开连接，false=客户端主动断开连接
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServerState.ForceDispose">
+            <summary>
+            等待链接断开超时，强制释放链接
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServerState.InstanceCount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NRails.Net.ServerState.Handle">
+            <summary>
+            套接字句柄
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServerState._isAlive">
+            <summary>
+            在调用Dispose()函数或者析构函数时，该值会被设置为0
+            </summary>
+        </member>
+        <member name="M:NRails.Net.ServerState.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Net.ServerState.Dispose(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:NRails.Net.ServerState.Reset">
+            <summary>
+            清空状态数据
+            </summary>
+        </member>
+        <member name="M:NRails.Net.ServerState.Dispose">
+            <summary>
+            释放所占用的资源
+            </summary>
+        </member>
+        <member name="P:NRails.Net.ServerState.IsDisposed">
+            <summary>
+            获取该对象是否已经被释放
+            </summary>
+        </member>
+        <member name="M:NRails.Net.ServerState.UnionBuffer(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            将给定的序列和已经记录的序列合并，如果无记忆序列，那么将对给定的序列进行一次拷贝
+            </summary>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="len"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Net.ServerState.Remember(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            记忆缓存，用于在UnionBuffer时使用
+            </summary>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="len"></param>
+        </member>
+        <member name="M:NRails.Net.ServerState.Disconnect">
+            <summary>
+            断开客户端连接
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServerState.WaitSendSize">
+            <summary>
+            指示等待发送的字节数
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServerState.SentSize">
+            <summary>
+            指示已对该连接发送的数据总数（字节为单位）
+            </summary>
+        </member>
+        <member name="P:NRails.Net.ServerState.WaitSendSizeMB">
+            <summary>
+            等待发送的数据大小
+            </summary>
+        </member>
+        <member name="P:NRails.Net.ServerState.WaitSendSizeKB">
+            <summary>
+            等待发送的数据大小
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServerState.SendSpeed">
+            <summary>
+            发送速率(KB/秒)
+            </summary>
+        </member>
+        <member name="M:NRails.Net.ServerState.Send(System.Collections.Generic.IList{System.ArraySegment{System.Byte}})">
+            <summary>
+            发送数据
+            </summary>
+            <param name="array"></param>
+        </member>
+        <member name="M:NRails.Net.ServerState.Send(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            发送数据
+            </summary>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="len"></param>
+            <param name="endPoint"></param>
+        </member>
+        <member name="M:NRails.Net.ServerState.Send(System.Byte[])">
+            <summary>
+            发送数据
+            </summary>
+            <param name="buffer"></param>
+        </member>
+        <member name="M:NRails.Net.ServerState.Send(System.ArraySegment{System.Byte}[])">
+            <summary>
+            
+            </summary>
+            <param name="array"></param>
+        </member>
+        <member name="M:NRails.Net.ServerState.Send(System.ArraySegment{System.Byte})">
+            <summary>
+            
+            </summary>
+            <param name="array"></param>
+        </member>
+        <member name="M:NRails.Net.ServerState.Write(System.String,System.Text.Encoding)">
+            <summary>
+            发送字符串到客户端
+            </summary>
+            <param name="text"></param>
+            <param name="encoding">如果为null则默认为gbk编码</param>
+        </member>
+        <member name="M:NRails.Net.ServerState.WriteLine(System.String,System.Text.Encoding)">
+            <summary>
+            发送字符串到客户端
+            </summary>
+            <param name="text"></param>
+            <param name="encoding">如果为null则默认为gbk编码</param>
+        </member>
+        <member name="E:NRails.Net.ServerState.DisConnected">
+            <summary>
+            在客户端断开连接时触发
+            </summary>
+        </member>
+        <member name="M:NRails.Net.ServerState.OnDisConnected">
+            <summary>
+            引发DisConnected事件
+            </summary>
+        </member>
+        <member name="T:NRails.Net.SocketClient">
+            <summary>
+            用于提供TCP和UDP协议的套接字客户端
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketClient.IsConnected">
+            <summary>
+            标识是否已经连接到服务端
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketClient.EndPoint">
+            <summary>
+            远程地址
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketClient.Protocol">
+            <summary>
+            协议类型
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketClient.EndPointName">
+            <summary>
+            远程地址名称
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketClient.specifiedPort">
+            <summary>
+            指定的本地端口
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketClient.PulseInterval">
+            <summary>
+            设置引发心跳的时间间隔，单位：毫秒，默认值为1分钟，即60000
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketClient.AutoReconnect">
+            <summary>
+            true = 设置当服务器强制断开连接时自动重连
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketClient.Tag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketClient.hasConnected">
+            <summary>
+            true=客户端曾经有连接到服务器
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketClient.cnnFlag">
+            <summary>
+            1=当前有一个连接操作被挂起
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketClient.connectRetest">
+            <summary>
+            标识重连次数，如果重连次数超过10次，并且没有连接上，在重连过程中会释放Socket重新建立
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketClient.KeepAliveTest">
+            <summary>
+            true=开启KeepAlive检测
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketClient.ReceivedSize">
+            <summary>
+            指示已收到的字节数
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketClient.ReceiveTime">
+            <summary>
+            指示最后一次数据接收时间
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketClient.WaitSendSize">
+            <summary>
+            指示等待发送的字节数
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketClient.AutoReconnectInterval">
+            <summary>
+            定义重连的时间间隔，单位为：秒，默认为：10 秒
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketClient.InstanceCount">
+            <summary>
+            实例个数
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketClient.LocalPoint">
+            <summary>
+            本地地址
+            </summary>
+        </member>
+        <member name="P:NRails.Net.SocketClient.Port">
+            <summary>
+            获取本地端口
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketClient.Dispose(System.Boolean)">
+            <summary>
+            释放所占用的资源
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:NRails.Net.SocketClient.Dispose">
+            <summary>
+            释放所占用的资源
+            </summary>
+        </member>
+        <member name="P:NRails.Net.SocketClient.IsDisposed">
+            <summary>
+            获取该对象是否已经被释放
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketClient._isAlive">
+            <summary>
+            在调用Dispose()函数或者析构函数时，该值会被设置为0
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketClient.#ctor(System.String,System.Net.Sockets.ProtocolType,System.Boolean,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="serverPoint">需要连接的服务端IP地址</param>
+            <param name="protocol">指定协议类型</param>
+            <param name="connectImmeditly">设置是否在实例化后立即连接</param>
+            <param name="localPort">指定本地端口号</param>
+        </member>
+        <member name="M:NRails.Net.SocketClient.#ctor(System.Net.EndPoint,System.Net.Sockets.ProtocolType,System.Boolean,System.Int32)">
+            <summary>
+            创建一个SocketClient的实例
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketClient.SentSize">
+            <summary>
+            指示已对该连接发送的数据总数（字节为单位）
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketClient.SendSpeed">
+            <summary>
+            发送速率(KB/秒)
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketClient.Send(System.Collections.Generic.IList{System.ArraySegment{System.Byte}})">
+            <summary>
+            
+            </summary>
+            <param name="array"></param>
+        </member>
+        <member name="M:NRails.Net.SocketClient.Send(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            发送数据
+            </summary>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="len"></param>
+            <param name="endPoint"></param>
+        </member>
+        <member name="M:NRails.Net.SocketClient.Send(System.Byte[],System.Int32)">
+            <summary>
+            发送数据
+            </summary>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="len"></param>
+            <param name="endPoint"></param>
+        </member>
+        <member name="M:NRails.Net.SocketClient.Send(System.Byte[])">
+            <summary>
+            发送数据
+            </summary>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="len"></param>
+            <param name="endPoint"></param>
+        </member>
+        <member name="M:NRails.Net.SocketClient.NRails#Net#INetSender#Send(System.Byte[],System.Int32,System.Int32,System.Net.EndPoint)">
+            <summary>
+            发送数据
+            </summary>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="len"></param>
+            <param name="endPoint"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Net.SocketClient.Send(System.ArraySegment{System.Byte}[])">
+            <summary>
+            
+            </summary>
+            <param name="array"></param>
+        </member>
+        <member name="M:NRails.Net.SocketClient.Send(System.ArraySegment{System.Byte})">
+            <summary>
+            
+            </summary>
+            <param name="array"></param>
+        </member>
+        <member name="M:NRails.Net.SocketClient.DisConnect(System.Boolean)">
+            <summary>
+            从服务器断开连接
+            </summary>
+            <param name="reconnect">true=立即尝试重新连接到服务器</param>
+        </member>
+        <member name="M:NRails.Net.SocketClient.ConnectAsync">
+            <summary>
+            尝试连接到服务端
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketClient.Connect">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketClient.DisConnect">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketClient.Remember(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            缓存一个字节数据，用于下次数据接收完毕后进行合并
+            </summary>
+            <param name="buffer"></param>
+            <param name="bufferOffset"></param>
+            <param name="len"></param>
+        </member>
+        <member name="M:NRails.Net.SocketClient.ClearRemember">
+            <summary>
+            清除已经缓存的数据
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketClient.DebugFolder">
+            <summary>
+            用于设置记录客户端发送和接收数据过程据目录
+            </summary>
+        </member>
+        <member name="E:NRails.Net.SocketClient.Pulse">
+            <summary>
+            心跳事件，在此事件引发时，客户端应该立即向服务端发送一个心跳数据包
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketClient.OnPulse">
+            <summary>
+            引发心跳事件
+            </summary>
+        </member>
+        <member name="T:NRails.Net.SocketClient.SocketClient3EventHandler">
+            <summary>
+            
+            </summary>
+            <param name="client"></param>
+        </member>
+        <member name="E:NRails.Net.SocketClient.BeforeConnect">
+            <summary>
+            在准备尝试连接到服务器的时候引发
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketClient.OnBeforeConnect">
+            <summary>
+            引发BeforeConnect事件
+            </summary>
+        </member>
+        <member name="E:NRails.Net.SocketClient.DisConnected">
+            <summary>
+            到服务器端的连接被断开时引发
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketClient.OnDisConnected">
+            <summary>
+            引发DisConnected事件
+            </summary>
+        </member>
+        <member name="T:NRails.Net.SocketClient.SocketClient3DataReceivedEventHandler">
+            <summary>
+            
+            </summary>
+            <param name="client"></param>
+            <param name="error"></param>
+        </member>
+        <member name="E:NRails.Net.SocketClient.DataReceived">
+            <summary>
+            当收到数据时引发
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketClient.OnDataReceived(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            引发DataReceived事件
+            </summary>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="len"></param>
+        </member>
+        <member name="T:NRails.Net.SocketClient.SocketClient3OriginDataReceivedEventHandler">
+            <summary>
+            
+            </summary>
+            <param name="client"></param>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="len"></param>
+            <returns></returns>
+        </member>
+        <member name="E:NRails.Net.SocketClient.OriginDataReceived">
+            <summary>
+            当收到数据时引发,如果返回true将不引发DataReceived事件
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketClient.OnOriginDataReceived(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            引发OriginDataReceived事件,如果返回true将不引发DataReceived事件
+            </summary>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="len"></param>
+        </member>
+        <member name="T:NRails.Net.SocketClient.SocketClient3AfterConnectEventHandler">
+            <summary>
+            
+            </summary>
+            <param name="client"></param>
+            <param name="error"></param>
+        </member>
+        <member name="E:NRails.Net.SocketClient.AfterConnect">
+            <summary>
+            在尝试连接到服务器之后引发
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketClient.OnAfterConnect(System.Net.Sockets.SocketError)">
+            <summary>
+            引发AfterConnect事件
+            </summary>
+        </member>
+        <member name="T:NRails.Net.SocketResourcePool">
+            <summary>
+            套接字资源复用管理器
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketResourcePool.SocketCount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketResourcePool.ArgCount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketResourcePool.GetSocket">
+            <summary>
+            取出一个可以使用的套接字
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Net.SocketResourcePool.PutSocket(System.Net.Sockets.Socket,System.Boolean,System.Boolean)">
+            <summary>
+            将没有使用的对象还原用于下次使用
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketResourcePool.Clean">
+            <summary>
+            执行一次清理
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketResourcePool.GetArg(System.Boolean,System.Int32,System.EventHandler{System.Net.Sockets.SocketAsyncEventArgs},System.Net.EndPoint)">
+            <summary>
+            取出一个可以使用的Arg
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketResourcePool.PutArg(System.Net.Sockets.SocketAsyncEventArgs)">
+            <summary>
+            将没有使用的对象还原用于下次使用
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="F:NRails.Net.SocketResourcePool.BufferCount">
+            <summary>
+            获取当前已实例化的缓冲区个数
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketResourcePool.GetBuffer">
+            <summary>
+            从缓冲区队列获取一个可用的数据缓冲区
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Net.SocketResourcePool.PutBuffer(System.Byte[])">
+            <summary>
+            将缓冲区放入队列以便下次重复使用
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="T:NRails.Net.SocketServer`1">
+            <summary>
+            提供网络服务的级别数据接收和发送功能
+            </summary>
+            <typeparam name="TState"></typeparam>
+        </member>
+        <member name="F:NRails.Net.SocketServer`1.listener">
+            <summary>
+            监听器
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketServer`1.running">
+            <summary>
+            标识当前服务是否正在运行
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketServer`1.Port">
+            <summary>
+            端口号
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketServer`1.Protocol">
+            <summary>
+            协议
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketServer`1.TickInterval">
+            <summary>
+            设置该服务引发Tick的时间间隔,单位:毫秒，默认为10秒
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketServer`1.MaxAlive">
+            <summary>
+            默认连接保持的最大时间（单位：分钟），默认值是5分钟
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketServer`1.MaxWaitDisconnect">
+            <summary>
+            最长等待连接关闭时间，单位：分钟，默认3分钟
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketServer`1.CleanInterval">
+            <summary>
+            设置该服务进行连接清理的时间间隔,单位:毫秒，默认20秒
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketServer`1.AliveTest">
+            <summary>
+            true = 设置TCP链路探测功能为打开的状态
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketServer`1.BufferSize">
+            <summary>
+            设置数据接收缓存大小
+            </summary>
+        </member>
+        <member name="F:NRails.Net.SocketServer`1._isAlive">
+            <summary>
+            当调用Dispose()或者析构函数[~SocketServer()]时，该值会被设置为0
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketServer`1.#ctor(System.Int32,System.Net.Sockets.ProtocolType)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketServer`1.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketServer`1.Dispose(System.Boolean)">
+            <summary>
+            释放所占用的资源
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:NRails.Net.SocketServer`1.Finalize">
+            <summary>
+            析构函数
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketServer`1.Dispose">
+            <summary>
+            释放所占用的资源
+            </summary>
+        </member>
+        <member name="P:NRails.Net.SocketServer`1.IsDisposed">
+            <summary>
+            获取该对象是否已经被释放
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketServer`1.OnTick">
+            <summary>
+            执行一次定时操作
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketServer`1.UpdateState(`0)">
+            <summary>
+            客户端状态对象被更新时执行
+            </summary>
+            <param name="state"></param>
+        </member>
+        <member name="M:NRails.Net.SocketServer`1.GetState(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="endPointName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Net.SocketServer`1.Start">
+            <summary>
+            启动数据监听
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketServer`1.Stop">
+            <summary>
+            停止数据监听，并关闭所有连接
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketServer`1.DisconnectAllClients">
+            <summary>
+            关闭现有连接
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketServer`1.GetAllClientStates">
+            <summary>
+            获取当前已连接的列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Net.SocketServer`1.SendError(System.Net.Sockets.SocketAsyncEventArgs,`0)">
+            <summary>
+            当发送数据发生错误时，执行这个方法以回收资源
+            </summary>
+            <param name="e"></param>
+            <param name="state"></param>
+        </member>
+        <member name="P:NRails.Net.SocketServer`1.ClientCount">
+            <summary>
+            当前客户端连接数
+            </summary>
+        </member>
+        <member name="P:NRails.Net.SocketServer`1.WaitDisconnectCount">
+            <summary>
+            正在断开连接的客户端数
+            </summary>
+        </member>
+        <member name="T:NRails.Net.SocketServer`1.ClientDisConnectedEventHandler">
+            <summary>
+            客户端断开连接事件代理
+            </summary>
+            <param name="server"></param>
+            <param name="state"></param>
+        </member>
+        <member name="E:NRails.Net.SocketServer`1.ClientDisConnected">
+            <summary>
+            当有客户端断开连接时引发
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketServer`1.OnClientDisConnected(`0)">
+            <summary>
+            引发ClientDisConnected事件
+            </summary>
+            <param name="state"></param>
+        </member>
+        <member name="E:NRails.Net.SocketServer`1.ServerStart">
+            <summary>
+            当服务启动时引发
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketServer`1.OnStart">
+            <summary>
+            引发ServerStart事件
+            </summary>
+        </member>
+        <member name="E:NRails.Net.SocketServer`1.ServerStop">
+            <summary>
+            当服务停止时引发
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketServer`1.OnStop">
+            <summary>
+            引发ServerStop事件
+            </summary>
+        </member>
+        <member name="T:NRails.Net.SocketServer`1.ClientConnectedEventHandler">
+            <summary>
+            客户端连接事件代理
+            </summary>
+            <param name="server"></param>
+            <param name="state"></param>
+        </member>
+        <member name="E:NRails.Net.SocketServer`1.ClientConnected">
+            <summary>
+            当有客户端连接时引发事件
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketServer`1.OnClientConnected(`0)">
+            <summary>
+            引发ClientConnected事件
+            </summary>
+            <param name="state"></param>
+        </member>
+        <member name="T:NRails.Net.SocketServer`1.SocketServer4ActionHandler">
+            <summary>
+            服务端执行一次心跳检测时的事件代理
+            </summary>
+            <param name="server"></param>
+            <param name="state"></param>
+        </member>
+        <member name="E:NRails.Net.SocketServer`1.Tick">
+            <summary>
+            定时引发的事件，时间间隔由TickInterval指定
+            </summary>
+        </member>
+        <member name="T:NRails.Net.SocketServer`1.SocketDataReceivedEventHandler">
+            <summary>
+            客户端数据接收事件代理
+            </summary>
+            <param name="server"></param>
+            <param name="state"></param>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="len"></param>
+        </member>
+        <member name="E:NRails.Net.SocketServer`1.ClientDataReceived">
+            <summary>
+            当接收到客户端数据是引发
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketServer`1.OnClientDataReceived(`0,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            引发ClientDataReceived事件
+            </summary>
+            <param name="state"></param>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="len"></param>
+        </member>
+        <member name="E:NRails.Net.SocketServer`1.ClientOriginDataReceived">
+            <summary>
+            当接收到客户端数据是引发
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketServer`1.OnClientOriginDataReceived(`0,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            当接收到远程客户端的原始数据时执行，该方法比OnClientDataReceived先执行，并且不包含预存的数据
+            </summary>
+            <param name="state"></param>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="len"></param>
+        </member>
+        <member name="T:NRails.Net.SocketServer">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketServer.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Net.SocketServer.#ctor(System.Int32,System.Net.Sockets.ProtocolType)">
+            <summary>
+            
+            </summary>
+            <param name="port"></param>
+            <param name="protocol"></param>
+        </member>
+        <member name="T:NRails.Net.ProtoClient">
+            <summary>
+            协议层封装
+            </summary>
+            <typeparam name="TState"></typeparam>
+        </member>
+        <member name="F:NRails.Net.ProtoClient.ClientId">
+            <summary>
+            客户端Id
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ProtoClient.HoldBytes">
+            <summary>
+            断包数据临时存储位
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ProtoClient.Tag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NRails.Net.ProtoClient.ProtoClientActionHandler">
+            <summary>
+            ProtoClient通用事件代理
+            </summary>
+            <param name="client"></param>
+        </member>
+        <member name="T:NRails.Net.ProtoClient.ProtoClientAfterConnectedEventHandler">
+            <summary>
+            ProtoClient通用事件代理
+            </summary>
+            <param name="client"></param>
+        </member>
+        <member name="T:NRails.Net.ProtoClient.UserDataReceivedEventHandler">
+            <summary>
+            协议层事件代理
+            </summary>
+            <param name="client"></param>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="len"></param>
+        </member>
+        <member name="E:NRails.Net.ProtoClient.BeforeConnect">
+            <summary>
+            在尝试连接到服务器之前引发
+            </summary>
+        </member>
+        <member name="E:NRails.Net.ProtoClient.DisConnected">
+            <summary>
+            在尝试连接到服务器之前引发
+            </summary>
+        </member>
+        <member name="E:NRails.Net.ProtoClient.AfterConnect">
+            <summary>
+            在尝试连接到服务器之后引发
+            </summary>
+        </member>
+        <member name="E:NRails.Net.ProtoClient.UserDataReceived">
+            <summary>
+            当收到一个数据包时引发
+            </summary>
+        </member>
+        <member name="E:NRails.Net.ProtoClient.Pulsed">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ProtoClient.IsConnected">
+            <summary>
+            true=已经连接到服务器
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ProtoClient._isAlive">
+            <summary>
+            在调用Dispose()函数或者析构函数时，该值会被设置为0
+            </summary>
+        </member>
+        <member name="M:NRails.Net.ProtoClient.Dispose(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:NRails.Net.ProtoClient.Dispose">
+            <summary>
+            释放所占用的资源
+            </summary>
+        </member>
+        <member name="P:NRails.Net.ProtoClient.IsDisposed">
+            <summary>
+            获取该对象是否已经被释放
+            </summary>
+        </member>
+        <member name="M:NRails.Net.ProtoClient.#ctor(System.String,System.Net.Sockets.ProtocolType,NRails.Net.IProto)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:NRails.Net.ProtoClient.OnPulse">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Net.ProtoClient.DisConnect">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Net.ProtoClient.OnDataReceived(NRails.Net.ProtoClient,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            处理收到的数据
+            </summary>
+        </member>
+        <member name="M:NRails.Net.ProtoClient.OnProtoDataReceived(NRails.Net.ProtoClient,System.Byte[],NRails.Net.PackInfo)">
+            <summary>
+            
+            </summary>
+            <param name="state"></param>
+            <param name="buffer"></param>
+            <param name="info"></param>
+        </member>
+        <member name="M:NRails.Net.ProtoClient.Send(System.ArraySegment{System.Byte}[],System.Byte)">
+            <summary>
+            发送用户数据到服务器
+            </summary>
+            <param name="array"></param>
+            <param name="channel">从1开始的通道编号</param>
+        </member>
+        <member name="M:NRails.Net.ProtoClient.Send(System.ArraySegment{System.Byte}[])">
+            <summary>
+            发送用户数据到服务器
+            </summary>
+            <param name="array"></param>
+        </member>
+        <member name="M:NRails.Net.ProtoClient.Send(System.ArraySegment{System.Byte},System.Byte)">
+            <summary>
+            发送用户数据到服务器
+            </summary>
+            <param name="array"></param>
+            <param name="channel">从1开始的通道编号</param>
+        </member>
+        <member name="M:NRails.Net.ProtoClient.Send(System.ArraySegment{System.Byte})">
+            <summary>
+            发送用户数据到服务器
+            </summary>
+            <param name="isPriority">true=优先发送，如果该值被设置为true,那么本次发送的数据将会被置于最前面在连接到服务器时将会被优先发送</param>
+            <param name="array"></param>
+        </member>
+        <member name="M:NRails.Net.ProtoClient.Send(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            发送用户数据到服务器
+            </summary>
+        </member>
+        <member name="M:NRails.Net.ProtoClient.Send(System.Byte[],System.Byte)">
+            <summary>
+            
+            </summary>
+            <param name="buffer"></param>
+            <param name="channel"></param>
+        </member>
+        <member name="M:NRails.Net.ProtoClient.Send(System.Byte[])">
+            <summary>
+            发送用户数据到服务器
+            </summary>
+        </member>
+        <member name="M:NRails.Net.ProtoClient.ConnectAsync">
+            <summary>
+            连接到服务器
+            </summary>
+        </member>
+        <member name="M:NRails.Net.ProtoClient.Remember(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            记忆缓存，用于在UnionBuffer时使用
+            </summary>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="len"></param>
+        </member>
+        <member name="M:NRails.Net.ProtoClient.OnBeforeConnect">
+            <summary>
+            引发BeforeConnect事件
+            </summary>
+        </member>
+        <member name="M:NRails.Net.ProtoClient.OnAfterConnect(System.Net.Sockets.SocketError)">
+            <summary>
+            引发OnAfterConnect事件
+            </summary>
+        </member>
+        <member name="M:NRails.Net.ProtoClient.OnDisConnected">
+            <summary>
+            引发DisConnected事件
+            </summary>
+        </member>
+        <member name="M:NRails.Net.ProtoClient.OnUserDataReceived(NRails.Net.ProtoClient,System.Byte[],System.Int32,System.Int32,System.Byte)">
+            <summary>
+            引发UserDataReceived事件
+            </summary>
+        </member>
+    </members>
+</doc>

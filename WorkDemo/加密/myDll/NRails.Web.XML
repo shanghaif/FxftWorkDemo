@@ -1,0 +1,807 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NRails.Web</name>
+    </assembly>
+    <members>
+        <member name="T:NRails.Web.NHibernateLogFilterAttribute">
+            <summary>
+            NHibernate日志记录Filter, 标注此属性的Controller或Action的操作会记录Sql日志
+            </summary>
+        </member>
+        <member name="T:NRails.Scaffold.Tag">
+            <summary>
+            Html标签类, 可以用编程方式生成Html标签
+            </summary>
+        </member>
+        <member name="M:NRails.Scaffold.Tag.Render">
+            <summary>
+            输出为Html
+            </summary>
+        </member>
+        <member name="M:NRails.Scaffold.Tag.Css(System.String)">
+            <summary>
+            设置Css类名
+            </summary>
+        </member>
+        <member name="M:NRails.Scaffold.Tag.Id(System.String)">
+            <summary>
+            设置元素ID
+            </summary>
+        </member>
+        <member name="M:NRails.Scaffold.Tag.AddStyle(System.String,System.String)">
+            <summary>
+            添加样式属性
+            </summary>
+        </member>
+        <member name="M:NRails.Scaffold.Tag.RemoveStyle(System.String)">
+            <summary>
+            移除样式属性
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:NRails.Scaffold.Tag.PutIn(NRails.Scaffold.Tag)">
+            <summary>
+            将当前标签加入指定的父标签，返回父标签
+            </summary>
+        </member>
+        <member name="P:NRails.Scaffold.Tag.IsSelfClose">
+            <summary>
+            是否为自闭合标签
+            </summary>
+        </member>
+        <member name="F:System.Web.Mvc.Html.MvcHelper.Config">
+            <summary>
+            参数配置
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.Html.MvcHelper.Label(System.Web.Mvc.HtmlHelper,NRails.Reflect.IPropertyInfo,System.Boolean)">
+            <summary>
+            Label
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.Html.MvcHelper.Label``2(System.Web.Mvc.HtmlHelper,System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Boolean)">
+            <summary>
+            Label
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.Html.MvcHelper.Value(System.Web.Mvc.HtmlHelper,NRails.Reflect.IPropertyInfo,System.Object)">
+            <summary>
+            显示对象的值, 可能为:Text, DomainLink
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.Html.MvcHelper.Input(System.Web.Mvc.HtmlHelper,NRails.Reflect.IPropertyInfo,System.Object)">
+            <summary>
+            显示对象的输入, 可能为:TextBox, EnumSelect, DomainSelect
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.Html.MvcHelper.Text(System.Web.Mvc.HtmlHelper,NRails.Reflect.IPropertyInfo,System.Object)">
+            <summary>
+            文本显示
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.Html.MvcHelper.Text``2(System.Web.Mvc.HtmlHelper,System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Object)">
+            <summary>
+            文本显示
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.Html.MvcHelper.TextBox(System.Web.Mvc.HtmlHelper,NRails.Reflect.IPropertyInfo,System.Object,System.Boolean,System.Boolean,System.Boolean,System.Object,System.Object)">
+            <summary>
+            文本框
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.Html.MvcHelper.TextBox``2(System.Web.Mvc.HtmlHelper,System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Boolean,System.Boolean,System.Boolean,System.Object,System.Object)">
+            <summary>
+            文本框
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.Html.MvcHelper.CreateTextBox(System.Web.Mvc.HtmlHelper,System.String,System.Object,NRails.Metadata.PropertyInfoExtend,System.Boolean,System.Boolean,System.Boolean,System.Object,System.Object)">
+            <summary>
+            创建文本框
+            </summary>
+            <param name="name">name属性</param>
+            <param name="value">值</param>
+            <param name="isPassword">是否是密码框</param>
+            <param name="isTextarea">是否是多行文本框</param>
+            <param name="height">高度</param>
+            <param name="width">宽度</param>
+        </member>
+        <member name="M:System.Web.Mvc.Html.MvcHelper.EnumSelect(System.Web.Mvc.HtmlHelper,NRails.Reflect.IPropertyInfo,System.Boolean)">
+            <summary>
+            枚举下拉列表选择, 值为空为-1的值表示未选择任何项
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.Html.MvcHelper.EnumSelectNoDefault(System.Web.Mvc.HtmlHelper,System.Type,System.String)">
+            <summary>
+            不添加空项
+            </summary>
+            <param name="helper"></param>
+            <param name="enumType"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.MvcHelper.DomainSelect(System.Web.Mvc.HtmlHelper,NRails.Reflect.IPropertyInfo,System.Boolean)">
+            <summary>
+            领域对象下拉列表选择, 值为空为-1的值表示未选择任何项
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.Html.MvcHelper.Domain``1(System.Web.Mvc.HtmlHelper,``0)">
+            <summary>
+            返回一个领域对象, 如果为空则返回一个初始化的该对象
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.Html.MvcHelper.DomainLink(System.Web.Mvc.HtmlHelper,NRails.Domain.DomainObject)">
+            <summary>
+            根据对象生成链接
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.Html.MvcHelper.RenderJSLibrary(System.Web.Mvc.HtmlHelper,System.String)">
+            <summary>
+            输出指定位置的JS脚本库
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.Html.MvcHelper.IsReadOnly(System.Web.Mvc.HtmlHelper)">
+            <summary>
+            当前表单是否为只读
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.Html.MvcHelper.ActionType(System.Web.Mvc.HtmlHelper)">
+            <summary>
+            当前操作类型
+            </summary>
+        </member>
+        <member name="T:System.Web.Mvc.Html.ActionType">
+            <summary>
+            基本操作类型
+            </summary>
+        </member>
+        <member name="T:System.Web.Mvc.Html.ValidateAttributesBuilder">
+            <summary>
+            验证属性生成器
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.Html.ValidateAttributesBuilder.AddValidateAttributes(NRails.Metadata.PropertyInfoExtend,NRails.Scaffold.Tag)">
+            <summary>
+            为标签添加验证属性
+            </summary>
+        </member>
+        <member name="T:System.Web.Mvc.Html.MulitValidateAttributesBuilder">
+            <summary>
+            多属性验证生成器
+            </summary>
+        </member>
+        <member name="T:System.Web.Mvc.Html.MvcHelperConfig">
+            <summary>
+            MvcHelper类的参数配置
+            </summary>
+        </member>
+        <member name="P:System.Web.Mvc.Html.MvcHelperConfig.NotNullOrEmptyMark">
+            <summary>
+            必填标识
+            </summary>
+        </member>
+        <member name="P:System.Web.Mvc.Html.MvcHelperConfig.DropDownListTip">
+            <summary>
+            下拉列表选择提示内容
+            </summary>
+        </member>
+        <member name="P:System.Web.Mvc.Html.MvcHelperConfig.ValidateAttributesBuilder">
+            <summary>
+            验证属性生成器
+            </summary>
+        </member>
+        <member name="T:NRails.Web.CompressFilter">
+            <summary>
+            GZip压缩
+            </summary>
+        </member>
+        <member name="M:NRails.Web.PagedList`1.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:System.Web.Mvc.Html.ResoureceHelper">
+            <summary>
+            资源输出辅助方法, 包含脚本,样式和图片等
+            </summary>
+        </member>
+        <member name="M:NRails.Web.NJsonResult.#ctor(System.Object)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:NRails.Web.Controls.EnumSelectList">
+            <summary>
+            枚举类型的下拉列表对象
+            </summary>
+        </member>
+        <member name="M:NRails.Web.Controls.EnumSelectList.#ctor(System.Type,System.Object)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:NRails.Web.Controls.EnumSelectList`1">
+            <summary>
+            枚举对象的下拉框列表
+            </summary>
+        </member>
+        <member name="M:NRails.Web.Controls.EnumSelectList`1.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:NRails.Web.Controls.EnumSelectList`1.#ctor(System.Object)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:NRails.Web.NRazorView.Partial(System.String,System.Object)">
+            <summary>
+            输出部分页
+            </summary>
+        </member>
+        <member name="M:NRails.Web.NRazorView`1.Label``1(System.Linq.Expressions.Expression{System.Func{`0,``0}})">
+            <summary>
+            Label
+            </summary>
+        </member>
+        <member name="M:NRails.Web.NRazorView`1.Text``1(System.Linq.Expressions.Expression{System.Func{`0,``0}})">
+            <summary>
+            文本显示
+            </summary>
+        </member>
+        <member name="M:NRails.Web.NRazorView`1.TextBox``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Boolean,System.Boolean,System.Boolean,System.Object,System.Object)">
+            <summary>
+            文本框
+            </summary>
+        </member>
+        <member name="M:NRails.Web.NRazorView`1.EnumSelect``1(System.Linq.Expressions.Expression{System.Func{`0,``0}})">
+            <summary>
+            枚举下拉列表选择, 值为空为-1的值表示未选择任何项
+            </summary>
+        </member>
+        <member name="M:NRails.Web.NRazorView`1.DomainSelect``1(System.Linq.Expressions.Expression{System.Func{`0,``0}})">
+            <summary>
+            领域对象下拉列表选择, 值为空为-1的值表示未选择任何项
+            </summary>
+        </member>
+        <!-- 对于成员“M:NRails.Web.NRazorView`1.Domain``1(``0)”忽略有格式错误的 XML 注释 -->
+        <member name="M:NRails.Web.NRazorView`1.DomainLink(NRails.Domain.DomainObject)">
+            <summary>
+            根据对象生成链接
+            </summary>
+        </member>
+        <member name="M:NRails.Web.NRazorView`1.Partial(System.String,`0)">
+            <summary>
+            输出部分页
+            </summary>
+        </member>
+        <member name="P:NRails.Web.NRazorView`1.AutoView">
+            <summary>
+            自动视图处理，开启后，显示详细页时，
+            编辑控件(如TextBox)会变为显示控件(直接为文本)
+            简单对象的下拉列表显示为文本
+            对象下拉列表显示为引用连接
+            </summary>
+        </member>
+        <member name="M:NRails.Web.NRazorListView`1.Label``1(System.Linq.Expressions.Expression{System.Func{`0,``0}})">
+            <summary>
+            Label
+            </summary>
+        </member>
+        <member name="M:NRails.Web.NRazorListView`1.Text``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Object)">
+            <summary>
+            文本显示
+            </summary>
+        </member>
+        <member name="M:NRails.Web.NRazorListView`1.Text``1(System.Object,System.Linq.Expressions.Expression{System.Func{`0,``0}})">
+            <summary>
+            文本显示
+            </summary>
+        </member>
+        <member name="M:NRails.Web.NRazorListView`1.TextBox``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Boolean)">
+            <summary>
+            文本框
+            </summary>
+        </member>
+        <member name="M:NRails.Web.NRazorListView`1.EnumSelect``1(System.Linq.Expressions.Expression{System.Func{`0,``0}})">
+            <summary>
+            枚举下拉列表选择, 值为空为-1的值表示未选择任何项
+            </summary>
+        </member>
+        <member name="M:NRails.Web.NRazorListView`1.DomainSelect``1(System.Linq.Expressions.Expression{System.Func{`0,``0}})">
+            <summary>
+            领域对象下拉列表选择, 值为空为-1的值表示未选择任何项
+            </summary>
+        </member>
+        <member name="M:NRails.Web.NRazorListView`1.Partial(System.String,`0)">
+            <summary>
+            输出部分页
+            </summary>
+        </member>
+        <member name="T:System.Web.Mvc.Html.ThemeHelper">
+            <summary>
+            皮肤View辅助类
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.Html.ThemeHelper.ThemeCss(System.Web.Mvc.HtmlHelper,System.String)">
+            <summary>
+            皮肤样式
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.Html.ThemeHelper.ThemeImageUrl(System.Web.Mvc.HtmlHelper,System.String)">
+            <summary>
+            皮肤图片地址
+            </summary>
+        </member>
+        <member name="T:NRails.Web.ExtControllerBase`1">
+            <summary>
+            为Ext使用的Controller
+            </summary>
+        </member>
+        <member name="M:NRails.Web.NControllerBase.ValidateDomain(NRails.Domain.ObjectBase,NRails.Web.NActionResult)">
+            <summary>
+            验证对象数据
+            </summary>
+        </member>
+        <member name="M:NRails.Web.NControllerBase.ValidateDomain(NRails.Domain.ObjectBase)">
+            <summary>
+            验证对象数据
+            </summary>
+        </member>
+        <member name="M:NRails.Web.NControllerBase.FillDomain``1(System.Web.Mvc.FormCollection,``0)">
+            <summary>
+            将传入参数映射至领域对象
+            </summary>
+        </member>
+        <member name="M:NRails.Web.NControllerBase.FilterFormCollection(System.Web.Mvc.FormCollection,System.String)">
+            <summary>
+            將提交上的数据中, 关联对象的提交值, 单独生成一份FormCollection
+            </summary>
+        </member>
+        <member name="M:NRails.Web.NControllerBase`1.ClearCache">
+            <summary>
+            清空二级缓存
+            </summary>
+        </member>
+        <member name="M:NRails.Web.NControllerBase`1.ClearCache(System.Int64)">
+            <summary>
+            清空二级缓存
+            </summary>
+        </member>
+        <member name="P:NRails.Web.NControllerBase`1.Dao">
+            <summary>
+            数据访问服务
+            </summary>
+        </member>
+        <!-- 对于成员“M:NRails.Web.ExtControllerBase`1.Save(System.Nullable{System.Int64},System.Web.Mvc.FormCollection)”忽略有格式错误的 XML 注释 -->
+        <member name="M:NRails.Web.ExtControllerBase`1.ValidateDomain(`0)">
+            <summary>
+            验证对象数据
+            </summary>
+        </member>
+        <member name="M:NRails.Web.ExtResult.Equals(System.Object)">
+            <summary>
+            重载相等判断, 以对象的Json序列化数据为比较
+            </summary>
+        </member>
+        <member name="P:NRails.Web.ExtResult.success">
+            <summary>
+            是否执行成功
+            </summary>
+        </member>
+        <member name="P:NRails.Web.ExtResult.msg">
+            <summary>
+            返回结果
+            </summary>
+        </member>
+        <member name="M:NRails.Web.ExtFormErrors.AddPiefix(System.String)">
+            <summary>
+            为错误字段名称加上前缀
+            </summary>
+        </member>
+        <member name="T:NRails.Web.ExtFormResult">
+            <summary>
+            表单请求结果
+            </summary>
+        </member>
+        <member name="M:NRails.Web.ExtFormResult.#ctor(System.Boolean,System.String)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:NRails.Web.ExtFormResult.Join(NRails.Web.ExtFormResult)">
+            <summary>
+            合并两个ExtFormResult对象
+            </summary>
+        </member>
+        <member name="M:NRails.Web.ExtFormResult.Equals(System.Object)">
+            <summary>
+            重载相等判断, 以对象的Json序列化数据为比较
+            </summary>
+        </member>
+        <member name="P:NRails.Web.ExtFormResult.id">
+            <summary>
+            对象ID
+            </summary>
+        </member>
+        <member name="P:NRails.Web.ExtFormResult.data">
+            <summary>
+            对象数据
+            </summary> 
+        </member>
+        <member name="P:NRails.Web.ExtFormResult.errors">
+            <summary>
+            对象的验证失败信息
+            </summary>
+        </member>
+        <member name="T:NRails.Web.ExtValidateError">
+            <summary>
+            表单的验证失败信息
+            </summary>
+        </member>
+        <member name="M:NRails.Web.ExtValidateError.#ctor(System.String,System.String)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:NRails.Web.ExtListResult`1">
+            <summary>
+            Ext列表数据
+            </summary>
+        </member>
+        <member name="M:NRails.Web.ExtListResult`1.#ctor(System.Int32,System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:NRails.Web.PagerBuilder.#ctor(System.Web.Mvc.HtmlHelper,System.Web.Mvc.AjaxHelper,NRails.Web.PagerOptions,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            used when PagedList is null
+            </summary>
+        </member>
+        <member name="M:NRails.Web.PagerBuilder.GenerateUrl(System.Int32)">
+            <summary>
+            generate paging url
+            </summary>
+            <param name="pageIndex">page index to generate navigate url</param>
+            <returns>navigated url for pager item</returns>
+        </member>
+        <member name="M:NRails.Web.PagerBuilder.RenderPager">
+            <summary>
+            render paging control
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Web.Controllers.ActonResultOuput.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:NRails.Web.Controllers.ActonResultOuput.#ctor(NRails.Web.Controllers.ActonResultOuputTyoe)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="ouputType">输出类型, 当选择为Auto时, 会根据Url中rtype参数或者Http头的ContentType来判断返回类型</param>
+        </member>
+        <member name="P:NRails.Web.Controllers.ActonResultOuput.Message">
+            <summary>
+            设置该值后, 输出的NActionResult的Message属性也会被赋值
+            </summary>
+        </member>
+        <member name="T:NRails.Web.NActionResult">
+            <summary>
+            通用返回结果
+            </summary>
+        </member>
+        <member name="M:NRails.Web.NActionResult.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:NRails.Web.NActionResult.#ctor(System.Web.Mvc.ActionResult)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:NRails.Web.NActionResult.Staus">
+            <summary>
+            请求执行的Http状态结果
+            </summary>
+        </member>
+        <member name="P:NRails.Web.NActionResult.Message">
+            <summary>
+            消息
+            </summary>
+        </member>
+        <member name="P:NRails.Web.NActionResult.Data">
+            <summary>
+            返回的附加数据
+            </summary>
+        </member>
+        <member name="P:NRails.Web.NActionResult.Errors">
+            <summary>
+            验证错误信息
+            </summary>
+        </member>
+        <member name="P:NRails.Web.NActionResult.IsValid">
+            <summary>
+            是否通过验证
+            </summary>
+        </member>
+        <member name="M:NRails.Web.DeleteResult.#ctor(NRails.Domain.DomainObject,System.Int32)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:NRails.Web.NRazorViewEngine">
+            <summary>
+            改进的ViewEngine,支持以模块形式组织文件
+             ViewEngines.Engines.Clear();
+             ViewEngines.Engines.Add(new WebViewEngine());
+             RegisterRoutes(RouteTable.Routes);
+            </summary>
+        </member>
+        <member name="M:NRails.Web.NRazorViewEngine.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:NRails.MarkLanguage">
+            <summary>
+            通用标识语言处理类
+            </summary>
+        </member>
+        <member name="M:NRails.MarkLanguage.FormatToHtml(System.String)">
+            <summary>
+            将通用标识语言转换成Html
+            </summary>
+        </member>
+        <member name="M:NRails.MarkLanguage.FormatToText(System.String)">
+            <summary>
+             将通用标识语言转换成文本
+            </summary>
+        </member>
+        <!-- 对于成员“M:NRails.Web.MvcControllerBase`1.Save(System.Nullable{System.Int64},System.Web.Mvc.FormCollection)”忽略有格式错误的 XML 注释 -->
+        <member name="T:System.Web.Mvc.Html.ValidationScaffoldExtensions">
+            <summary>
+            验证脚本生成
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.Html.ValidationScaffoldExtensions.ValidationScaffold``1(System.Web.Mvc.HtmlHelper{``0})">
+            <summary>
+            生成领域模型的所有成员的完全验证脚本
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.Html.ValidationScaffoldExtensions.ValidationScaffold``1(System.Web.Mvc.HtmlHelper{``0},System.String[])">
+            <summary>
+            生成领域模型的指定成员的完全验证脚本
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.Html.ValidationScaffoldExtensions.ValidationScaffold``2(System.Web.Mvc.HtmlHelper{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+            <summary>
+            生成领域模型的指定成员的完全验证脚本
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.Html.ValidationScaffoldExtensions.ValidationItem``2(System.Web.Mvc.HtmlHelper{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+            <summary>
+            生成领域模型的指定成员的验证脚本项
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.Html.ValidationScaffoldExtensions.ValidationItem(System.Web.Mvc.HtmlHelper,System.Type,System.String)">
+            <summary>
+            生成领域模型的指定成员的验证脚本项项
+            </summary>
+        </member>
+        <member name="F:NRails.Web.HttpStatusNo.OK">
+            <summary>
+            操作成功
+            </summary>
+        </member>
+        <member name="F:NRails.Web.HttpStatusNo.Created">
+            <summary>
+            资源被创建
+            </summary>
+        </member>
+        <member name="F:NRails.Web.HttpStatusNo.Forbidden">
+            <summary>
+            禁止访问
+            </summary>
+        </member>
+        <member name="F:NRails.Web.HttpStatusNo.PreconditionFailed">
+            <summary>
+            前置条件失败, 如数据不合法等
+            </summary>
+        </member>
+        <member name="F:NRails.Web.HttpStatusNo.NoFound">
+            <summary>
+            找不到指定的对象
+            </summary>
+        </member>
+        <member name="M:NRails.Web.XmlResult.#ctor(System.Object)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:NRails.Web.PagerOptions.AutoHide">
+            <summary>
+            whether or not hide control(render nothing) automatically when there's only one page
+            </summary>
+        </member>
+        <member name="P:NRails.Web.PagerOptions.PageIndexOutOfRangeErrorMessage">
+            <summary>
+            PageIndexOutOfRangeErrorMessage
+            </summary>
+        </member>
+        <member name="P:NRails.Web.PagerOptions.InvalidPageIndexErrorMessage">
+            <summary>
+            InvalidPageIndexErrorMessage
+            </summary>
+        </member>
+        <member name="P:NRails.Web.PagerOptions.PageIndexParameterName">
+            <summary>
+            page index parameter name in url
+            </summary>
+        </member>
+        <member name="P:NRails.Web.PagerOptions.ShowPageIndexBox">
+            <summary>
+            Whether or not show page index box
+            </summary>
+        </member>
+        <member name="P:NRails.Web.PagerOptions.PageIndexBoxType">
+            <summary>
+            Page index box type
+            </summary>
+        </member>
+        <member name="P:NRails.Web.PagerOptions.MaximumPageIndexItems">
+            <summary>
+            Maximum page index items listed in dropdownlist
+            </summary>
+        </member>
+        <member name="P:NRails.Web.PagerOptions.ShowGoButton">
+            <summary>
+            whether or not show go button
+            </summary>
+        </member>
+        <member name="P:NRails.Web.PagerOptions.GoButtonText">
+            <summary>
+            text displayed on go button
+            </summary>
+        </member>
+        <member name="P:NRails.Web.PagerOptions.PageNumberFormatString">
+            <summary>
+            numeric pager item format string
+            </summary>
+        </member>
+        <member name="P:NRails.Web.PagerOptions.ContainerTagName">
+            <summary>
+            html tag name when control rendered
+            </summary>
+        </member>
+        <member name="P:NRails.Web.PagerOptions.PagerItemWrapperFormatString">
+            <summary>
+            all pageritem wrapper format string
+            </summary>
+        </member>
+        <member name="P:NRails.Web.PagerOptions.CurrentPageNumberFormatString">
+            <summary>
+            current pager item format string
+            </summary>
+        </member>
+        <member name="P:NRails.Web.PagerOptions.NumericPagerItemWrapperFormatString">
+            <summary>
+            NumericPager Item Wrapper Format String
+            </summary>
+        </member>
+        <member name="P:NRails.Web.PagerOptions.CurrentPagerItemWrapperFormatString">
+            <summary>
+            Current Pager Item Wrapper Format String
+            </summary>
+        </member>
+        <member name="P:NRails.Web.PagerOptions.NavigationPagerItemWrapperFormatString">
+            <summary>
+            NavigationPager Item Wrapper Format String
+            </summary>
+        </member>
+        <member name="P:NRails.Web.PagerOptions.MorePagerItemWrapperFormatString">
+            <summary>
+            MorePagerItem Wrapper Format String
+            </summary>
+        </member>
+        <member name="P:NRails.Web.PagerOptions.PageIndexBoxWrapperFormatString">
+            <summary>
+            PageIndexBox Wrapper Format String
+            </summary>
+        </member>
+        <member name="P:NRails.Web.PagerOptions.GoToPageSectionWrapperFormatString">
+            <summary>
+            GoToPage Section Wrapper Format String
+            </summary>
+        </member>
+        <member name="P:NRails.Web.PagerOptions.AlwaysShowFirstLastPageNumber">
+            <summary>
+            whether or not show first and last numeric page number
+            </summary>
+        </member>
+        <member name="P:NRails.Web.PagerOptions.NumericPagerItemCount">
+            <summary>
+            numeric pager items count
+            </summary>
+        </member>
+        <member name="P:NRails.Web.PagerOptions.ShowPrevNext">
+            <summary>
+            whether or not show previous and next pager items
+            </summary>
+        </member>
+        <member name="P:NRails.Web.PagerOptions.PrevPageText">
+            <summary>
+            previous page text
+            </summary>
+        </member>
+        <member name="P:NRails.Web.PagerOptions.NextPageText">
+            <summary>
+            next page text
+            </summary>
+        </member>
+        <member name="P:NRails.Web.PagerOptions.ShowNumericPagerItems">
+            <summary>
+            whether or not show numeric pager items
+            </summary>
+        </member>
+        <member name="P:NRails.Web.PagerOptions.ShowFirstLast">
+            <summary>
+            whether or not show first and last pager items
+            </summary>
+        </member>
+        <member name="P:NRails.Web.PagerOptions.FirstPageText">
+            <summary>
+            first page text
+            </summary>
+        </member>
+        <member name="P:NRails.Web.PagerOptions.LastPageText">
+            <summary>
+            last page text
+            </summary>
+        </member>
+        <member name="P:NRails.Web.PagerOptions.ShowMorePagerItems">
+            <summary>
+            whethor or not show more pager items
+            </summary>
+        </member>
+        <member name="P:NRails.Web.PagerOptions.MorePageText">
+            <summary>
+            more page text
+            </summary>
+        </member>
+        <member name="P:NRails.Web.PagerOptions.Id">
+            <summary>
+            client id of paging control container
+            </summary>
+        </member>
+        <member name="P:NRails.Web.PagerOptions.HorizontalAlign">
+            <summary>
+            HOrizontal alignment
+            </summary>
+        </member>
+        <member name="P:NRails.Web.PagerOptions.CssClass">
+            <summary>
+            CSS class to apply
+            </summary>
+        </member>
+        <member name="P:NRails.Web.PagerOptions.ShowDisabledPagerItems">
+            <summary>
+            whether or not show disabled pager items
+            </summary>
+        </member>
+        <member name="P:NRails.Web.PagerOptions.SeparatorHtml">
+            <summary>
+            seperating item html
+            </summary>
+        </member>
+        <member name="P:NRails.Web.PagerOptions.UseJqueryAjax">
+            <summary>
+            whether or not use jQuery ajax, as opposed to MicrosoftAjax
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Security.Cryptography;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
-using NRails.Util;
+using NRails.Util;//加密类
 using static System.Console;
 
 namespace 加密
@@ -11,7 +10,9 @@ namespace 加密
     {
         static void Main(string[] args)
         {
-            #region MD5加密
+            NRails.Util.EncryptHelper.MD5Encrypt("`24");
+          
+            #region MD5加密  MD5的加解密有问题
 
             string strUrl =
      "serverNameLao.base.cardState.querycustId3071859120357006randomId12320170228170923457iccid8986061501000889173";

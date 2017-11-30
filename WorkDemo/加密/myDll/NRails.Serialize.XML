@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NRails.Serialize</name>
+    </assembly>
+    <members>
+        <member name="T:NRails.Serialize.NonSerializeAttribute">
+            <summary>
+            标记为不需要序列化的内容
+            </summary>
+        </member>
+        <member name="T:NRails.Serialize.TypeSerializeAttribute">
+            <summary>
+            表示序列化时需要加头部
+            </summary>
+        </member>
+        <member name="M:NRails.Serialize.ArraySerializer.#ctor(NRails.Serialize.Serializer)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:NRails.Serialize.ByteBitArray">
+            <summary>
+            将单个字节转换为8个boo类型
+            </summary>
+        </member>
+        <member name="M:NRails.Serialize.ByteBitArray.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:NRails.Serialize.ByteBitArray.#ctor(System.Byte)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:NRails.Serialize.ByteBitArray.#ctor(System.Boolean[])">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:NRails.Serialize.DataTableSerializer.#ctor(NRails.Serialize.Serializer)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:NRails.Serialize.ISerializeable">
+            <summary>
+            自定义序列化接口
+            </summary>
+        </member>
+        <member name="F:NRails.Serialize.Serializer.HeaderLen">
+            <summary>
+            序列化头长度
+            </summary>
+        </member>
+        <member name="M:NRails.Serialize.BitBinaryWriter.#ctor(System.IO.Stream)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:NRails.Serialize.BitBinaryReader.#ctor(System.IO.Stream)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:NRails.Serialize.HashSerializer.#ctor(NRails.Serialize.Serializer)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+    </members>
+</doc>

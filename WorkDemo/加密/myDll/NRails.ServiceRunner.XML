@@ -1,0 +1,525 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NRails.ServiceRunner</name>
+    </assembly>
+    <members>
+        <member name="M:NRails.Service.ServiceRunnerFramework.ServiceControl.StopService(System.String)">
+            <summary>
+            停止服务运行
+            </summary>
+            <param name="svcName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Service.ServiceRunnerFramework.ServiceControl.IsServiceExists(System.String)">
+            <summary>
+            判断给定名称的服务是否已存在
+            </summary>
+            <param name="serviceName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Service.ServiceRunnerFramework.ServiceControl.ControlService(System.IntPtr,NRails.Service.ServiceRunnerFramework.ServiceActionMode)">
+            <summary>
+            控制服务状态
+            </summary>
+            <param name="SCHandler"></param>
+            <param name="mode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Service.ServiceRunnerFramework.ServiceControl.InstallService(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            安装一个服务,并尝试运行
+            </summary>
+            <param name="svcPath">程序路径</param>
+            <param name="svcName">服务英文名</param>
+            <param name="svcDispName">服务名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Service.ServiceRunnerFramework.ServiceControl.UnInstallService(System.String)">
+            <summary>
+            卸载一个服务
+            </summary>
+            <param name="svcName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Service.ServiceRunnerFramework.ServiceControl.IsUnInstallService(System.String[])">
+            <summary>
+            判断程序命令行是否为卸载服务模式
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Service.ServiceRunnerFramework.ServiceControl.IsServiceMode(System.String[])">
+            <summary>
+            判断程序命令行是否为服务模式
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Service.ServiceRunnerFramework.ServiceControl.IsInstallService(System.String[])">
+            <summary>
+            判断程序命令行是否为服务模式
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NRails.Service.ServiceRunnerFramework.ServiceMode">
+            <summary>
+            服务控制模式 省略了Service_
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceRunnerFramework.ServiceActionMode.SESSIONCHANGE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceRunnerFramework.ServiceActionMode.POWEREVENT">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceRunnerFramework.ServiceActionMode.HARDWAREPROFILECHANGE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceRunnerFramework.ServiceActionMode.DEVICEEVENT">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceRunnerFramework.ServiceActionMode.NETBINDDISABLE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceRunnerFramework.ServiceActionMode.NETBINDENABLE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceRunnerFramework.ServiceActionMode.NETBINDREMOVE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceRunnerFramework.ServiceActionMode.NETBINDADD">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceRunnerFramework.ServiceActionMode.PARAMCHANGE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceRunnerFramework.ServiceActionMode.SHUTDOWN">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceRunnerFramework.ServiceActionMode.INTERROGATE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceRunnerFramework.ServiceActionMode.CONTINUE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceRunnerFramework.ServiceActionMode.PAUSE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceRunnerFramework.ServiceActionMode.STOP">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:System.Windows.Forms.ListViewEx.VisibleStart">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:System.Windows.Forms.ListViewEx.LastVisibleStart">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:System.Windows.Forms.ListViewEx.ResetCacheRange(System.Windows.Forms.CacheVirtualItemsEventArgs)">
+            <summary>
+            计算总的可显示的索引范围
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="T:NRails.ServiceRunner__.WinLOG">
+            <summary>
+            用于记录系统事件日志
+            </summary>
+        </member>
+        <member name="F:NRails.ServiceRunner__.WinLOG.SourceName">
+            <summary>
+            日志名称
+            </summary>
+        </member>
+        <member name="F:NRails.ServiceRunner__.WinLOG._isAlive">
+            <summary>
+            在调用Dispose()函数或者析构函数时，该值会被设置为0
+            </summary>
+        </member>
+        <member name="M:NRails.ServiceRunner__.WinLOG.Dispose">
+            <summary>
+            释放所占用的资源
+            </summary>
+        </member>
+        <member name="M:NRails.ServiceRunner__.WinLOG.#ctor(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="sourceName"></param>
+            <param name="logName"></param>
+        </member>
+        <member name="M:NRails.ServiceRunner__.WinLOG.Write(System.String,System.Exception,System.Diagnostics.EventLogEntryType)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <param name="ex"></param>
+            <param name="type"></param>
+        </member>
+        <member name="M:NRails.ServiceRunner__.WinLOG.Write(System.String,System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <param name="ex"></param>
+        </member>
+        <member name="M:NRails.ServiceRunner__.WinLOG.Write(System.String,System.Diagnostics.EventLogEntryType)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <param name="type"></param>
+        </member>
+        <member name="M:NRails.ServiceRunner__.WinLOG.Write(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:NRails.ServiceRunner__.WinLOG.GetExceptionMessage(System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="ex"></param>
+            <returns></returns>
+        </member>
+        <member name="P:NRails.ServiceRunner__.WinLOG.IsDisposed">
+            <summary>
+            获取该对象是否已经被释放
+            </summary>
+        </member>
+        <member name="P:NRails.ServiceRunner__.WinLOG.OverflowAction">
+            <summary>
+            获取或设置当日志项满了之后要处理的日志模式
+            </summary>
+        </member>
+        <member name="P:NRails.ServiceRunner__.WinLOG.RetentionDays">
+            <summary>
+            获取要在事件日志中保留项的天数
+            </summary>
+        </member>
+        <member name="P:NRails.ServiceRunner__.WinLOG.MaximumKilobytes">
+            <summary>
+             获取或设置最大事件日志大小（以 KB 为单位）。
+            </summary>
+        </member>
+        <member name="T:NRails.Service.ServiceRunnerFramework.Properties.Resources">
+            <summary>
+              一个强类型的资源类，用于查找本地化的字符串等。
+            </summary>
+        </member>
+        <member name="P:NRails.Service.ServiceRunnerFramework.Properties.Resources.ResourceManager">
+            <summary>
+              返回此类使用的缓存的 ResourceManager 实例。
+            </summary>
+        </member>
+        <member name="P:NRails.Service.ServiceRunnerFramework.Properties.Resources.Culture">
+            <summary>
+              使用此强类型资源类，为所有资源查找
+              重写当前线程的 CurrentUICulture 属性。
+            </summary>
+        </member>
+        <member name="P:NRails.Service.ServiceRunnerFramework.Properties.Resources.ServiceMonitor">
+            <summary>
+              查找 System.Byte[] 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceRunnerFramework.WinLOGUI.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceRunnerFramework.WinLOGUI.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NRails.Service.ServiceRunnerFramework.WinLOGUI.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:ServiceRunner">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ServiceRunner.Instance">
+            <summary>
+            最后一次调用静态Run方法后所创建的ServiceRunner对象
+            </summary>
+        </member>
+        <member name="F:ServiceRunner.WinLOG">
+            <summary>
+            日志入口
+            </summary>
+        </member>
+        <member name="M:ServiceRunner.#ctor(VoidMainMethodHandler,VoidMainMethodHandler,System.Boolean,System.String)">
+            <summary>
+            实例化
+            </summary>
+            <param name="main">主函数入口点</param>
+            <param name="shutdown">退出函数的入口点</param>
+            <param name="doLog">记录日志</param>
+            <param name="logName">指定日志名称</param>
+        </member>
+        <member name="M:ServiceRunner.Run(System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:ServiceRunner.Run">
+            <summary>
+            开始运行
+            </summary>
+        </member>
+        <member name="M:ServiceRunner.Run(System.String)">
+            <summary>
+            启动一个进程
+            </summary>
+            <param name="targetApp"></param>
+        </member>
+        <member name="M:ServiceRunner.Exit">
+            <summary>
+            通过调用停止服务或者Application.Exit() 的模式取消本次服务运行
+            </summary>
+        </member>
+        <member name="M:ServiceRunner.WriteLOG(System.String)">
+            <summary>
+            记录事件日志
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:ServiceRunner.WriteLOG(System.String,System.Exception)">
+            <summary>
+            记录事件日志
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:ServiceRunner.WriteLOG(System.String,System.Diagnostics.EventLogEntryType)">
+            <summary>
+            记录事件日志
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:ServiceRunner.WriteLOG(System.String,System.Exception,System.Diagnostics.EventLogEntryType)">
+            <summary>
+            记录事件日志
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:ServiceRunner.Run(VoidMainMethodHandler,VoidMainMethodHandler,System.Boolean,System.String)">
+            <summary>
+            启动一个服务
+            </summary>
+            <param name="main">函数入口点</param>
+            <param name="shutdown">关闭服务入口点</param>
+            <param name="args">运行所需要的参数</param>
+            <param name="doLog">记录日志</param>
+            <param name="logName">日志名称</param>
+        </member>
+        <member name="M:ServiceRunner.Run(VoidMainMethodHandler,System.String[],VoidMainMethodHandler,System.Boolean,System.String)">
+            <summary>
+            启动一个服务
+            </summary>
+            <param name="main">函数入口点</param>
+            <param name="shutdown">关闭服务入口点</param>
+            <param name="args">运行所需要的参数</param>
+            <param name="doLog">记录日志</param>
+            <param name="logName">日志名称</param>
+        </member>
+        <member name="P:ServiceRunner.EntryName">
+            <summary>
+            入口点完整路径
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceRunnerFramework.InputBox.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceRunnerFramework.InputBox.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NRails.Service.ServiceRunnerFramework.InputBox.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceRunnerFramework.Native.SYSTEMINFO">
+            <summary>
+            获取基本系统信息
+            </summary>
+        </member>
+        <!-- 对于成员“M:NRails.Service.ServiceRunnerFramework.Native.CreateFile(System.String,NRails.Service.ServiceRunnerFramework.DesiredAccess,System.IO.FileShare,System.Int32,System.IO.FileMode,System.Int32,System.Int32)”忽略有格式错误的 XML 注释 -->
+        <member name="M:NRails.Service.ServiceRunnerFramework.Native.GetCommandLine">
+            <summary>
+            读取程序命令行参数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Service.ServiceRunnerFramework.Native.GetSystemInfo(System.IntPtr)">
+            <summary>
+            读取获取系统基本信息
+            </summary>
+            <param name="lpSystemInfo"></param>
+        </member>
+        <member name="M:NRails.Service.ServiceRunnerFramework.Native.SetEnvironmentVariable(System.String,System.String)">
+            <summary>
+            设置系统变量
+            </summary>
+            <param name="lpName"></param>
+            <param name="lpValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Service.ServiceRunnerFramework.Native.SetForegroundWindow(System.IntPtr)">
+            <summary>
+            设置当前活动窗口为wnd
+            </summary>
+            <param name="wnd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Service.ServiceRunnerFramework.Native.AllocConsole">
+            <summary>
+            为当前进程分配一个控制台窗口
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Service.ServiceRunnerFramework.Native.FreeConsole">
+            <summary>
+            释放当前进程的控制台窗口
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:NRails.Service.ServiceRunnerFramework.SYSTEM_INFO">
+            <summary>
+            系统信息结构
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceRunnerFramework.SYSTEM_INFO.dwOemId">
+            <summary>
+            保留
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceRunnerFramework.SYSTEM_INFO.dwPageSize">
+            <summary>
+            The page size and the granularity of page protection and commitment. This is the page size used by the VirtualAlloc function
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceRunnerFramework.SYSTEM_INFO.dwNumberOfProcessors">
+            <summary>
+            处理器个数
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceRunnerFramework.SYSTEM_INFO.dwProcessorType">
+            <summary>
+            处理器类型
+            </summary>
+        </member>
+        <member name="T:NRails.Service.ServiceRunnerFramework.DesiredAccess">
+            <summary>
+            读写方式
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceRunnerFramework.DesiredAccess.GENERIC_ALL">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceRunnerFramework.DesiredAccess.GENERIC_EXECUTE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceRunnerFramework.DesiredAccess.GENERIC_READ">
+             <summary>
+             写标志 
+            </summary> 
+        </member>
+        <member name="F:NRails.Service.ServiceRunnerFramework.DesiredAccess.GENERIC_WRITE">
+             <summary>
+             读标志 
+            </summary> 
+        </member>
+        <member name="F:NRails.Service.ServiceRunnerFramework.DesiredAccess.GENERIC_READ_WRITE">
+            <summary>
+            读写方式
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceRunnerFramework.FormQuestion.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceRunnerFramework.FormQuestion.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NRails.Service.ServiceRunnerFramework.FormQuestion.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:NRails.Service.ServiceRunnerFramework.CustomColors">
+            <summary>
+            Provides custom colors members to use in the OfficeColorPicker.
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceRunnerFramework.CustomColors._ColorNames">
+            <summary>
+            Provides a list of color names that matches the SelectableColors array.
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceRunnerFramework.CustomColors.ColorEquals(System.Drawing.Color,System.Drawing.Color)">
+            <summary>
+            Compare 2 colors by their RGB properties.
+            </summary>
+            <param Name="color1"></param>
+            <param Name="color2"></param>
+            <returns>True when R,G and B properties of both colors are equals</returns>
+        </member>
+    </members>
+</doc>

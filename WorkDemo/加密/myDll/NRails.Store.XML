@@ -1,0 +1,3114 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NRails.Store</name>
+    </assembly>
+    <members>
+        <member name="T:NRails.Store.Rdb.Adapters.MySqlAdapter">
+            <summary>
+            Sqlite存储层实现
+            </summary>
+        </member>
+        <member name="F:NRails.Store.Rdb.Adapters.MySqlAdapter.CommandTimeout">
+            <summary>
+            操作超时时间（单位：秒），默认为30秒
+            </summary>
+        </member>
+        <member name="M:NRails.Store.Rdb.Adapters.MySqlAdapter.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="connectionString"></param>
+        </member>
+        <member name="M:NRails.Store.Rdb.Adapters.MySqlAdapter.CreateTable(System.Data.IDbCommand,NRails.Store.Rdb.TableSchema)">
+            <summary>
+            初始化表结构
+            </summary>
+        </member>
+        <member name="T:NRails.Store.Rdb.Adapters.RdbAdapter">
+            <summary>
+            Sql存储层接口
+            </summary>
+        </member>
+        <member name="F:NRails.Store.Rdb.Adapters.RdbAdapter._isAlive">
+            <summary>
+            在调用Dispose()函数或者析构函数时，该值会被设置为0
+            </summary>
+        </member>
+        <member name="M:NRails.Store.Rdb.Adapters.RdbAdapter.Dispose">
+            <summary>
+            释放所占用的资源
+            </summary>
+        </member>
+        <member name="P:NRails.Store.Rdb.Adapters.RdbAdapter.IsDisposed">
+            <summary>
+            获取该对象是否已经被释放
+            </summary>
+        </member>
+        <member name="M:NRails.Store.Rdb.Adapters.RdbAdapter.CreateTable(System.Data.IDbCommand,NRails.Store.Rdb.TableSchema)">
+            <summary>
+            初始化表结构
+            </summary>
+        </member>
+        <member name="M:NRails.Store.Rdb.Adapters.RdbAdapter.IsTableExists(System.Data.IDbCommand,System.String)">
+            <summary>
+            true＝已存在给定名称的表
+            </summary>
+            <param name="tableName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Store.Rdb.Adapters.RdbAdapter.GetTableIndices(System.Data.IDbCommand,System.String)">
+            <summary>
+            获取给定表的所有索引
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Store.Rdb.Adapters.RdbAdapter.GetTableColumns(System.Data.IDbCommand,System.String)">
+            <summary>
+            获取给定表的所有字段
+            </summary>
+            <param name="tableName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Store.Rdb.Adapters.RdbAdapter.AddTableColumns(System.Data.IDbCommand,System.String,System.Collections.Generic.List{NRails.Store.Rdb.RdbField})">
+            <summary>
+            为给定的表添加字段
+            </summary>
+            <param name="fields"></param>
+        </member>
+        <member name="M:NRails.Store.Rdb.Adapters.RdbAdapter.Insert(System.Data.IDbCommand,NRails.Store.Rdb.RdbTableSet)">
+            <summary>
+            插入数据
+            </summary>
+            <param name="tableSet"></param>
+        </member>
+        <member name="M:NRails.Store.Rdb.Adapters.RdbAdapter.Delete(System.Data.IDbCommand,NRails.Store.Rdb.RdbTableSet)">
+            <summary>
+            按照Id删除数据
+            </summary>
+            <param name="tableSet"></param>
+        </member>
+        <member name="M:NRails.Store.Rdb.Adapters.RdbAdapter.Delete(System.Data.IDbCommand,NRails.Store.Rdb.TableSchema,System.Linq.Expressions.LambdaExpression)">
+            <summary>
+            按照条件删除数据
+            </summary>
+            <param name="schema"></param>
+            <param name="expression"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Store.Rdb.Adapters.RdbAdapter.Update(System.Data.IDbCommand,NRails.Store.Rdb.TableSchema,System.Collections.Generic.List{NRails.Store.Rdb.RdbUpdateField},System.Linq.Expressions.LambdaExpression)">
+            <summary>
+            更新指定数据
+            </summary>
+            <param name="schema"></param>
+            <param name="fields"></param>
+            <param name="fieldValue"></param>
+            <param name="where"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Store.Rdb.Adapters.RdbAdapter.Update(System.Data.IDbCommand,NRails.Store.Rdb.RdbTableSet)">
+            <summary>
+            更新数据
+            </summary>
+            <param name="tableSet"></param>
+        </member>
+        <member name="M:NRails.Store.Rdb.Adapters.RdbAdapter.Search(System.Data.IDbCommand,NRails.Store.Rdb.TableSchema,System.Linq.Expressions.LambdaExpression,NRails.Store.Rdb.RdbField,System.Int64,System.Int32,System.Boolean)">
+            <summary>
+            查询数据
+            </summary>
+            <param name="schema"></param>
+            <param name="where">可以为空</param>
+            <param name="offset"></param>
+            <param name="count"></param>
+            <param name="totalCount"></param>
+            <param name="desc">true=按照倒序查询</param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Store.Rdb.Adapters.RdbAdapter.In(System.Data.IDbCommand,NRails.Store.Rdb.TableSchema,System.String,System.Collections.IEnumerable)">
+            <summary>
+            In查询数据
+            </summary>
+        </member>
+        <member name="M:NRails.Store.Rdb.Adapters.RdbAdapter.Count(System.Data.IDbCommand,NRails.Store.Rdb.TableSchema,System.Linq.Expressions.LambdaExpression)">
+            <summary>
+            查询指定条件的记录数
+            </summary>
+            <param name="schema"></param>
+            <param name="expression"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Store.Rdb.Adapters.RdbAdapter.Max(System.Data.IDbCommand,NRails.Store.Rdb.TableSchema,NRails.Store.Rdb.RdbField)">
+            <summary>
+            获取给定字段的最大值
+            </summary>
+            <param name="schema"></param>
+            <param name="field"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Store.Rdb.Adapters.RdbAdapter.TranslateExpression(System.Linq.Expressions.Expression)">
+            <summary>
+            将条件表达式转换成Sql语句
+            </summary>
+            <param name="expression"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Store.Rdb.Adapters.RdbAdapter.VisitMember(NRails.Store.Rdb.RdbExpressionTranslator,System.Linq.Expressions.MemberExpression)">
+            <summary>
+            将表达式名称转换成Sql语句，例如 表达式中的 a.Id 转换结果为 [Id]
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Store.Rdb.Adapters.RdbAdapter.VisitUnary(NRails.Store.Rdb.RdbExpressionTranslator,System.Linq.Expressions.UnaryExpression)">
+            <summary>
+            将表达式中的运算符转换成Sql语句,例如 ~ 转换成 NOT,表达式类型在 NodeType 中
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Store.Rdb.Adapters.RdbAdapter.VisitConstant(NRails.Store.Rdb.RdbExpressionTranslator,System.Linq.Expressions.ConstantExpression)">
+            <summary>
+            将表达式中的值转换成Sql语句，例如 Contains("var") 中的参数被转换成 'var'
+            </summary>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:NRails.Store.Rdb.Adapters.RdbAdapter.VisitBinary(NRails.Store.Rdb.RdbExpressionTranslator,System.Linq.Expressions.BinaryExpression)" -->
+        <member name="M:NRails.Store.Rdb.Adapters.RdbAdapter.VisitMethodCall(NRails.Store.Rdb.RdbExpressionTranslator,System.Linq.Expressions.MethodCallExpression)">
+            <summary>
+            将表达式中所调用的方法转换成Sql语句，例如  a.Name.Contains('er') 转换成 [Name] like '%er%' 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:NRails.Store.Rdb.Adapters.SqliteAdapter">
+            <summary>
+            Sqlite存储层实现
+            </summary>
+        </member>
+        <member name="M:NRails.Store.Rdb.Adapters.SqliteAdapter.#ctor(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="fileName"></param>
+        </member>
+        <member name="M:NRails.Store.Rdb.Adapters.SqliteAdapter.Insert(System.Data.IDbCommand,NRails.Store.Rdb.RdbTableSet)">
+            <summary>
+            插入数据
+            </summary>
+        </member>
+        <member name="M:NRails.Store.Rdb.Adapters.SqliteAdapter.Delete(System.Data.IDbCommand,NRails.Store.Rdb.RdbTableSet)">
+            <summary>
+            删除数据
+            </summary>
+            <param name="table"></param>
+        </member>
+        <member name="M:NRails.Store.Rdb.Adapters.SqliteAdapter.Delete(System.Data.IDbCommand,NRails.Store.Rdb.TableSchema,System.Linq.Expressions.LambdaExpression)">
+            <summary>
+            删除数据
+            </summary>
+        </member>
+        <member name="M:NRails.Store.Rdb.Adapters.SqliteAdapter.Update(System.Data.IDbCommand,NRails.Store.Rdb.RdbTableSet)">
+            <summary>
+            更新数据
+            </summary>
+        </member>
+        <member name="M:NRails.Store.Rdb.Adapters.SqliteAdapter.Search(System.Data.IDbCommand,NRails.Store.Rdb.TableSchema,System.Linq.Expressions.LambdaExpression,NRails.Store.Rdb.RdbField,System.Int64,System.Int32,System.Boolean)">
+            <summary>
+            查询数据
+            </summary>
+            <param name="schema"></param>
+            <param name="where"></param>
+            <param name="offset"></param>
+            <param name="count"></param>
+            <param name="desc"></param>
+            <param name="totalCount"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Store.Rdb.Adapters.SqliteAdapter.CreateTable(System.Data.IDbCommand,NRails.Store.Rdb.TableSchema)">
+            <summary>
+            初始化表结构
+            </summary>
+        </member>
+        <member name="F:NRails.Store.Rdb.RdbExpressionTranslator._isAlive">
+            <summary>
+            在调用Dispose()函数或者析构函数时，该值会被设置为0
+            </summary>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbExpressionTranslator.Dispose">
+            <summary>
+            释放所占用的资源
+            </summary>
+        </member>
+        <member name="P:NRails.Store.Rdb.RdbExpressionTranslator.IsDisposed">
+            <summary>
+            获取该对象是否已经被释放
+            </summary>
+        </member>
+        <member name="F:NRails.Store.Rdb.RdbIndexBuilder`1._isAlive">
+            <summary>
+            在调用Dispose()函数或者析构函数时，该值会被设置为0
+            </summary>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbIndexBuilder`1.Dispose">
+            <summary>
+            释放所占用的资源
+            </summary>
+        </member>
+        <member name="P:NRails.Store.Rdb.RdbIndexBuilder`1.IsDisposed">
+            <summary>
+            获取该对象是否已经被释放
+            </summary>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbIndexBuilder`1.AddField``1(System.Linq.Expressions.Expression{System.Func{`0,``0}})">
+            <summary>
+            添加一个字段
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbIndexBuilder`1.Accept">
+            <summary>
+            尝试建立索引
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbOperator`1.ClearSet">
+            <summary>
+            清空之前所调用的Set方法设置的字段信息
+            </summary>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbOperator`1.OrderBy``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Boolean)">
+            <summary>
+            排序
+            </summary>
+            <typeparam name="TF"></typeparam>
+            <param name="orderBySelector"></param>
+            <param name="desc">true=倒序排列</param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbOperator`1.OrderBy(System.String,System.Boolean)">
+            <summary>
+            排序
+            </summary>
+            <typeparam name="TF"></typeparam>
+            <param name="orderBySelector"></param>
+            <param name="desc">true=倒序排列</param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbOperator`1.OrderBy(System.String)">
+            <summary>
+            排序
+            </summary>
+            <typeparam name="TF"></typeparam>
+            <param name="orderBySelector"></param>
+            <param name="desc">true=倒序排列</param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbOperator`1.Skip(System.Int64)">
+            <summary>
+            跳过skip条记录进行读取，此函数仅在读取数据时生效。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbOperator`1.Skip(System.Int64,System.Int32)">
+            <summary>
+            跳过skip条记录读取limit条记录，此函数仅在读取数据时生效。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbOperator`1.LongCount">
+            <summary>
+            获取记录总数
+            </summary>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbOperator`1.Count">
+            <summary>
+            获取记录总数
+            </summary>
+        </member>
+        <member name="F:NRails.Store.Rdb.RdbSystem.tableIndices">
+            <summary>
+            key=表名 value=｛key=索引名称，value=索引名称}
+            </summary>
+        </member>
+        <member name="F:NRails.Store.Rdb.RdbSystem._isAlive">
+            <summary>
+            在调用Dispose()函数或者析构函数时，该值会被设置为0
+            </summary>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbSystem.Dispose">
+            <summary>
+            释放所占用的资源
+            </summary>
+        </member>
+        <member name="P:NRails.Store.Rdb.RdbSystem.IsDisposed">
+            <summary>
+            获取该对象是否已经被释放
+            </summary>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbSystem.Delete(System.Collections.IEnumerable)">
+            <summary>
+            删除数据
+            </summary>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbSystem.Delete``1(System.String,System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            删除数据
+            </summary>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbSystem.Delete(System.String,System.Collections.IEnumerable)">
+            <summary>
+            删除数据
+            </summary>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbSystem.Update(System.String,System.Collections.IEnumerable)">
+            <summary>
+            写入数据到数据库指定表
+            </summary>
+            <param name="tableName"></param>
+            <param name="datas"></param>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbSystem.Read``1(System.String,System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            查询数据
+            </summary>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbSystem.Count``1(System.String,System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            读取满足指定条件的记录总数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbSystem.IsTableExists(System.String)">
+            <summary>
+            true=已存在给定名称的表
+            </summary>
+            <param name="tableName"></param>
+            <returns></returns>
+        </member>
+        <member name="F:NRails.Store.Rdb.RdbSystem.objCache">
+            <summary>
+            key=表名称，value=(key=对象名称，value=对象值)
+            </summary>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbSystem.WriteObj``1(System.String,System.String,``0)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="tableName"></param>
+            <param name="name"></param>
+            <param name="obj"></param>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbSystem.CreateIndex(System.String,System.Type,System.String,System.Boolean,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            为指定的表创建索引
+            </summary>
+            <param name="tableName"></param>
+            <param name="indexName"></param>
+            <param name="fieldNames"></param>
+            <param name="unique"></param>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbSystem.InitTable(System.Type)">
+            <summary>
+            初始化表信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbSystem.InitTable``1">
+            <summary>
+            初始化表信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbSystem.WriteObj``1(System.String,``0)">
+            <summary>
+            存储一个对象到数据库中,这个对象有一个唯一的实例，并且可以通过ReadObject读取出来
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="name"></param>
+            <param name="obj"></param>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbSystem.ReadObj``1(System.String)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbSystem.Read``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            查询数据
+            </summary>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbSystem.Read``1">
+            <summary>
+            读取数据
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="offset"></param>
+            <param name="count"></param>
+            <param name="tl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbSystem.Count``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            读取满足指定条件的记录总数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbSystem.Count``1">
+            <summary>
+            读取满足指定条件的记录总数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbSystem.Count``1(System.String)">
+            <summary>
+            读取满足指定条件的记录总数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbSystem.Delete(System.Object)">
+            <summary>
+            删除数据
+            </summary>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbSystem.Delete``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            删除数据
+            </summary>
+            <param name="expression"></param>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbSystem.Insert(System.Collections.IEnumerable)">
+            <summary>
+            写入数据到数据库
+            </summary>
+            <param name="datas"></param>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbSystem.Insert(System.Object)">
+            <summary>
+            以事务的方式写入数据
+            </summary>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbSystem.Insert(System.String,System.Object)">
+            <summary>
+            以事务的方式写入数据
+            </summary>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbSystem.Update(System.Collections.IEnumerable)">
+            <summary>
+            写入数据到数据库
+            </summary>
+            <param name="datas"></param>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbSystem.Update(System.Object)">
+            <summary>
+            以事务的方式写入数据
+            </summary>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbSystem.Update(System.String,System.Object)">
+            <summary>
+            以事务的方式写入数据
+            </summary>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbSystem.Write(System.Object)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbSystem.Write(System.String,System.Object)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:NRails.Store.Rdb.RdbSystem.DataInserted">
+            <summary>
+            当有数据插入时引发
+            </summary>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbSystem.OnDataInserted(NRails.Store.Rdb.RdbTableSet)">
+            <summary>
+            引发DataInserted事件
+            </summary>
+        </member>
+        <member name="E:NRails.Store.Rdb.RdbSystem.DataUpdated">
+            <summary>
+            当有数据更新时引发
+            </summary>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbSystem.OnDataUpdated(NRails.Store.Rdb.RdbTableSet)">
+            <summary>
+            引发DataUpdated事件
+            </summary>
+        </member>
+        <member name="E:NRails.Store.Rdb.RdbSystem.DataDeleted">
+            <summary>
+            当数据被删除时引发
+            </summary>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbSystem.OnDataDeleted(NRails.Store.Rdb.RdbTableSet)">
+            <summary>
+            引发DataDeleted事件
+            </summary>
+        </member>
+        <member name="F:NRails.Store.Rdb.RdbReader`1._isAlive">
+            <summary>
+            在调用Dispose()函数或者析构函数时，该值会被设置为0
+            </summary>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbReader`1.Dispose">
+            <summary>
+            释放所占用的资源
+            </summary>
+        </member>
+        <member name="P:NRails.Store.Rdb.RdbReader`1.IsDisposed">
+            <summary>
+            获取该对象是否已经被释放
+            </summary>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbReader`1.OrderBy``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Boolean)">
+            <summary>
+            排序
+            </summary>
+            <typeparam name="TF"></typeparam>
+            <param name="orderBySelector"></param>
+            <param name="desc">true=倒序排列</param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbReader`1.OrderBy(System.String,System.Boolean)">
+            <summary>
+            排序
+            </summary>
+            <typeparam name="TF"></typeparam>
+            <param name="orderBySelector"></param>
+            <param name="desc">true=倒序排列</param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbReader`1.OrderBy(System.String)">
+            <summary>
+            排序
+            </summary>
+            <typeparam name="TF"></typeparam>
+            <param name="orderBySelector"></param>
+            <param name="desc">true=倒序排列</param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbReader`1.Skip(System.Int64)">
+            <summary>
+            跳过skip条记录进行读取
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbReader`1.Skip(System.Int64,System.Int32)">
+            <summary>
+            跳过skip条记录读取limit条记录
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbReader`1.LongCount">
+            <summary>
+            获取记录总数
+            </summary>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbReader`1.Count">
+            <summary>
+            获取记录总数
+            </summary>
+        </member>
+        <member name="M:NRails.Store.Rdb.RdbUpdator`1.ClearSet">
+            <summary>
+            清空之前所调用的Set方法设置的字段信息
+            </summary>
+        </member>
+        <member name="T:NRails.Store.Rdb.RdbField">
+            <summary>
+            表示一个表结构
+            </summary>
+        </member>
+        <member name="F:NRails.Store.Rdb.RdbField.IsPrimary">
+            <summary>
+            true表示该列是Id列
+            </summary>
+        </member>
+        <member name="F:NRails.Store.Rdb.RdbField.IsAutoincress">
+            <summary>
+            true表示该字段是自增字段,只有long型的主键才支持此功能
+            </summary>
+        </member>
+        <member name="F:NRails.Store.Rdb.RdbField.IsObject">
+            <summary>
+            true=该字段是一个对象字段，需要被序列化成字节序列进行存储
+            </summary>
+        </member>
+        <member name="F:NRails.Store.Rdb.RdbField.IsEnum">
+            <summary>
+            true=该字段是一个枚举
+            </summary>
+        </member>
+        <member name="F:NRails.Store.Rdb.RdbField.IndexOrder">
+            <summary>
+            多个字段组成复合索引时用于指定字段顺序
+            </summary>
+        </member>
+        <member name="F:NRails.Store.Rdb.RdbField.IsNewColumn">
+            <summary>
+            true=此字段在打开数据库的时候在数据库中并不存在
+            </summary>
+        </member>
+        <member name="T:NRails.Store.Rdb.RdbFieldAttribute">
+            <summary>
+            表示表结构中不应该包含这个字段
+            </summary>
+        </member>
+        <member name="F:NRails.Store.Rdb.RdbFieldAttribute.Ignore">
+            <summary>
+            true=检查表结构时忽略这个字段
+            </summary>
+        </member>
+        <member name="F:NRails.Store.Rdb.RdbFieldAttribute.IndexName">
+            <summary>
+            索引名称，设置为null表示不建立索引，设置为一个名称代表建立索引，如果多个字段设置了相同的索引名称，则这些字段会被组合成一个多字段索引
+            </summary>
+        </member>
+        <member name="F:NRails.Store.Rdb.RdbFieldAttribute.Unique">
+            <summary>
+            只有在设置了IndexName之后才有效，true表示索引是唯一索引
+            </summary>
+        </member>
+        <member name="F:NRails.Store.Rdb.RdbFieldAttribute.IndexOrder">
+            <summary>
+            多个字段组成复合索引时用于指定字段顺序
+            </summary>
+        </member>
+        <member name="F:NRails.Store.Rdb.RdbFieldAttribute.Length">
+            <summary>
+            指定字符串长度
+            </summary>
+        </member>
+        <member name="F:NRails.Store.Rdb.RdbFieldAttribute.Primary">
+            <summary>
+            指定该字段是主键
+            </summary>
+        </member>
+        <member name="F:NRails.Store.Rdb.RdbFieldAttribute.PrimaryAutoIncress">
+            <summary>
+            指定该字段是主键，并且具备自增功能，只有long型的字段才允许应用此属性
+            </summary>
+        </member>
+        <member name="F:NRails.Store.Rdb.RdbFieldAttribute.IgnoreAtt">
+            <summary>
+            指示字段应该被忽略的默认属性
+            </summary>
+        </member>
+        <member name="F:NRails.Store.Rdb.RdbFieldAttribute.Default">
+            <summary>
+            指示字段应该被作为普通字段的默认属性
+            </summary>
+        </member>
+        <member name="T:NRails.Store.Rdb.RdbIndexAttribute">
+            <summary>
+            指示该字段需要建立索引
+            </summary>
+        </member>
+        <member name="T:NRails.Store.Rdb.RdbPrimaryAttribute">
+            <summary>
+            指示该字段是一个主键
+            </summary>
+        </member>
+        <member name="T:NRails.Store.Rdb.RdbPrimaryAutoIncressAttribute">
+            <summary>
+            指示该字段是一个自增主键
+            </summary>
+        </member>
+        <member name="T:NRails.Store.Rdb.RdbIndex">
+            <summary>
+            表示一个表结构
+            </summary>
+        </member>
+        <member name="T:NRails.Store.Rdb.TableSchema">
+            <summary>
+            表示一个表结构
+            </summary>
+        </member>
+        <member name="F:NRails.Store.Rdb.TableSchema.Fields">
+            <summary>
+            所有字段信息（包含主键）
+            </summary>
+        </member>
+        <member name="F:NRails.Store.Rdb.TableSchema.IdField">
+            <summary>
+            Id自增字段
+            </summary>
+        </member>
+        <member name="F:NRails.Store.Rdb.TableSchema.SchemaType">
+            <summary>
+            映射的实体类型
+            </summary>
+        </member>
+        <member name="F:NRails.Store.Rdb.TableSchema.idbase">
+            <summary>
+            long型id的基础值
+            </summary>
+        </member>
+        <member name="T:NRails.Store.Rdb.RdbTableSet">
+            <summary>
+            数据集
+            </summary>
+        </member>
+        <member name="F:NRails.Store.SqlBulkOperation.SqlIdentityColumn">
+            <summary>The SQL Identity column.</summary>
+        </member>
+        <member name="F:NRails.Store.SqlBulkOperation.SqlPrimaryKey">
+            <summary>The SQL primary key.</summary>
+        </member>
+        <member name="F:NRails.Store.SqlBulkOperation.SqlSelectInto">
+            <summary>The SQL select into.</summary>
+        </member>
+        <member name="F:NRails.Store.SqlBulkOperation.SqlDropTable">
+            <summary>The SQL drop table.</summary>
+        </member>
+        <member name="F:NRails.Store.SqlBulkOperation.SqlActionUpdate">
+            <summary>The SQL action update.</summary>
+        </member>
+        <member name="F:NRails.Store.SqlBulkOperation.SqlActionDelete">
+            <summary>The SQL action delete.</summary>
+        </member>
+        <member name="F:NRails.Store.SqlBulkOperation.SqlActionInsert">
+            <summary>The SQL action insert.</summary>
+        </member>
+        <member name="F:NRails.Store.SqlBulkOperation.SqlGetTableColumn">
+            <summary>The SQL get table column.</summary>
+        </member>
+        <member name="F:NRails.Store.SqlBulkOperation.SqlBatchOperation">
+            <summary>The SQL Batch operation with where clause.</summary>
+        </member>
+        <member name="F:NRails.Store.SqlBulkOperation.SqlBatchOperationAnd">
+            <summary>The SQL Batch operation with and clause.</summary>
+        </member>
+        <member name="M:NRails.Store.SqlBulkOperation.AddCustomMapping">
+            <summary>
+                Adds custom temporary columns if batch size is specified.
+            </summary>
+        </member>
+        <member name="M:NRails.Store.SqlBulkOperation.EnsureIdentityKeyIsSet">
+            <summary>
+                Ensures that identity key is set if not specified.
+            </summary>
+        </member>
+        <member name="M:NRails.Store.SqlBulkOperation.EnsurePrimaryKeyIsSet">
+            <summary>
+                Ensures that primary key is set if not specified.
+            </summary>
+        </member>
+        <member name="M:NRails.Store.SqlBulkOperation.EnsureTransaction">
+            <summary>
+                Ensures a transaction is used if none is specified.
+            </summary>
+        </member>
+        <member name="M:NRails.Store.SqlBulkOperation.IsValidBulkOperation">
+            <summary>
+                Check if the bulk operation is valid
+            </summary>
+            <returns>.</returns>
+        </member>
+        <member name="M:NRails.Store.SqlBulkOperation.RemoveCustomMapping">
+            <summary>
+                Removes custom temporary column if batch size is specified.
+            </summary>
+        </member>
+        <member name="M:NRails.Store.SqlBulkOperation.SetCommonSetting">
+            <summary>
+                Sets common setting.
+            </summary>
+        </member>
+        <member name="M:NRails.Store.SqlBulkOperation.SetInternalDataSource">
+            <summary>
+                Sets internal data source.
+            </summary>
+        </member>
+        <member name="M:NRails.Store.SqlBulkOperation.SetInternalDataSourceObjectMapping">
+            <summary>
+                Sets internal data source object mapping.
+            </summary>
+        </member>
+        <member name="M:NRails.Store.SqlBulkOperation.SetSqlBulkDeleteAction">
+            <summary>
+                Sets SQL bulk delete action.
+            </summary>
+        </member>
+        <member name="M:NRails.Store.SqlBulkOperation.SetSqlBulkUpdateAction">
+            <summary>
+                Sets SQL bulk update action.
+            </summary>
+        </member>
+        <member name="M:NRails.Store.SqlBulkOperation.SetSqlCreateTemporaryTableFromMapping">
+            <summary>
+                Sets SQL create temporary table from mapping.
+            </summary>
+        </member>
+        <member name="M:NRails.Store.SqlBulkOperation.SetSqlDropTemporaryTable">
+            <summary>
+                Sets SQL drop temporary table.
+            </summary>
+        </member>
+        <member name="M:NRails.Store.SqlBulkOperation.SetSqlBulkMergeAction">
+            <summary>
+                Sets SQL bulk merge action.
+            </summary>
+        </member>
+        <member name="M:NRails.Store.SqlBulkOperation.BulkDelete">
+            <summary>
+                Bulk delete.
+            </summary>
+            <exception cref="T:System.Exception">Thrown when an exception error condition occurs.</exception>
+        </member>
+        <member name="M:NRails.Store.SqlBulkOperation.BulkInsert">
+            <summary>
+                Bulk insert.
+            </summary>
+        </member>
+        <member name="M:NRails.Store.SqlBulkOperation.BulkMerge">
+            <summary>
+                Bulk merge.
+            </summary>
+            <exception cref="T:System.Exception">Thrown when an exception error condition occurs.</exception>
+        </member>
+        <member name="M:NRails.Store.SqlBulkOperation.BulkUpdate">
+            <summary>
+                Bulk update.
+            </summary>
+            <exception cref="T:System.Exception">Thrown when an exception error condition occurs.</exception>
+        </member>
+        <member name="M:NRails.Store.SqlBulkOperation.BulkUpsert">
+            <summary>
+                Bulk upsert.
+            </summary>
+        </member>
+        <member name="M:NRails.Store.SqlBulkOperation.CreateTemporaryTable">
+            <summary>
+                Creates temporary table.
+            </summary>
+        </member>
+        <member name="M:NRails.Store.SqlBulkOperation.DeleteTemporaryTable">
+            <summary>
+                Deletes the temporary table.
+            </summary>
+        </member>
+        <member name="M:NRails.Store.SqlBulkOperation.ExecuteBulkAction">
+            <summary>
+                Executes the bulk action.
+            </summary>
+        </member>
+        <member name="M:NRails.Store.SqlBulkOperation.ExecuteBulkAction2">
+            <summary>
+                Executes the bulk action 2 operation.
+            </summary>
+        </member>
+        <member name="M:NRails.Store.SqlBulkOperation.GetTableColumn">
+            <summary>
+                Gets table column.
+            </summary>
+            <returns>The table column.</returns>
+        </member>
+        <member name="M:NRails.Store.SqlBulkOperation.WriteToServer(System.Boolean)">
+            <summary>
+                Writes to server.
+            </summary>
+            <param name="overrideDestinationTable">(Optional) the override destination table.</param>
+        </member>
+        <member name="F:NRails.Store.SqlBulkOperation.DataRowState">
+            <summary>State of the data row.</summary>
+        </member>
+        <member name="F:NRails.Store.SqlBulkOperation.DataSource">
+            <summary>The data source.</summary>
+        </member>
+        <member name="F:NRails.Store.SqlBulkOperation.IdentityColumn">
+            <summary>The identity column.</summary>
+        </member>
+        <member name="F:NRails.Store.SqlBulkOperation.InternalDataSource">
+            <summary>The internal data source.</summary>
+        </member>
+        <member name="F:NRails.Store.SqlBulkOperation.IsCustomTransaction">
+            <summary>true if this object is custom transaction.</summary>
+        </member>
+        <member name="F:NRails.Store.SqlBulkOperation.ObjectMapping">
+            <summary>The object mapping.</summary>
+        </member>
+        <member name="F:NRails.Store.SqlBulkOperation.PrimaryKeys">
+            <summary>The primary keys.</summary>
+        </member>
+        <member name="F:NRails.Store.SqlBulkOperation.SqlBulkAction">
+            <summary>The SQL bulk action.</summary>
+        </member>
+        <member name="F:NRails.Store.SqlBulkOperation.SqlBulkAction2">
+            <summary>The second SQL bulk action.</summary>
+        </member>
+        <member name="F:NRails.Store.SqlBulkOperation.SqlBulkCopy">
+            <summary>The SQL bulk copy.</summary>
+        </member>
+        <member name="F:NRails.Store.SqlBulkOperation.SqlConnection">
+            <summary>The SQL connection.</summary>
+        </member>
+        <member name="F:NRails.Store.SqlBulkOperation.SqlCreateTemporaryTableAction">
+            <summary>The SQL create temporary table action.</summary>
+        </member>
+        <member name="F:NRails.Store.SqlBulkOperation.SqlDropTableAction">
+            <summary>The SQL drop table action.</summary>
+        </member>
+        <member name="F:NRails.Store.SqlBulkOperation.SqlTransaction">
+            <summary>The SQL transaction.</summary>
+        </member>
+        <member name="F:NRails.Store.SqlBulkOperation.TemporaryColumnName">
+            <summary>Name of the temporary column.</summary>
+        </member>
+        <member name="F:NRails.Store.SqlBulkOperation.TemporaryTableName">
+            <summary>Name of the temporary table.</summary>
+        </member>
+        <member name="P:NRails.Store.SqlBulkOperation.MappingList">
+            <summary>Gets a list of mappings.</summary>
+            <value>A List of mappings.</value>
+        </member>
+        <member name="T:NRails.Store.Properties.Resources">
+            <summary>
+              一个强类型的资源类，用于查找本地化的字符串等。
+            </summary>
+        </member>
+        <member name="P:NRails.Store.Properties.Resources.ResourceManager">
+            <summary>
+              返回此类使用的缓存的 ResourceManager 实例。
+            </summary>
+        </member>
+        <member name="P:NRails.Store.Properties.Resources.Culture">
+            <summary>
+              使用此强类型资源类，为所有资源查找
+              重写当前线程的 CurrentUICulture 属性。
+            </summary>
+        </member>
+        <member name="P:NRails.Store.Properties.Resources.indexSearchSql">
+            <summary>
+              查找类似 SELECT   
+               TableId=O.[object_id],  
+               TableName=O.Name,  
+               IndexId=ISNULL(KC.[object_id],IDX.index_id),  
+               IndexName=IDX.Name,  
+               IndexType=ISNULL(KC.type_desc,&apos;Index&apos;),  
+               Index_Column_id=IDXC.index_column_id,  
+               ColumnID=C.Column_id,  
+               ColumnName=C.Name,  
+               Sort=CASE INDEXKEY_PROPERTY(IDXC.[object_id],IDXC.index_id,IDXC.index_column_id,&apos;IsDescending&apos;)  
+                   WHEN 1 THEN &apos;DESC&apos; WHEN 0 THEN &apos;ASC&apos; ELSE &apos;&apos; END,  
+               PrimaryKey=CASE WHEN IDX.is_primary_key=1 THEN N&apos;√&apos;E [字符串的其余部分被截断]&quot;; 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:NRails.Store.Properties.Resources.SqliteLevelDataSchema">
+            <summary>
+              查找 System.Byte[] 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="T:NRails.Store.SqliteLevelData">
+            <summary>
+            Sqlite存储格式的层级数据结构,该类型是线程不安全的
+            </summary>
+        </member>
+        <member name="F:NRails.Store.SqliteLevelData.LEVELCOUNT">
+            <summary>
+            最大层级数
+            </summary>
+        </member>
+        <member name="F:NRails.Store.SqliteLevelData.FileName">
+            <summary>
+            文件名
+            </summary>
+        </member>
+        <member name="F:NRails.Store.SqliteLevelData.caches">
+            <summary>
+            未写入存储区的缓存数据
+            </summary>
+        </member>
+        <member name="F:NRails.Store.SqliteLevelData.MaxCacheSize">
+            <summary>
+            设置允许缓存的最大字节数,默认为1M
+            </summary>
+        </member>
+        <member name="F:NRails.Store.SqliteLevelData._isAlive">
+            <summary>
+            当调用Dispose()或者析构函数[~SqliteLevelData()]时，该值会被设置为0
+            </summary>
+        </member>
+        <member name="M:NRails.Store.SqliteLevelData.Dispose(System.Boolean)">
+            <summary>
+            释放所占用的资源
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:NRails.Store.SqliteLevelData.Finalize">
+            <summary>
+            析构函数
+            </summary>
+        </member>
+        <member name="M:NRails.Store.SqliteLevelData.Dispose">
+            <summary>
+            释放所占用的资源
+            </summary>
+        </member>
+        <member name="M:NRails.Store.SqliteLevelData.ValidateDispose(System.Boolean)">
+            <summary>
+            验证是否已经释放对象
+            </summary>
+            <param name="exception">true=如果对象已经释放，那么抛出异常</param>
+            <returns></returns>
+        </member>
+        <member name="P:NRails.Store.SqliteLevelData.IsDisposed">
+            <summary>
+            获取该对象是否已经被释放
+            </summary>
+        </member>
+        <member name="M:NRails.Store.SqliteLevelData.#ctor(System.String,System.Boolean)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="fileName"></param>
+            <param name="canCreate"></param>
+        </member>
+        <member name="M:NRails.Store.SqliteLevelData.GetCellIndex(System.String)">
+            <summary>
+            计算地图文件的标识
+            </summary>
+            <param name="cellName">文件名</param>
+            <returns>十进制的长整型数</returns>
+        </member>
+        <member name="M:NRails.Store.SqliteLevelData.GetCellName(System.Int64,System.Int32)">
+            <summary>
+            根据地图文件标识得到文件名
+            </summary>
+        </member>
+        <member name="M:NRails.Store.SqliteLevelData.WriteCell(System.Int32,System.Int64,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            以不安全的形式写入数据
+            </summary>
+            <param name="level"></param>
+            <param name="id"></param>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="len"></param>
+        </member>
+        <member name="M:NRails.Store.SqliteLevelData.Flush">
+            <summary>
+            以不安全的形式写入数据到文件
+            </summary>
+        </member>
+        <member name="M:NRails.Store.SqliteLevelData.FlushCellInfos(System.Int32)">
+            <summary>
+            将制定的层级数据刷新到存储区，该方法会根据层级数据的ModifredFlag来判定是否需要执行刷新操作
+            </summary>
+            <param name="level"></param>
+        </member>
+        <member name="M:NRails.Store.SqliteLevelData.ReadCell(System.Int32,System.Int64)">
+            <summary>
+            读取数据
+            </summary>
+            <param name="level"></param>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Store.SqliteLevelData.IsExists(System.Int32,System.Int64)">
+            <summary>
+            返回给定ID的数据是否存在
+            </summary>
+            <param name="level"></param>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Store.SqliteLevelData.GetCellInfo(System.Int32,System.Int64)">
+            <summary>
+            读取数据信息
+            </summary>
+            <param name="level"></param>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Store.SqliteLevelData.GetCellInfoAt(System.Int32,System.Int32)">
+            <summary>
+            读取给定层级的第index个CellInfo
+            </summary>
+            <param name="level"></param>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Store.SqliteLevelData.GetLevelCount(System.Int32)">
+            <summary>
+            读取给定层级数据的个数
+            </summary>
+            <param name="level"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Store.SqliteLevelData.WriteCell(System.String,System.Byte[])">
+            <summary>
+            添加一个网格单元到缓冲区，但不执行写入到存储区的操作
+            </summary>
+        </member>
+        <member name="M:NRails.Store.SqliteLevelData.WriteCell(System.Int32,System.Int32,System.Int32,System.Byte[])">
+            <summary>
+            添加一个网格单元到缓冲区，但不执行写入到存储区的操作,直到缓冲区满了之后，进行一次存储区写入操作
+            </summary>
+        </member>
+        <member name="M:NRails.Store.SqliteLevelData.WriteCell(System.Int32,System.Int32,System.Int32,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="level"></param>
+            <param name="row"></param>
+            <param name="col"></param>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="len"></param>
+        </member>
+        <member name="M:NRails.Store.SqliteLevelData.ReadToBitmap(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="tileName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Store.SqliteLevelData.ReadCell(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="level"></param>
+            <param name="row"></param>
+            <param name="column"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NRails.Store.TileCache">
+            <summary>
+            碎片缓存
+            </summary>
+        </member>
+        <member name="F:NRails.Store.TileCache.Level">
+            <summary>
+            层级
+            </summary>
+        </member>
+        <member name="F:NRails.Store.TileCache.ModifredFlag">
+            <summary>
+            标示该集合是否已经被更改
+            </summary>
+        </member>
+        <member name="M:NRails.Store.TileCache.CalcNeareastIndex(System.Int64,System.Int32@,System.Int32@)">
+            <summary>
+            根据传入的有序数组获取目标值最相近的两个位置索引，如果相等则返回的两个索引相等
+            </summary>
+            <param name="array">源数组</param>
+            <param name="target_">目标数字</param>
+            <param name="index1">返回前一个索引</param>
+            <param name="index2">返回后一个索引</param>
+        </member>
+        <member name="M:NRails.Store.TileCache.Insert(NRails.Store.Tile)">
+            <summary>
+            将指定的地图碎片信息插入到合适的位置,如果覆盖了一个现有的碎片信息，则将被覆盖的碎片信息返回
+            </summary>
+            <param name="ti"></param>
+        </member>
+        <member name="M:NRails.Store.TileCache.GetCellIndex(System.String)">
+            <summary>
+            计算地图文件的标识
+            </summary>
+            <param name="cellName">文件名</param>
+            <returns>十进制的长整型数</returns>
+        </member>
+        <member name="M:NRails.Store.TileCache.GetCellName(System.Int64,System.Int32)">
+            <summary>
+            根据地图文件标识得到文件名
+            </summary>
+        </member>
+        <member name="P:NRails.Store.TileCache.CurSize">
+            <summary>
+            获取该碎片索引器被更改后的大小，以字节为单位
+            </summary>
+        </member>
+        <member name="P:NRails.Store.TileCache.Item(System.Int32)">
+            <summary>
+            获取第index个索引
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NRails.Store.Tile">
+            <summary>
+            一个临时的数据结构，用来存储地图碎片图片的索引号以及在地图数据包文件中的流位置
+            </summary>
+        </member>
+        <member name="F:NRails.Store.Tile.Id">
+            <summary>
+            ID 
+            </summary>
+        </member>
+        <member name="F:NRails.Store.Tile.Offset">
+            <summary>
+            字节偏移
+            </summary>
+        </member>
+        <member name="F:NRails.Store.Tile.Buffer">
+            <summary>
+            用于存储临时缓冲区，当该字段有数据时，表示数据还未刷新到存储区，必须等到提交时才被刷新
+            </summary>
+        </member>
+        <member name="M:SqlBulkCopyExtension.BulkMerge(System.Data.SqlClient.SqlBulkCopy,System.Data.DataRow[])">
+            <summary>
+                A SqlBulkCopy extension method that bulk merge.
+            </summary>
+            <param name="obj">The obj to act on.</param>
+            <param name="drs">The drs.</param>
+            <example>
+                <code>
+                      using System.Collections.Generic;
+                      using System.Data;
+                      using System.Data.SqlClient;
+                      using System.Linq;
+                      using Microsoft.VisualStudio.TestTools.UnitTesting;
+                      using Z.ExtensionMethods;
+                      
+                      namespace ExtensionMethods.Examples
+                      {
+                          [TestClass]
+                          public class System_Data_SqlClient_SqlBulkCopy_BulkMerge
+                          {
+                              [TestMethod]
+                              public void BulkMerge()
+                              {
+                                  // Delete from DataTable
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                  DataTable dtDataTableTest = System_Data_SqlClient_SqlBulkCopy_TestHelper.SelectValueMultiplyBy2();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.InsertToDataTable(dtDataTableTest, 100);
+                      
+                      
+                                  using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var copy = new SqlBulkCopy(conn))
+                                      {
+                                          foreach (DataColumn dc in dtDataTableTest.Columns)
+                                          {
+                                              copy.ColumnMappings.Add(dc.ColumnName, dc.ColumnName);
+                                          }
+                                          copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                          conn.Open();
+                      
+                                          // Examples
+                                          copy.BulkMerge(dtDataTableTest, new[] {&quot;ID1&quot;, &quot;ID2&quot;});
+                      
+                                          // Unit Test
+                                          Assert.AreEqual(200, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                          Assert.AreEqual(14850, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                      }
+                                  }
+                      
+                                  // Delete from DataRow[]
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                  DataTable dtDataRowTest = System_Data_SqlClient_SqlBulkCopy_TestHelper.SelectValueMultiplyBy2();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.InsertToDataTable(dtDataRowTest, 100);
+                      
+                                  using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var copy = new SqlBulkCopy(conn))
+                                      {
+                                          foreach (DataColumn dc in dtDataRowTest.Columns)
+                                          {
+                                              copy.ColumnMappings.Add(dc.ColumnName, dc.ColumnName);
+                                          }
+                                          copy.BatchSize = 11;
+                                          copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                          conn.Open();
+                      
+                                          // Examples
+                                          copy.BulkMerge(dtDataRowTest);
+                      
+                                          // Unit Test
+                                          Assert.AreEqual(200, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                          Assert.AreEqual(14850, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                      }
+                                  }
+                      
+                      
+                                  // Delete from IDataReader
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                      
+                                  using (var connReader = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var command = new SqlCommand(&quot;SELECT ID1, ID2, ValueBit, ValueInt * 2 AS ValueInt, ValueString FROM BulkCopyTest&quot;, connReader))
+                                      {
+                                          connReader.Open();
+                                          using (IDataReader reader = command.ExecuteReader())
+                                          {
+                                              using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                              {
+                                                  using (var copy = new SqlBulkCopy(conn))
+                                                  {
+                                                      foreach (DataColumn dc in dtDataRowTest.Columns)
+                                                      {
+                                                          copy.ColumnMappings.Add(dc.ColumnName, dc.ColumnName);
+                                                      }
+                                                      copy.BatchSize = 2;
+                                                      copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                                      conn.Open();
+                      
+                                                      // Examples
+                                                      copy.BulkMerge(reader);
+                      
+                                                      // Unit Test
+                                                      Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                                      Assert.AreEqual(9900, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                                  }
+                                              }
+                                          }
+                                      }
+                                  }
+                      
+                                  // Delete from Entities
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                  IEnumerable&lt;System_Data_SqlClient_SqlBulkCopy_TestHelper.TestEntity&gt; entities = System_Data_SqlClient_SqlBulkCopy_TestHelper.SelectEntitiesMultiplyBy2();
+                                  entities = System_Data_SqlClient_SqlBulkCopy_TestHelper.InsertToEntities(entities, 100);
+                      
+                                  using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var copy = new SqlBulkCopy(conn))
+                                      {
+                                          copy.ColumnMappings.Add(&quot;ID1&quot;, &quot;ID1&quot;);
+                                          copy.ColumnMappings.Add(&quot;ID2&quot;, &quot;ID2&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueBit&quot;, &quot;ValueBit&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueInt&quot;, &quot;ValueInt&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueString&quot;, &quot;ValueString&quot;);
+                      
+                                          copy.BatchSize = 36;
+                                          copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                          conn.Open();
+                      
+                                          // Examples
+                                          copy.BulkMerge(entities);
+                      
+                                          // Unit Test
+                                          Assert.AreEqual(200, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                          Assert.AreEqual(14850, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                      }
+                                  }
+                      
+                                  // Delete from Entities Array
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                  IEnumerable&lt;System_Data_SqlClient_SqlBulkCopy_TestHelper.TestEntity&gt; entitiesArray = System_Data_SqlClient_SqlBulkCopy_TestHelper.SelectEntitiesMultiplyBy2();
+                                  entitiesArray = System_Data_SqlClient_SqlBulkCopy_TestHelper.InsertToEntities(entitiesArray, 100);
+                      
+                                  using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var copy = new SqlBulkCopy(conn))
+                                      {
+                                          copy.ColumnMappings.Add(&quot;ID1&quot;, &quot;ID1&quot;);
+                                          copy.ColumnMappings.Add(&quot;ID2&quot;, &quot;ID2&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueBit&quot;, &quot;ValueBit&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueInt&quot;, &quot;ValueInt&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueString&quot;, &quot;ValueString&quot;);
+                      
+                                          copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                          conn.Open();
+                      
+                                          // Examples
+                                          copy.BulkMerge(entitiesArray.ToArray());
+                      
+                                          // Unit Test
+                                          Assert.AreEqual(200, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                          Assert.AreEqual(14850, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                      }
+                                  }
+                              }
+                          }
+                      }
+                </code>
+            </example>
+        </member>
+        <member name="M:SqlBulkCopyExtension.BulkMerge(System.Data.SqlClient.SqlBulkCopy,System.Data.DataRow[],System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+                A SqlBulkCopy extension method that bulk merge.
+            </summary>
+            <param name="obj">The obj to act on.</param>
+            <param name="drs">The drs.</param>
+            <param name="primaryKeyColumnNames">List of names of the primary key columns.</param>
+            <example>
+                <code>
+                      using System.Collections.Generic;
+                      using System.Data;
+                      using System.Data.SqlClient;
+                      using System.Linq;
+                      using Microsoft.VisualStudio.TestTools.UnitTesting;
+                      using Z.ExtensionMethods;
+                      
+                      namespace ExtensionMethods.Examples
+                      {
+                          [TestClass]
+                          public class System_Data_SqlClient_SqlBulkCopy_BulkMerge
+                          {
+                              [TestMethod]
+                              public void BulkMerge()
+                              {
+                                  // Delete from DataTable
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                  DataTable dtDataTableTest = System_Data_SqlClient_SqlBulkCopy_TestHelper.SelectValueMultiplyBy2();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.InsertToDataTable(dtDataTableTest, 100);
+                      
+                      
+                                  using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var copy = new SqlBulkCopy(conn))
+                                      {
+                                          foreach (DataColumn dc in dtDataTableTest.Columns)
+                                          {
+                                              copy.ColumnMappings.Add(dc.ColumnName, dc.ColumnName);
+                                          }
+                                          copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                          conn.Open();
+                      
+                                          // Examples
+                                          copy.BulkMerge(dtDataTableTest, new[] {&quot;ID1&quot;, &quot;ID2&quot;});
+                      
+                                          // Unit Test
+                                          Assert.AreEqual(200, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                          Assert.AreEqual(14850, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                      }
+                                  }
+                      
+                                  // Delete from DataRow[]
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                  DataTable dtDataRowTest = System_Data_SqlClient_SqlBulkCopy_TestHelper.SelectValueMultiplyBy2();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.InsertToDataTable(dtDataRowTest, 100);
+                      
+                                  using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var copy = new SqlBulkCopy(conn))
+                                      {
+                                          foreach (DataColumn dc in dtDataRowTest.Columns)
+                                          {
+                                              copy.ColumnMappings.Add(dc.ColumnName, dc.ColumnName);
+                                          }
+                                          copy.BatchSize = 11;
+                                          copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                          conn.Open();
+                      
+                                          // Examples
+                                          copy.BulkMerge(dtDataRowTest);
+                      
+                                          // Unit Test
+                                          Assert.AreEqual(200, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                          Assert.AreEqual(14850, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                      }
+                                  }
+                      
+                      
+                                  // Delete from IDataReader
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                      
+                                  using (var connReader = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var command = new SqlCommand(&quot;SELECT ID1, ID2, ValueBit, ValueInt * 2 AS ValueInt, ValueString FROM BulkCopyTest&quot;, connReader))
+                                      {
+                                          connReader.Open();
+                                          using (IDataReader reader = command.ExecuteReader())
+                                          {
+                                              using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                              {
+                                                  using (var copy = new SqlBulkCopy(conn))
+                                                  {
+                                                      foreach (DataColumn dc in dtDataRowTest.Columns)
+                                                      {
+                                                          copy.ColumnMappings.Add(dc.ColumnName, dc.ColumnName);
+                                                      }
+                                                      copy.BatchSize = 2;
+                                                      copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                                      conn.Open();
+                      
+                                                      // Examples
+                                                      copy.BulkMerge(reader);
+                      
+                                                      // Unit Test
+                                                      Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                                      Assert.AreEqual(9900, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                                  }
+                                              }
+                                          }
+                                      }
+                                  }
+                      
+                                  // Delete from Entities
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                  IEnumerable&lt;System_Data_SqlClient_SqlBulkCopy_TestHelper.TestEntity&gt; entities = System_Data_SqlClient_SqlBulkCopy_TestHelper.SelectEntitiesMultiplyBy2();
+                                  entities = System_Data_SqlClient_SqlBulkCopy_TestHelper.InsertToEntities(entities, 100);
+                      
+                                  using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var copy = new SqlBulkCopy(conn))
+                                      {
+                                          copy.ColumnMappings.Add(&quot;ID1&quot;, &quot;ID1&quot;);
+                                          copy.ColumnMappings.Add(&quot;ID2&quot;, &quot;ID2&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueBit&quot;, &quot;ValueBit&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueInt&quot;, &quot;ValueInt&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueString&quot;, &quot;ValueString&quot;);
+                      
+                                          copy.BatchSize = 36;
+                                          copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                          conn.Open();
+                      
+                                          // Examples
+                                          copy.BulkMerge(entities);
+                      
+                                          // Unit Test
+                                          Assert.AreEqual(200, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                          Assert.AreEqual(14850, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                      }
+                                  }
+                      
+                                  // Delete from Entities Array
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                  IEnumerable&lt;System_Data_SqlClient_SqlBulkCopy_TestHelper.TestEntity&gt; entitiesArray = System_Data_SqlClient_SqlBulkCopy_TestHelper.SelectEntitiesMultiplyBy2();
+                                  entitiesArray = System_Data_SqlClient_SqlBulkCopy_TestHelper.InsertToEntities(entitiesArray, 100);
+                      
+                                  using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var copy = new SqlBulkCopy(conn))
+                                      {
+                                          copy.ColumnMappings.Add(&quot;ID1&quot;, &quot;ID1&quot;);
+                                          copy.ColumnMappings.Add(&quot;ID2&quot;, &quot;ID2&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueBit&quot;, &quot;ValueBit&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueInt&quot;, &quot;ValueInt&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueString&quot;, &quot;ValueString&quot;);
+                      
+                                          copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                          conn.Open();
+                      
+                                          // Examples
+                                          copy.BulkMerge(entitiesArray.ToArray());
+                      
+                                          // Unit Test
+                                          Assert.AreEqual(200, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                          Assert.AreEqual(14850, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                      }
+                                  }
+                              }
+                          }
+                      }
+                </code>
+            </example>
+        </member>
+        <member name="M:SqlBulkCopyExtension.BulkMerge(System.Data.SqlClient.SqlBulkCopy,System.Data.DataTable)">
+            <summary>
+                A SqlBulkCopy extension method that bulk merge.
+            </summary>
+            <param name="obj">The obj to act on.</param>
+            <param name="dt">The dt.</param>
+            <example>
+                <code>
+                      using System.Collections.Generic;
+                      using System.Data;
+                      using System.Data.SqlClient;
+                      using System.Linq;
+                      using Microsoft.VisualStudio.TestTools.UnitTesting;
+                      using Z.ExtensionMethods;
+                      
+                      namespace ExtensionMethods.Examples
+                      {
+                          [TestClass]
+                          public class System_Data_SqlClient_SqlBulkCopy_BulkMerge
+                          {
+                              [TestMethod]
+                              public void BulkMerge()
+                              {
+                                  // Delete from DataTable
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                  DataTable dtDataTableTest = System_Data_SqlClient_SqlBulkCopy_TestHelper.SelectValueMultiplyBy2();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.InsertToDataTable(dtDataTableTest, 100);
+                      
+                      
+                                  using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var copy = new SqlBulkCopy(conn))
+                                      {
+                                          foreach (DataColumn dc in dtDataTableTest.Columns)
+                                          {
+                                              copy.ColumnMappings.Add(dc.ColumnName, dc.ColumnName);
+                                          }
+                                          copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                          conn.Open();
+                      
+                                          // Examples
+                                          copy.BulkMerge(dtDataTableTest, new[] {&quot;ID1&quot;, &quot;ID2&quot;});
+                      
+                                          // Unit Test
+                                          Assert.AreEqual(200, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                          Assert.AreEqual(14850, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                      }
+                                  }
+                      
+                                  // Delete from DataRow[]
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                  DataTable dtDataRowTest = System_Data_SqlClient_SqlBulkCopy_TestHelper.SelectValueMultiplyBy2();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.InsertToDataTable(dtDataRowTest, 100);
+                      
+                                  using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var copy = new SqlBulkCopy(conn))
+                                      {
+                                          foreach (DataColumn dc in dtDataRowTest.Columns)
+                                          {
+                                              copy.ColumnMappings.Add(dc.ColumnName, dc.ColumnName);
+                                          }
+                                          copy.BatchSize = 11;
+                                          copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                          conn.Open();
+                      
+                                          // Examples
+                                          copy.BulkMerge(dtDataRowTest);
+                      
+                                          // Unit Test
+                                          Assert.AreEqual(200, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                          Assert.AreEqual(14850, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                      }
+                                  }
+                      
+                      
+                                  // Delete from IDataReader
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                      
+                                  using (var connReader = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var command = new SqlCommand(&quot;SELECT ID1, ID2, ValueBit, ValueInt * 2 AS ValueInt, ValueString FROM BulkCopyTest&quot;, connReader))
+                                      {
+                                          connReader.Open();
+                                          using (IDataReader reader = command.ExecuteReader())
+                                          {
+                                              using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                              {
+                                                  using (var copy = new SqlBulkCopy(conn))
+                                                  {
+                                                      foreach (DataColumn dc in dtDataRowTest.Columns)
+                                                      {
+                                                          copy.ColumnMappings.Add(dc.ColumnName, dc.ColumnName);
+                                                      }
+                                                      copy.BatchSize = 2;
+                                                      copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                                      conn.Open();
+                      
+                                                      // Examples
+                                                      copy.BulkMerge(reader);
+                      
+                                                      // Unit Test
+                                                      Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                                      Assert.AreEqual(9900, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                                  }
+                                              }
+                                          }
+                                      }
+                                  }
+                      
+                                  // Delete from Entities
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                  IEnumerable&lt;System_Data_SqlClient_SqlBulkCopy_TestHelper.TestEntity&gt; entities = System_Data_SqlClient_SqlBulkCopy_TestHelper.SelectEntitiesMultiplyBy2();
+                                  entities = System_Data_SqlClient_SqlBulkCopy_TestHelper.InsertToEntities(entities, 100);
+                      
+                                  using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var copy = new SqlBulkCopy(conn))
+                                      {
+                                          copy.ColumnMappings.Add(&quot;ID1&quot;, &quot;ID1&quot;);
+                                          copy.ColumnMappings.Add(&quot;ID2&quot;, &quot;ID2&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueBit&quot;, &quot;ValueBit&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueInt&quot;, &quot;ValueInt&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueString&quot;, &quot;ValueString&quot;);
+                      
+                                          copy.BatchSize = 36;
+                                          copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                          conn.Open();
+                      
+                                          // Examples
+                                          copy.BulkMerge(entities);
+                      
+                                          // Unit Test
+                                          Assert.AreEqual(200, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                          Assert.AreEqual(14850, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                      }
+                                  }
+                      
+                                  // Delete from Entities Array
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                  IEnumerable&lt;System_Data_SqlClient_SqlBulkCopy_TestHelper.TestEntity&gt; entitiesArray = System_Data_SqlClient_SqlBulkCopy_TestHelper.SelectEntitiesMultiplyBy2();
+                                  entitiesArray = System_Data_SqlClient_SqlBulkCopy_TestHelper.InsertToEntities(entitiesArray, 100);
+                      
+                                  using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var copy = new SqlBulkCopy(conn))
+                                      {
+                                          copy.ColumnMappings.Add(&quot;ID1&quot;, &quot;ID1&quot;);
+                                          copy.ColumnMappings.Add(&quot;ID2&quot;, &quot;ID2&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueBit&quot;, &quot;ValueBit&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueInt&quot;, &quot;ValueInt&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueString&quot;, &quot;ValueString&quot;);
+                      
+                                          copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                          conn.Open();
+                      
+                                          // Examples
+                                          copy.BulkMerge(entitiesArray.ToArray());
+                      
+                                          // Unit Test
+                                          Assert.AreEqual(200, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                          Assert.AreEqual(14850, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                      }
+                                  }
+                              }
+                          }
+                      }
+                </code>
+            </example>
+        </member>
+        <member name="M:SqlBulkCopyExtension.BulkMerge(System.Data.SqlClient.SqlBulkCopy,System.Data.DataTable,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+                A SqlBulkCopy extension method that bulk merge.
+            </summary>
+            <param name="obj">The obj to act on.</param>
+            <param name="dt">The dt.</param>
+            <param name="primaryKeyColumnNames">List of names of the primary key columns.</param>
+            <example>
+                <code>
+                      using System.Collections.Generic;
+                      using System.Data;
+                      using System.Data.SqlClient;
+                      using System.Linq;
+                      using Microsoft.VisualStudio.TestTools.UnitTesting;
+                      using Z.ExtensionMethods;
+                      
+                      namespace ExtensionMethods.Examples
+                      {
+                          [TestClass]
+                          public class System_Data_SqlClient_SqlBulkCopy_BulkMerge
+                          {
+                              [TestMethod]
+                              public void BulkMerge()
+                              {
+                                  // Delete from DataTable
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                  DataTable dtDataTableTest = System_Data_SqlClient_SqlBulkCopy_TestHelper.SelectValueMultiplyBy2();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.InsertToDataTable(dtDataTableTest, 100);
+                      
+                      
+                                  using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var copy = new SqlBulkCopy(conn))
+                                      {
+                                          foreach (DataColumn dc in dtDataTableTest.Columns)
+                                          {
+                                              copy.ColumnMappings.Add(dc.ColumnName, dc.ColumnName);
+                                          }
+                                          copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                          conn.Open();
+                      
+                                          // Examples
+                                          copy.BulkMerge(dtDataTableTest, new[] {&quot;ID1&quot;, &quot;ID2&quot;});
+                      
+                                          // Unit Test
+                                          Assert.AreEqual(200, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                          Assert.AreEqual(14850, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                      }
+                                  }
+                      
+                                  // Delete from DataRow[]
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                  DataTable dtDataRowTest = System_Data_SqlClient_SqlBulkCopy_TestHelper.SelectValueMultiplyBy2();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.InsertToDataTable(dtDataRowTest, 100);
+                      
+                                  using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var copy = new SqlBulkCopy(conn))
+                                      {
+                                          foreach (DataColumn dc in dtDataRowTest.Columns)
+                                          {
+                                              copy.ColumnMappings.Add(dc.ColumnName, dc.ColumnName);
+                                          }
+                                          copy.BatchSize = 11;
+                                          copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                          conn.Open();
+                      
+                                          // Examples
+                                          copy.BulkMerge(dtDataRowTest);
+                      
+                                          // Unit Test
+                                          Assert.AreEqual(200, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                          Assert.AreEqual(14850, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                      }
+                                  }
+                      
+                      
+                                  // Delete from IDataReader
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                      
+                                  using (var connReader = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var command = new SqlCommand(&quot;SELECT ID1, ID2, ValueBit, ValueInt * 2 AS ValueInt, ValueString FROM BulkCopyTest&quot;, connReader))
+                                      {
+                                          connReader.Open();
+                                          using (IDataReader reader = command.ExecuteReader())
+                                          {
+                                              using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                              {
+                                                  using (var copy = new SqlBulkCopy(conn))
+                                                  {
+                                                      foreach (DataColumn dc in dtDataRowTest.Columns)
+                                                      {
+                                                          copy.ColumnMappings.Add(dc.ColumnName, dc.ColumnName);
+                                                      }
+                                                      copy.BatchSize = 2;
+                                                      copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                                      conn.Open();
+                      
+                                                      // Examples
+                                                      copy.BulkMerge(reader);
+                      
+                                                      // Unit Test
+                                                      Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                                      Assert.AreEqual(9900, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                                  }
+                                              }
+                                          }
+                                      }
+                                  }
+                      
+                                  // Delete from Entities
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                  IEnumerable&lt;System_Data_SqlClient_SqlBulkCopy_TestHelper.TestEntity&gt; entities = System_Data_SqlClient_SqlBulkCopy_TestHelper.SelectEntitiesMultiplyBy2();
+                                  entities = System_Data_SqlClient_SqlBulkCopy_TestHelper.InsertToEntities(entities, 100);
+                      
+                                  using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var copy = new SqlBulkCopy(conn))
+                                      {
+                                          copy.ColumnMappings.Add(&quot;ID1&quot;, &quot;ID1&quot;);
+                                          copy.ColumnMappings.Add(&quot;ID2&quot;, &quot;ID2&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueBit&quot;, &quot;ValueBit&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueInt&quot;, &quot;ValueInt&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueString&quot;, &quot;ValueString&quot;);
+                      
+                                          copy.BatchSize = 36;
+                                          copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                          conn.Open();
+                      
+                                          // Examples
+                                          copy.BulkMerge(entities);
+                      
+                                          // Unit Test
+                                          Assert.AreEqual(200, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                          Assert.AreEqual(14850, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                      }
+                                  }
+                      
+                                  // Delete from Entities Array
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                  IEnumerable&lt;System_Data_SqlClient_SqlBulkCopy_TestHelper.TestEntity&gt; entitiesArray = System_Data_SqlClient_SqlBulkCopy_TestHelper.SelectEntitiesMultiplyBy2();
+                                  entitiesArray = System_Data_SqlClient_SqlBulkCopy_TestHelper.InsertToEntities(entitiesArray, 100);
+                      
+                                  using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var copy = new SqlBulkCopy(conn))
+                                      {
+                                          copy.ColumnMappings.Add(&quot;ID1&quot;, &quot;ID1&quot;);
+                                          copy.ColumnMappings.Add(&quot;ID2&quot;, &quot;ID2&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueBit&quot;, &quot;ValueBit&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueInt&quot;, &quot;ValueInt&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueString&quot;, &quot;ValueString&quot;);
+                      
+                                          copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                          conn.Open();
+                      
+                                          // Examples
+                                          copy.BulkMerge(entitiesArray.ToArray());
+                      
+                                          // Unit Test
+                                          Assert.AreEqual(200, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                          Assert.AreEqual(14850, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                      }
+                                  }
+                              }
+                          }
+                      }
+                </code>
+            </example>
+        </member>
+        <member name="M:SqlBulkCopyExtension.BulkMerge(System.Data.SqlClient.SqlBulkCopy,System.Data.DataTable,System.Data.DataRowState)">
+            <summary>
+                A SqlBulkCopy extension method that bulk merge.
+            </summary>
+            <param name="obj">The obj to act on.</param>
+            <param name="dt">The dt.</param>
+            <param name="state">The state.</param>
+            <example>
+                <code>
+                      using System.Collections.Generic;
+                      using System.Data;
+                      using System.Data.SqlClient;
+                      using System.Linq;
+                      using Microsoft.VisualStudio.TestTools.UnitTesting;
+                      using Z.ExtensionMethods;
+                      
+                      namespace ExtensionMethods.Examples
+                      {
+                          [TestClass]
+                          public class System_Data_SqlClient_SqlBulkCopy_BulkMerge
+                          {
+                              [TestMethod]
+                              public void BulkMerge()
+                              {
+                                  // Delete from DataTable
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                  DataTable dtDataTableTest = System_Data_SqlClient_SqlBulkCopy_TestHelper.SelectValueMultiplyBy2();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.InsertToDataTable(dtDataTableTest, 100);
+                      
+                      
+                                  using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var copy = new SqlBulkCopy(conn))
+                                      {
+                                          foreach (DataColumn dc in dtDataTableTest.Columns)
+                                          {
+                                              copy.ColumnMappings.Add(dc.ColumnName, dc.ColumnName);
+                                          }
+                                          copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                          conn.Open();
+                      
+                                          // Examples
+                                          copy.BulkMerge(dtDataTableTest, new[] {&quot;ID1&quot;, &quot;ID2&quot;});
+                      
+                                          // Unit Test
+                                          Assert.AreEqual(200, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                          Assert.AreEqual(14850, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                      }
+                                  }
+                      
+                                  // Delete from DataRow[]
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                  DataTable dtDataRowTest = System_Data_SqlClient_SqlBulkCopy_TestHelper.SelectValueMultiplyBy2();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.InsertToDataTable(dtDataRowTest, 100);
+                      
+                                  using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var copy = new SqlBulkCopy(conn))
+                                      {
+                                          foreach (DataColumn dc in dtDataRowTest.Columns)
+                                          {
+                                              copy.ColumnMappings.Add(dc.ColumnName, dc.ColumnName);
+                                          }
+                                          copy.BatchSize = 11;
+                                          copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                          conn.Open();
+                      
+                                          // Examples
+                                          copy.BulkMerge(dtDataRowTest);
+                      
+                                          // Unit Test
+                                          Assert.AreEqual(200, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                          Assert.AreEqual(14850, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                      }
+                                  }
+                      
+                      
+                                  // Delete from IDataReader
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                      
+                                  using (var connReader = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var command = new SqlCommand(&quot;SELECT ID1, ID2, ValueBit, ValueInt * 2 AS ValueInt, ValueString FROM BulkCopyTest&quot;, connReader))
+                                      {
+                                          connReader.Open();
+                                          using (IDataReader reader = command.ExecuteReader())
+                                          {
+                                              using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                              {
+                                                  using (var copy = new SqlBulkCopy(conn))
+                                                  {
+                                                      foreach (DataColumn dc in dtDataRowTest.Columns)
+                                                      {
+                                                          copy.ColumnMappings.Add(dc.ColumnName, dc.ColumnName);
+                                                      }
+                                                      copy.BatchSize = 2;
+                                                      copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                                      conn.Open();
+                      
+                                                      // Examples
+                                                      copy.BulkMerge(reader);
+                      
+                                                      // Unit Test
+                                                      Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                                      Assert.AreEqual(9900, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                                  }
+                                              }
+                                          }
+                                      }
+                                  }
+                      
+                                  // Delete from Entities
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                  IEnumerable&lt;System_Data_SqlClient_SqlBulkCopy_TestHelper.TestEntity&gt; entities = System_Data_SqlClient_SqlBulkCopy_TestHelper.SelectEntitiesMultiplyBy2();
+                                  entities = System_Data_SqlClient_SqlBulkCopy_TestHelper.InsertToEntities(entities, 100);
+                      
+                                  using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var copy = new SqlBulkCopy(conn))
+                                      {
+                                          copy.ColumnMappings.Add(&quot;ID1&quot;, &quot;ID1&quot;);
+                                          copy.ColumnMappings.Add(&quot;ID2&quot;, &quot;ID2&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueBit&quot;, &quot;ValueBit&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueInt&quot;, &quot;ValueInt&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueString&quot;, &quot;ValueString&quot;);
+                      
+                                          copy.BatchSize = 36;
+                                          copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                          conn.Open();
+                      
+                                          // Examples
+                                          copy.BulkMerge(entities);
+                      
+                                          // Unit Test
+                                          Assert.AreEqual(200, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                          Assert.AreEqual(14850, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                      }
+                                  }
+                      
+                                  // Delete from Entities Array
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                  IEnumerable&lt;System_Data_SqlClient_SqlBulkCopy_TestHelper.TestEntity&gt; entitiesArray = System_Data_SqlClient_SqlBulkCopy_TestHelper.SelectEntitiesMultiplyBy2();
+                                  entitiesArray = System_Data_SqlClient_SqlBulkCopy_TestHelper.InsertToEntities(entitiesArray, 100);
+                      
+                                  using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var copy = new SqlBulkCopy(conn))
+                                      {
+                                          copy.ColumnMappings.Add(&quot;ID1&quot;, &quot;ID1&quot;);
+                                          copy.ColumnMappings.Add(&quot;ID2&quot;, &quot;ID2&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueBit&quot;, &quot;ValueBit&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueInt&quot;, &quot;ValueInt&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueString&quot;, &quot;ValueString&quot;);
+                      
+                                          copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                          conn.Open();
+                      
+                                          // Examples
+                                          copy.BulkMerge(entitiesArray.ToArray());
+                      
+                                          // Unit Test
+                                          Assert.AreEqual(200, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                          Assert.AreEqual(14850, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                      }
+                                  }
+                              }
+                          }
+                      }
+                </code>
+            </example>
+        </member>
+        <member name="M:SqlBulkCopyExtension.BulkMerge(System.Data.SqlClient.SqlBulkCopy,System.Data.DataTable,System.Data.DataRowState,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+                A SqlBulkCopy extension method that bulk merge.
+            </summary>
+            <param name="obj">The obj to act on.</param>
+            <param name="dt">The dt.</param>
+            <param name="state">The state.</param>
+            <param name="primaryKeyColumnNames">List of names of the primary key columns.</param>
+            <example>
+                <code>
+                      using System.Collections.Generic;
+                      using System.Data;
+                      using System.Data.SqlClient;
+                      using System.Linq;
+                      using Microsoft.VisualStudio.TestTools.UnitTesting;
+                      using Z.ExtensionMethods;
+                      
+                      namespace ExtensionMethods.Examples
+                      {
+                          [TestClass]
+                          public class System_Data_SqlClient_SqlBulkCopy_BulkMerge
+                          {
+                              [TestMethod]
+                              public void BulkMerge()
+                              {
+                                  // Delete from DataTable
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                  DataTable dtDataTableTest = System_Data_SqlClient_SqlBulkCopy_TestHelper.SelectValueMultiplyBy2();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.InsertToDataTable(dtDataTableTest, 100);
+                      
+                      
+                                  using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var copy = new SqlBulkCopy(conn))
+                                      {
+                                          foreach (DataColumn dc in dtDataTableTest.Columns)
+                                          {
+                                              copy.ColumnMappings.Add(dc.ColumnName, dc.ColumnName);
+                                          }
+                                          copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                          conn.Open();
+                      
+                                          // Examples
+                                          copy.BulkMerge(dtDataTableTest, new[] {&quot;ID1&quot;, &quot;ID2&quot;});
+                      
+                                          // Unit Test
+                                          Assert.AreEqual(200, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                          Assert.AreEqual(14850, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                      }
+                                  }
+                      
+                                  // Delete from DataRow[]
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                  DataTable dtDataRowTest = System_Data_SqlClient_SqlBulkCopy_TestHelper.SelectValueMultiplyBy2();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.InsertToDataTable(dtDataRowTest, 100);
+                      
+                                  using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var copy = new SqlBulkCopy(conn))
+                                      {
+                                          foreach (DataColumn dc in dtDataRowTest.Columns)
+                                          {
+                                              copy.ColumnMappings.Add(dc.ColumnName, dc.ColumnName);
+                                          }
+                                          copy.BatchSize = 11;
+                                          copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                          conn.Open();
+                      
+                                          // Examples
+                                          copy.BulkMerge(dtDataRowTest);
+                      
+                                          // Unit Test
+                                          Assert.AreEqual(200, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                          Assert.AreEqual(14850, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                      }
+                                  }
+                      
+                      
+                                  // Delete from IDataReader
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                      
+                                  using (var connReader = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var command = new SqlCommand(&quot;SELECT ID1, ID2, ValueBit, ValueInt * 2 AS ValueInt, ValueString FROM BulkCopyTest&quot;, connReader))
+                                      {
+                                          connReader.Open();
+                                          using (IDataReader reader = command.ExecuteReader())
+                                          {
+                                              using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                              {
+                                                  using (var copy = new SqlBulkCopy(conn))
+                                                  {
+                                                      foreach (DataColumn dc in dtDataRowTest.Columns)
+                                                      {
+                                                          copy.ColumnMappings.Add(dc.ColumnName, dc.ColumnName);
+                                                      }
+                                                      copy.BatchSize = 2;
+                                                      copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                                      conn.Open();
+                      
+                                                      // Examples
+                                                      copy.BulkMerge(reader);
+                      
+                                                      // Unit Test
+                                                      Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                                      Assert.AreEqual(9900, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                                  }
+                                              }
+                                          }
+                                      }
+                                  }
+                      
+                                  // Delete from Entities
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                  IEnumerable&lt;System_Data_SqlClient_SqlBulkCopy_TestHelper.TestEntity&gt; entities = System_Data_SqlClient_SqlBulkCopy_TestHelper.SelectEntitiesMultiplyBy2();
+                                  entities = System_Data_SqlClient_SqlBulkCopy_TestHelper.InsertToEntities(entities, 100);
+                      
+                                  using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var copy = new SqlBulkCopy(conn))
+                                      {
+                                          copy.ColumnMappings.Add(&quot;ID1&quot;, &quot;ID1&quot;);
+                                          copy.ColumnMappings.Add(&quot;ID2&quot;, &quot;ID2&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueBit&quot;, &quot;ValueBit&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueInt&quot;, &quot;ValueInt&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueString&quot;, &quot;ValueString&quot;);
+                      
+                                          copy.BatchSize = 36;
+                                          copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                          conn.Open();
+                      
+                                          // Examples
+                                          copy.BulkMerge(entities);
+                      
+                                          // Unit Test
+                                          Assert.AreEqual(200, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                          Assert.AreEqual(14850, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                      }
+                                  }
+                      
+                                  // Delete from Entities Array
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                  IEnumerable&lt;System_Data_SqlClient_SqlBulkCopy_TestHelper.TestEntity&gt; entitiesArray = System_Data_SqlClient_SqlBulkCopy_TestHelper.SelectEntitiesMultiplyBy2();
+                                  entitiesArray = System_Data_SqlClient_SqlBulkCopy_TestHelper.InsertToEntities(entitiesArray, 100);
+                      
+                                  using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var copy = new SqlBulkCopy(conn))
+                                      {
+                                          copy.ColumnMappings.Add(&quot;ID1&quot;, &quot;ID1&quot;);
+                                          copy.ColumnMappings.Add(&quot;ID2&quot;, &quot;ID2&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueBit&quot;, &quot;ValueBit&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueInt&quot;, &quot;ValueInt&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueString&quot;, &quot;ValueString&quot;);
+                      
+                                          copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                          conn.Open();
+                      
+                                          // Examples
+                                          copy.BulkMerge(entitiesArray.ToArray());
+                      
+                                          // Unit Test
+                                          Assert.AreEqual(200, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                          Assert.AreEqual(14850, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                      }
+                                  }
+                              }
+                          }
+                      }
+                </code>
+            </example>
+        </member>
+        <member name="M:SqlBulkCopyExtension.BulkMerge(System.Data.SqlClient.SqlBulkCopy,System.Data.IDataReader)">
+            <summary>
+                A SqlBulkCopy extension method that bulk merge.
+            </summary>
+            <param name="obj">The obj to act on.</param>
+            <param name="reader">The reader.</param>
+            <example>
+                <code>
+                      using System.Collections.Generic;
+                      using System.Data;
+                      using System.Data.SqlClient;
+                      using System.Linq;
+                      using Microsoft.VisualStudio.TestTools.UnitTesting;
+                      using Z.ExtensionMethods;
+                      
+                      namespace ExtensionMethods.Examples
+                      {
+                          [TestClass]
+                          public class System_Data_SqlClient_SqlBulkCopy_BulkMerge
+                          {
+                              [TestMethod]
+                              public void BulkMerge()
+                              {
+                                  // Delete from DataTable
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                  DataTable dtDataTableTest = System_Data_SqlClient_SqlBulkCopy_TestHelper.SelectValueMultiplyBy2();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.InsertToDataTable(dtDataTableTest, 100);
+                      
+                      
+                                  using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var copy = new SqlBulkCopy(conn))
+                                      {
+                                          foreach (DataColumn dc in dtDataTableTest.Columns)
+                                          {
+                                              copy.ColumnMappings.Add(dc.ColumnName, dc.ColumnName);
+                                          }
+                                          copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                          conn.Open();
+                      
+                                          // Examples
+                                          copy.BulkMerge(dtDataTableTest, new[] {&quot;ID1&quot;, &quot;ID2&quot;});
+                      
+                                          // Unit Test
+                                          Assert.AreEqual(200, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                          Assert.AreEqual(14850, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                      }
+                                  }
+                      
+                                  // Delete from DataRow[]
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                  DataTable dtDataRowTest = System_Data_SqlClient_SqlBulkCopy_TestHelper.SelectValueMultiplyBy2();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.InsertToDataTable(dtDataRowTest, 100);
+                      
+                                  using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var copy = new SqlBulkCopy(conn))
+                                      {
+                                          foreach (DataColumn dc in dtDataRowTest.Columns)
+                                          {
+                                              copy.ColumnMappings.Add(dc.ColumnName, dc.ColumnName);
+                                          }
+                                          copy.BatchSize = 11;
+                                          copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                          conn.Open();
+                      
+                                          // Examples
+                                          copy.BulkMerge(dtDataRowTest);
+                      
+                                          // Unit Test
+                                          Assert.AreEqual(200, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                          Assert.AreEqual(14850, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                      }
+                                  }
+                      
+                      
+                                  // Delete from IDataReader
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                      
+                                  using (var connReader = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var command = new SqlCommand(&quot;SELECT ID1, ID2, ValueBit, ValueInt * 2 AS ValueInt, ValueString FROM BulkCopyTest&quot;, connReader))
+                                      {
+                                          connReader.Open();
+                                          using (IDataReader reader = command.ExecuteReader())
+                                          {
+                                              using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                              {
+                                                  using (var copy = new SqlBulkCopy(conn))
+                                                  {
+                                                      foreach (DataColumn dc in dtDataRowTest.Columns)
+                                                      {
+                                                          copy.ColumnMappings.Add(dc.ColumnName, dc.ColumnName);
+                                                      }
+                                                      copy.BatchSize = 2;
+                                                      copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                                      conn.Open();
+                      
+                                                      // Examples
+                                                      copy.BulkMerge(reader);
+                      
+                                                      // Unit Test
+                                                      Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                                      Assert.AreEqual(9900, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                                  }
+                                              }
+                                          }
+                                      }
+                                  }
+                      
+                                  // Delete from Entities
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                  IEnumerable&lt;System_Data_SqlClient_SqlBulkCopy_TestHelper.TestEntity&gt; entities = System_Data_SqlClient_SqlBulkCopy_TestHelper.SelectEntitiesMultiplyBy2();
+                                  entities = System_Data_SqlClient_SqlBulkCopy_TestHelper.InsertToEntities(entities, 100);
+                      
+                                  using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var copy = new SqlBulkCopy(conn))
+                                      {
+                                          copy.ColumnMappings.Add(&quot;ID1&quot;, &quot;ID1&quot;);
+                                          copy.ColumnMappings.Add(&quot;ID2&quot;, &quot;ID2&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueBit&quot;, &quot;ValueBit&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueInt&quot;, &quot;ValueInt&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueString&quot;, &quot;ValueString&quot;);
+                      
+                                          copy.BatchSize = 36;
+                                          copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                          conn.Open();
+                      
+                                          // Examples
+                                          copy.BulkMerge(entities);
+                      
+                                          // Unit Test
+                                          Assert.AreEqual(200, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                          Assert.AreEqual(14850, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                      }
+                                  }
+                      
+                                  // Delete from Entities Array
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                  IEnumerable&lt;System_Data_SqlClient_SqlBulkCopy_TestHelper.TestEntity&gt; entitiesArray = System_Data_SqlClient_SqlBulkCopy_TestHelper.SelectEntitiesMultiplyBy2();
+                                  entitiesArray = System_Data_SqlClient_SqlBulkCopy_TestHelper.InsertToEntities(entitiesArray, 100);
+                      
+                                  using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var copy = new SqlBulkCopy(conn))
+                                      {
+                                          copy.ColumnMappings.Add(&quot;ID1&quot;, &quot;ID1&quot;);
+                                          copy.ColumnMappings.Add(&quot;ID2&quot;, &quot;ID2&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueBit&quot;, &quot;ValueBit&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueInt&quot;, &quot;ValueInt&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueString&quot;, &quot;ValueString&quot;);
+                      
+                                          copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                          conn.Open();
+                      
+                                          // Examples
+                                          copy.BulkMerge(entitiesArray.ToArray());
+                      
+                                          // Unit Test
+                                          Assert.AreEqual(200, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                          Assert.AreEqual(14850, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                      }
+                                  }
+                              }
+                          }
+                      }
+                </code>
+            </example>
+        </member>
+        <member name="M:SqlBulkCopyExtension.BulkMerge(System.Data.SqlClient.SqlBulkCopy,System.Data.IDataReader,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+                A SqlBulkCopy extension method that bulk merge.
+            </summary>
+            <param name="obj">The obj to act on.</param>
+            <param name="reader">The reader.</param>
+            <param name="primaryKeyColumnNames">List of names of the primary key columns.</param>
+            <example>
+                <code>
+                      using System.Collections.Generic;
+                      using System.Data;
+                      using System.Data.SqlClient;
+                      using System.Linq;
+                      using Microsoft.VisualStudio.TestTools.UnitTesting;
+                      using Z.ExtensionMethods;
+                      
+                      namespace ExtensionMethods.Examples
+                      {
+                          [TestClass]
+                          public class System_Data_SqlClient_SqlBulkCopy_BulkMerge
+                          {
+                              [TestMethod]
+                              public void BulkMerge()
+                              {
+                                  // Delete from DataTable
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                  DataTable dtDataTableTest = System_Data_SqlClient_SqlBulkCopy_TestHelper.SelectValueMultiplyBy2();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.InsertToDataTable(dtDataTableTest, 100);
+                      
+                      
+                                  using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var copy = new SqlBulkCopy(conn))
+                                      {
+                                          foreach (DataColumn dc in dtDataTableTest.Columns)
+                                          {
+                                              copy.ColumnMappings.Add(dc.ColumnName, dc.ColumnName);
+                                          }
+                                          copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                          conn.Open();
+                      
+                                          // Examples
+                                          copy.BulkMerge(dtDataTableTest, new[] {&quot;ID1&quot;, &quot;ID2&quot;});
+                      
+                                          // Unit Test
+                                          Assert.AreEqual(200, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                          Assert.AreEqual(14850, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                      }
+                                  }
+                      
+                                  // Delete from DataRow[]
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                  DataTable dtDataRowTest = System_Data_SqlClient_SqlBulkCopy_TestHelper.SelectValueMultiplyBy2();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.InsertToDataTable(dtDataRowTest, 100);
+                      
+                                  using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var copy = new SqlBulkCopy(conn))
+                                      {
+                                          foreach (DataColumn dc in dtDataRowTest.Columns)
+                                          {
+                                              copy.ColumnMappings.Add(dc.ColumnName, dc.ColumnName);
+                                          }
+                                          copy.BatchSize = 11;
+                                          copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                          conn.Open();
+                      
+                                          // Examples
+                                          copy.BulkMerge(dtDataRowTest);
+                      
+                                          // Unit Test
+                                          Assert.AreEqual(200, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                          Assert.AreEqual(14850, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                      }
+                                  }
+                      
+                      
+                                  // Delete from IDataReader
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                      
+                                  using (var connReader = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var command = new SqlCommand(&quot;SELECT ID1, ID2, ValueBit, ValueInt * 2 AS ValueInt, ValueString FROM BulkCopyTest&quot;, connReader))
+                                      {
+                                          connReader.Open();
+                                          using (IDataReader reader = command.ExecuteReader())
+                                          {
+                                              using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                              {
+                                                  using (var copy = new SqlBulkCopy(conn))
+                                                  {
+                                                      foreach (DataColumn dc in dtDataRowTest.Columns)
+                                                      {
+                                                          copy.ColumnMappings.Add(dc.ColumnName, dc.ColumnName);
+                                                      }
+                                                      copy.BatchSize = 2;
+                                                      copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                                      conn.Open();
+                      
+                                                      // Examples
+                                                      copy.BulkMerge(reader);
+                      
+                                                      // Unit Test
+                                                      Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                                      Assert.AreEqual(9900, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                                  }
+                                              }
+                                          }
+                                      }
+                                  }
+                      
+                                  // Delete from Entities
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                  IEnumerable&lt;System_Data_SqlClient_SqlBulkCopy_TestHelper.TestEntity&gt; entities = System_Data_SqlClient_SqlBulkCopy_TestHelper.SelectEntitiesMultiplyBy2();
+                                  entities = System_Data_SqlClient_SqlBulkCopy_TestHelper.InsertToEntities(entities, 100);
+                      
+                                  using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var copy = new SqlBulkCopy(conn))
+                                      {
+                                          copy.ColumnMappings.Add(&quot;ID1&quot;, &quot;ID1&quot;);
+                                          copy.ColumnMappings.Add(&quot;ID2&quot;, &quot;ID2&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueBit&quot;, &quot;ValueBit&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueInt&quot;, &quot;ValueInt&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueString&quot;, &quot;ValueString&quot;);
+                      
+                                          copy.BatchSize = 36;
+                                          copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                          conn.Open();
+                      
+                                          // Examples
+                                          copy.BulkMerge(entities);
+                      
+                                          // Unit Test
+                                          Assert.AreEqual(200, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                          Assert.AreEqual(14850, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                      }
+                                  }
+                      
+                                  // Delete from Entities Array
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                  IEnumerable&lt;System_Data_SqlClient_SqlBulkCopy_TestHelper.TestEntity&gt; entitiesArray = System_Data_SqlClient_SqlBulkCopy_TestHelper.SelectEntitiesMultiplyBy2();
+                                  entitiesArray = System_Data_SqlClient_SqlBulkCopy_TestHelper.InsertToEntities(entitiesArray, 100);
+                      
+                                  using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var copy = new SqlBulkCopy(conn))
+                                      {
+                                          copy.ColumnMappings.Add(&quot;ID1&quot;, &quot;ID1&quot;);
+                                          copy.ColumnMappings.Add(&quot;ID2&quot;, &quot;ID2&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueBit&quot;, &quot;ValueBit&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueInt&quot;, &quot;ValueInt&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueString&quot;, &quot;ValueString&quot;);
+                      
+                                          copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                          conn.Open();
+                      
+                                          // Examples
+                                          copy.BulkMerge(entitiesArray.ToArray());
+                      
+                                          // Unit Test
+                                          Assert.AreEqual(200, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                          Assert.AreEqual(14850, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                      }
+                                  }
+                              }
+                          }
+                      }
+                </code>
+            </example>
+        </member>
+        <member name="M:SqlBulkCopyExtension.BulkMerge``1(System.Data.SqlClient.SqlBulkCopy,System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+                A SqlBulkCopy extension method that bulk merge.
+            </summary>
+            <typeparam name="T">Generic type parameter.</typeparam>
+            <param name="obj">The obj to act on.</param>
+            <param name="entities">The entities.</param>
+            <example>
+                <code>
+                      using System.Collections.Generic;
+                      using System.Data;
+                      using System.Data.SqlClient;
+                      using System.Linq;
+                      using Microsoft.VisualStudio.TestTools.UnitTesting;
+                      using Z.ExtensionMethods;
+                      
+                      namespace ExtensionMethods.Examples
+                      {
+                          [TestClass]
+                          public class System_Data_SqlClient_SqlBulkCopy_BulkMerge
+                          {
+                              [TestMethod]
+                              public void BulkMerge()
+                              {
+                                  // Delete from DataTable
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                  DataTable dtDataTableTest = System_Data_SqlClient_SqlBulkCopy_TestHelper.SelectValueMultiplyBy2();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.InsertToDataTable(dtDataTableTest, 100);
+                      
+                      
+                                  using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var copy = new SqlBulkCopy(conn))
+                                      {
+                                          foreach (DataColumn dc in dtDataTableTest.Columns)
+                                          {
+                                              copy.ColumnMappings.Add(dc.ColumnName, dc.ColumnName);
+                                          }
+                                          copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                          conn.Open();
+                      
+                                          // Examples
+                                          copy.BulkMerge(dtDataTableTest, new[] {&quot;ID1&quot;, &quot;ID2&quot;});
+                      
+                                          // Unit Test
+                                          Assert.AreEqual(200, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                          Assert.AreEqual(14850, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                      }
+                                  }
+                      
+                                  // Delete from DataRow[]
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                  DataTable dtDataRowTest = System_Data_SqlClient_SqlBulkCopy_TestHelper.SelectValueMultiplyBy2();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.InsertToDataTable(dtDataRowTest, 100);
+                      
+                                  using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var copy = new SqlBulkCopy(conn))
+                                      {
+                                          foreach (DataColumn dc in dtDataRowTest.Columns)
+                                          {
+                                              copy.ColumnMappings.Add(dc.ColumnName, dc.ColumnName);
+                                          }
+                                          copy.BatchSize = 11;
+                                          copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                          conn.Open();
+                      
+                                          // Examples
+                                          copy.BulkMerge(dtDataRowTest);
+                      
+                                          // Unit Test
+                                          Assert.AreEqual(200, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                          Assert.AreEqual(14850, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                      }
+                                  }
+                      
+                      
+                                  // Delete from IDataReader
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                      
+                                  using (var connReader = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var command = new SqlCommand(&quot;SELECT ID1, ID2, ValueBit, ValueInt * 2 AS ValueInt, ValueString FROM BulkCopyTest&quot;, connReader))
+                                      {
+                                          connReader.Open();
+                                          using (IDataReader reader = command.ExecuteReader())
+                                          {
+                                              using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                              {
+                                                  using (var copy = new SqlBulkCopy(conn))
+                                                  {
+                                                      foreach (DataColumn dc in dtDataRowTest.Columns)
+                                                      {
+                                                          copy.ColumnMappings.Add(dc.ColumnName, dc.ColumnName);
+                                                      }
+                                                      copy.BatchSize = 2;
+                                                      copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                                      conn.Open();
+                      
+                                                      // Examples
+                                                      copy.BulkMerge(reader);
+                      
+                                                      // Unit Test
+                                                      Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                                      Assert.AreEqual(9900, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                                  }
+                                              }
+                                          }
+                                      }
+                                  }
+                      
+                                  // Delete from Entities
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                  IEnumerable&lt;System_Data_SqlClient_SqlBulkCopy_TestHelper.TestEntity&gt; entities = System_Data_SqlClient_SqlBulkCopy_TestHelper.SelectEntitiesMultiplyBy2();
+                                  entities = System_Data_SqlClient_SqlBulkCopy_TestHelper.InsertToEntities(entities, 100);
+                      
+                                  using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var copy = new SqlBulkCopy(conn))
+                                      {
+                                          copy.ColumnMappings.Add(&quot;ID1&quot;, &quot;ID1&quot;);
+                                          copy.ColumnMappings.Add(&quot;ID2&quot;, &quot;ID2&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueBit&quot;, &quot;ValueBit&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueInt&quot;, &quot;ValueInt&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueString&quot;, &quot;ValueString&quot;);
+                      
+                                          copy.BatchSize = 36;
+                                          copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                          conn.Open();
+                      
+                                          // Examples
+                                          copy.BulkMerge(entities);
+                      
+                                          // Unit Test
+                                          Assert.AreEqual(200, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                          Assert.AreEqual(14850, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                      }
+                                  }
+                      
+                                  // Delete from Entities Array
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                  IEnumerable&lt;System_Data_SqlClient_SqlBulkCopy_TestHelper.TestEntity&gt; entitiesArray = System_Data_SqlClient_SqlBulkCopy_TestHelper.SelectEntitiesMultiplyBy2();
+                                  entitiesArray = System_Data_SqlClient_SqlBulkCopy_TestHelper.InsertToEntities(entitiesArray, 100);
+                      
+                                  using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var copy = new SqlBulkCopy(conn))
+                                      {
+                                          copy.ColumnMappings.Add(&quot;ID1&quot;, &quot;ID1&quot;);
+                                          copy.ColumnMappings.Add(&quot;ID2&quot;, &quot;ID2&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueBit&quot;, &quot;ValueBit&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueInt&quot;, &quot;ValueInt&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueString&quot;, &quot;ValueString&quot;);
+                      
+                                          copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                          conn.Open();
+                      
+                                          // Examples
+                                          copy.BulkMerge(entitiesArray.ToArray());
+                      
+                                          // Unit Test
+                                          Assert.AreEqual(200, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                          Assert.AreEqual(14850, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                      }
+                                  }
+                              }
+                          }
+                      }
+                </code>
+            </example>
+        </member>
+        <member name="M:SqlBulkCopyExtension.BulkMerge``1(System.Data.SqlClient.SqlBulkCopy,System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+                A SqlBulkCopy extension method that bulk merge.
+            </summary>
+            <typeparam name="T">Generic type parameter.</typeparam>
+            <param name="obj">The obj to act on.</param>
+            <param name="entities">The entities.</param>
+            <param name="primaryKeyColumnNames">List of names of the primary key columns.</param>
+            <example>
+                <code>
+                      using System.Collections.Generic;
+                      using System.Data;
+                      using System.Data.SqlClient;
+                      using System.Linq;
+                      using Microsoft.VisualStudio.TestTools.UnitTesting;
+                      using Z.ExtensionMethods;
+                      
+                      namespace ExtensionMethods.Examples
+                      {
+                          [TestClass]
+                          public class System_Data_SqlClient_SqlBulkCopy_BulkMerge
+                          {
+                              [TestMethod]
+                              public void BulkMerge()
+                              {
+                                  // Delete from DataTable
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                  DataTable dtDataTableTest = System_Data_SqlClient_SqlBulkCopy_TestHelper.SelectValueMultiplyBy2();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.InsertToDataTable(dtDataTableTest, 100);
+                      
+                      
+                                  using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var copy = new SqlBulkCopy(conn))
+                                      {
+                                          foreach (DataColumn dc in dtDataTableTest.Columns)
+                                          {
+                                              copy.ColumnMappings.Add(dc.ColumnName, dc.ColumnName);
+                                          }
+                                          copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                          conn.Open();
+                      
+                                          // Examples
+                                          copy.BulkMerge(dtDataTableTest, new[] {&quot;ID1&quot;, &quot;ID2&quot;});
+                      
+                                          // Unit Test
+                                          Assert.AreEqual(200, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                          Assert.AreEqual(14850, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                      }
+                                  }
+                      
+                                  // Delete from DataRow[]
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                  DataTable dtDataRowTest = System_Data_SqlClient_SqlBulkCopy_TestHelper.SelectValueMultiplyBy2();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.InsertToDataTable(dtDataRowTest, 100);
+                      
+                                  using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var copy = new SqlBulkCopy(conn))
+                                      {
+                                          foreach (DataColumn dc in dtDataRowTest.Columns)
+                                          {
+                                              copy.ColumnMappings.Add(dc.ColumnName, dc.ColumnName);
+                                          }
+                                          copy.BatchSize = 11;
+                                          copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                          conn.Open();
+                      
+                                          // Examples
+                                          copy.BulkMerge(dtDataRowTest);
+                      
+                                          // Unit Test
+                                          Assert.AreEqual(200, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                          Assert.AreEqual(14850, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                      }
+                                  }
+                      
+                      
+                                  // Delete from IDataReader
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                      
+                                  using (var connReader = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var command = new SqlCommand(&quot;SELECT ID1, ID2, ValueBit, ValueInt * 2 AS ValueInt, ValueString FROM BulkCopyTest&quot;, connReader))
+                                      {
+                                          connReader.Open();
+                                          using (IDataReader reader = command.ExecuteReader())
+                                          {
+                                              using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                              {
+                                                  using (var copy = new SqlBulkCopy(conn))
+                                                  {
+                                                      foreach (DataColumn dc in dtDataRowTest.Columns)
+                                                      {
+                                                          copy.ColumnMappings.Add(dc.ColumnName, dc.ColumnName);
+                                                      }
+                                                      copy.BatchSize = 2;
+                                                      copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                                      conn.Open();
+                      
+                                                      // Examples
+                                                      copy.BulkMerge(reader);
+                      
+                                                      // Unit Test
+                                                      Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                                      Assert.AreEqual(9900, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                                  }
+                                              }
+                                          }
+                                      }
+                                  }
+                      
+                                  // Delete from Entities
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                  IEnumerable&lt;System_Data_SqlClient_SqlBulkCopy_TestHelper.TestEntity&gt; entities = System_Data_SqlClient_SqlBulkCopy_TestHelper.SelectEntitiesMultiplyBy2();
+                                  entities = System_Data_SqlClient_SqlBulkCopy_TestHelper.InsertToEntities(entities, 100);
+                      
+                                  using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var copy = new SqlBulkCopy(conn))
+                                      {
+                                          copy.ColumnMappings.Add(&quot;ID1&quot;, &quot;ID1&quot;);
+                                          copy.ColumnMappings.Add(&quot;ID2&quot;, &quot;ID2&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueBit&quot;, &quot;ValueBit&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueInt&quot;, &quot;ValueInt&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueString&quot;, &quot;ValueString&quot;);
+                      
+                                          copy.BatchSize = 36;
+                                          copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                          conn.Open();
+                      
+                                          // Examples
+                                          copy.BulkMerge(entities);
+                      
+                                          // Unit Test
+                                          Assert.AreEqual(200, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                          Assert.AreEqual(14850, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                      }
+                                  }
+                      
+                                  // Delete from Entities Array
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.CleanData();
+                                  System_Data_SqlClient_SqlBulkCopy_TestHelper.Insert(100);
+                                  Assert.AreEqual(100, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                  Assert.AreEqual(4950, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                  IEnumerable&lt;System_Data_SqlClient_SqlBulkCopy_TestHelper.TestEntity&gt; entitiesArray = System_Data_SqlClient_SqlBulkCopy_TestHelper.SelectEntitiesMultiplyBy2();
+                                  entitiesArray = System_Data_SqlClient_SqlBulkCopy_TestHelper.InsertToEntities(entitiesArray, 100);
+                      
+                                  using (var conn = new SqlConnection(My.Config.ConnectionString.UnitTest.ConnectionString))
+                                  {
+                                      using (var copy = new SqlBulkCopy(conn))
+                                      {
+                                          copy.ColumnMappings.Add(&quot;ID1&quot;, &quot;ID1&quot;);
+                                          copy.ColumnMappings.Add(&quot;ID2&quot;, &quot;ID2&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueBit&quot;, &quot;ValueBit&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueInt&quot;, &quot;ValueInt&quot;);
+                                          copy.ColumnMappings.Add(&quot;ValueString&quot;, &quot;ValueString&quot;);
+                      
+                                          copy.DestinationTableName = &quot;dbo.BulkCopyTest&quot;;
+                                          conn.Open();
+                      
+                                          // Examples
+                                          copy.BulkMerge(entitiesArray.ToArray());
+                      
+                                          // Unit Test
+                                          Assert.AreEqual(200, System_Data_SqlClient_SqlBulkCopy_TestHelper.ItemCount());
+                                          Assert.AreEqual(14850, System_Data_SqlClient_SqlBulkCopy_TestHelper.IntColumnSum());
+                                      }
+                                  }
+                              }
+                          }
+                      }
+                </code>
+            </example>
+        </member>
+    </members>
+</doc>

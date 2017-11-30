@@ -1,0 +1,685 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NRails.Domain</name>
+    </assembly>
+    <members>
+        <member name="T:NRails.Domain.IKeyword">
+            <summary>
+            关键字接口
+            </summary>
+        </member>
+        <member name="M:NRails.Domain.IKeyword.SetKeyword">
+            <summary>
+            设置关键字
+            </summary>
+        </member>
+        <member name="P:NRails.Domain.IKeyword.Keyword">
+            <summary>
+            关键字
+            </summary>
+        </member>
+        <member name="T:NRails.Metadata.PropertyInfoExtend">
+            <summary>
+            扩展的属性元数据类, 有业务规则等信息
+            </summary>
+        </member>
+        <member name="M:NRails.Metadata.PropertyInfoExtend.Create(NRails.Reflect.IPropertyInfo)">
+            <summary>
+            工厂方法
+            </summary>
+        </member>
+        <member name="M:NRails.Metadata.PropertyInfoExtend.#ctor(NRails.Reflect.IPropertyInfo)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:NRails.Metadata.PropertyInfoExtend.SetValue(System.Object,System.Object,System.Object[])">
+            <summary>
+            设置属性值
+            </summary>
+            <param name="obj">属性所属对象</param>
+            <param name="value">要设置的值</param>
+        </member>
+        <member name="M:NRails.Metadata.PropertyInfoExtend.SetValue(System.Object,System.Object)">
+            <summary>
+            设置属性值
+            </summary>
+            <param name="obj">属性所属对象</param>
+            <param name="value">要设置的值</param>
+        </member>
+        <member name="M:NRails.Metadata.PropertyInfoExtend.GetValue(System.Object,System.Object[])">
+            <summary>
+            获取属性值
+            </summary>
+            <param name="obj">属性所属对象</param>
+        </member>
+        <member name="M:NRails.Metadata.PropertyInfoExtend.GetValue(System.Object)">
+            <summary>
+            获取属性值, 遍历查找子对象
+            </summary>
+            <param name="obj">属性所属对象</param>
+        </member>
+        <member name="M:NRails.Metadata.PropertyInfoExtend.Format(System.Object)">
+            <summary>
+            格式化输出属性值
+            </summary>
+        </member>
+        <member name="P:NRails.Metadata.PropertyInfoExtend.PropertyInfo">
+            <summary>
+            获取原始属性元数据
+            </summary>
+        </member>
+        <member name="P:NRails.Metadata.PropertyInfoExtend.Business">
+            <summary>
+            业务元数据
+            </summary>
+        </member>
+        <member name="P:NRails.Metadata.PropertyInfoExtend.Validate">
+            <summary>
+            验证属性
+            </summary>
+        </member>
+        <member name="P:NRails.Metadata.PropertyInfoExtend.Name">
+            <summary>
+            获取属性名称
+            </summary>
+        </member>
+        <member name="P:NRails.Metadata.PropertyInfoExtend.PropertyType">
+            <summary>
+            获取属性类型
+            </summary>
+        </member>
+        <member name="T:NRails.Domain.ObjectBase">
+            <summary>
+             所有对象的基类
+            </summary>
+        </member>
+        <member name="P:NRails.Domain.DomainObjectCore.ID">
+            <summary>
+            获取或设置对象的唯一标识ＩＤ
+            </summary>
+        </member>
+        <member name="P:NRails.Domain.DomainObjectCore.DomainName">
+            <summary>
+            获取对象的表示名称
+            </summary>
+        </member>
+        <member name="P:NRails.Domain.DomainObjectCore.Enable">
+            <summary>
+            表示是否可用
+            </summary>
+        </member>
+        <member name="P:NRails.Domain.DomainObjectCore.CreateDate">
+            <summary>
+            获取或设置创建日期
+            </summary>
+        </member>
+        <member name="P:NRails.Domain.DomainObjectCore.UpdateTime">
+            <summary>
+            最后修改时间
+            </summary>
+        </member>
+        <member name="T:NRails.Metadata.FormatAttribute">
+            <summary>
+            输出格式化标识
+            </summary>
+        </member>
+        <member name="M:NRails.Metadata.FormatAttribute.#ctor(System.Object,System.Object)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:NRails.Metadata.FormatAttribute.Input">
+            <summary>
+            输入值
+            </summary>
+        </member>
+        <member name="P:NRails.Metadata.FormatAttribute.Output">
+            <summary>
+            输出值
+            </summary>
+        </member>
+        <member name="T:NRails.Domain.ViewDesinger">
+            <summary>
+            通用视图设计
+            </summary>
+        </member>
+        <member name="M:NRails.Domain.ViewDesinger.Fields(System.String,System.String[],NRails.LanguageString,System.Int32[])">
+            <summary>
+            定义指定视图页
+            </summary>
+        </member>
+        <member name="M:NRails.Domain.ViewDesinger.GetProes(System.String)">
+            <summary>
+            指定视图页的显示字段
+            </summary>
+        </member>
+        <member name="M:NRails.Domain.ViewDesinger.GetPageTitle(System.String)">
+            <summary>
+            指定视图页的标题
+            </summary>
+        </member>
+        <member name="P:NRails.Domain.ViewDesinger.DefaultViewType">
+            <summary>
+            默认视图模版名称
+            </summary>
+        </member>
+        <member name="M:NRails.Domain.ViewDesinger.ViewDesingerConfig.#ctor(NRails.LanguageString,System.String[],System.Int32[])">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:NRails.Domain.ViewDesinger`1">
+            <summary>
+            通用视图设计
+            </summary>
+        </member>
+        <member name="T:NRails.Domain.DomainInitializationer">
+            <summary>
+            NRails.Domain
+            </summary>
+        </member>
+        <member name="M:NRails.Domain.DomainInitializationer.Initialize(System.Reflection.Assembly[])">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="T:NRails.Domain.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="T:NRails.Domain.SingleValueObject`2">
+            <summary>
+            泛型单值值对象基类
+            </summary>
+        </member>
+        <member name="T:NRails.Domain.SingleValueObject">
+            <summary>
+            单值值对象基类
+            </summary>
+        </member>
+        <member name="T:NRails.Domain.ValueObject">
+            <summary>
+            值对象基类
+            </summary>
+        </member>
+        <member name="M:NRails.Domain.SingleValueObject.SetValue(System.Object)">
+            <summary>
+             映射赋值时, 使用该方法
+            </summary>
+        </member>
+        <member name="M:NRails.Domain.SingleValueObject`2.SetValue(System.Object)">
+            <summary>
+            映射赋值时, 使用该方法
+            </summary>
+        </member>
+        <member name="P:NRails.Domain.SingleValueObject`2.Value">
+            <summary>
+            单值对象的值
+            </summary>
+        </member>
+        <member name="M:NRails.Domain.Password.SetValue(System.Object)">
+            <summary>
+            设置密码, 自动转移为MD5码
+            </summary>
+        </member>
+        <member name="M:NRails.Domain.Password.ComparePassword(System.String)">
+            <summary>
+            比较密码是否正确
+            </summary>
+        </member>
+        <member name="M:NRails.Domain.Password.CreateHashValue(System.String)">
+            <summary>
+            转化为MD5
+            </summary>
+        </member>
+        <member name="M:NRails.Domain.IDCollection.#ctor(System.Collections.Generic.IEnumerable{System.Int64})">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:NRails.Domain.IDCollection.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:NRails.Domain.IDCollection.#ctor(NRails.Domain.DomainObject[])">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:NRails.Domain.IDCollection.IsAll">
+            <summary>
+            是否表示包含所有对象
+            </summary>
+        </member>
+        <member name="T:NRails.Domain.Validate.DefaultValidateError">
+            <summary>
+            默认的错误提示修, 可修改
+            </summary>
+        </member>
+        <member name="T:NRails.Domain.Validate.ValidateAttribute">
+            <summary>
+            属性的验证
+            </summary>
+        </member>
+        <member name="M:NRails.Domain.Validate.ValidateAttribute.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:NRails.Domain.Validate.ValidateAttribute.CreateJSValidate(NRails.Metadata.PropertyInfoExtend)">
+            <summary>
+            生成客户端验证脚本, 默认未实现
+            </summary>
+        </member>
+        <member name="P:NRails.Domain.Validate.ValidateAttribute.DomainType">
+            <summary>
+            待验证的领域对象类型, 默认为当前对象
+            </summary>
+        </member>
+        <member name="P:NRails.Domain.Validate.ValidateAttribute.Domain">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NRails.Domain.Validate.ValidateAttribute.ProprotyName">
+            <summary>
+            属性名称
+            </summary>
+        </member>
+        <member name="P:NRails.Domain.Validate.ValidateAttribute.Error">
+            <summary>
+            错误提示, 支持从资源中读取:{资源名称}
+            </summary>
+        </member>
+        <member name="P:NRails.Domain.Validate.ValidateAttribute.Tip">
+            <summary>
+            输入提示
+            </summary>
+        </member>
+        <member name="P:NRails.Domain.Validate.ValidateAttribute.EnableNullOrEmpty">
+            <summary>
+            是否允许为空
+            </summary>
+        </member>
+        <member name="P:NRails.Domain.Validate.ValidateAttribute.ValidateType">
+            <summary>
+            验证类型
+            </summary>
+        </member>
+        <member name="T:NRails.Domain.Validate.NotNullOrEmptyValidateAttribute">
+            <summary>
+             非空验证
+            </summary>
+        </member>
+        <member name="M:NRails.Domain.Validate.NotNullOrEmptyValidateAttribute.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:NRails.Domain.Validate.CompareValidateAttribute">
+            <summary>
+            对比验证
+            </summary>
+        </member>
+        <member name="M:NRails.Domain.Validate.CompareValidateAttribute.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:NRails.Domain.Validate.CompareValidateAttribute.CompareTo">
+            <summary>
+            对比字段
+            </summary>
+        </member>
+        <member name="T:NRails.Domain.Validate.TipValidateAttribute">
+            <summary>
+             提示验证
+            </summary>
+        </member>
+        <member name="M:NRails.Domain.Validate.TipValidateAttribute.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:NRails.Domain.Validate.LengthValidateAttribute">
+            <summary>
+            长度验证
+            </summary>
+        </member>
+        <member name="T:NRails.Domain.Validate.RegexValidateAttribute">
+            <summary>
+            正则验证
+            </summary>
+        </member>
+        <member name="P:NRails.Domain.Validate.RegexValidateAttribute.Regex">
+            <summary>
+            正则匹配表达式
+            </summary>
+        </member>
+        <member name="T:NRails.Domain.Validate.MailValidateAttribute">
+            <summary>
+            邮箱验证
+            </summary>
+        </member>
+        <member name="T:NRails.Domain.Validate.MobileValidateAttribute">
+            <summary>
+            手机号码验证
+            </summary>
+        </member>
+        <member name="M:NRails.Domain.Validate.MobileValidateAttribute.#ctor(System.Boolean)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:NRails.Domain.Validate.ZipCodeValidateAttribute">
+            <summary>
+            邮编验证
+            </summary>
+        </member>
+        <member name="M:NRails.Domain.Validate.ZipCodeValidateAttribute.#ctor(System.Boolean)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:NRails.Domain.Validate.PRCIDValidateAttribute">
+            <summary>
+            身份证验证
+            </summary>
+        </member>
+        <member name="M:NRails.Domain.Validate.PRCIDValidateAttribute.#ctor(System.Boolean)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:NRails.Domain.Validate.DateTimeValidateAttribute">
+            <summary>
+            日期验证
+            </summary>
+        </member>
+        <member name="M:NRails.Domain.Validate.DateTimeValidateAttribute.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:NRails.Domain.Validate.NumberValidateAttribute">
+            <summary>
+            数字验证
+            </summary>
+        </member>
+        <member name="M:NRails.Domain.Validate.NumberValidateAttribute.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:NRails.Domain.Validate.NumberValidateAttribute.#ctor(System.Boolean)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:NRails.Domain.Validate.AjaxValidateAttribute">
+            <summary>
+            Ajax验证
+            </summary>
+        </member>
+        <member name="P:NRails.Domain.Validate.AjaxValidateAttribute.Url">
+            <summary>
+            验证Url
+            </summary>
+        </member>
+        <member name="P:NRails.Domain.Validate.AjaxValidateAttribute.OnWait">
+            <summary>
+            等待时显示文本
+            </summary>
+        </member>
+        <member name="T:NRails.Metadata.Types">
+            <summary>
+            NRails类型常量
+            </summary>
+        </member>
+        <member name="T:NRails.Domain.Validate.Validater">
+            <summary>
+            验证类
+            </summary>
+        </member>
+        <member name="T:NRails.Domain.ValueObject`1">
+            <summary>
+            泛型值对象基类, 依附于领域模型而存在
+            </summary>
+        </member>
+        <member name="T:NRails.Domain.IJsonObject">
+            <summary>
+            表示一个对象用Json序列化的方式来传输或持久化
+            </summary>
+        </member>
+        <member name="T:NRails.Metadata.TypeExtend">
+            <summary>
+            扩展的类型元数据类
+            </summary>
+        </member>
+        <member name="M:NRails.Metadata.TypeExtend.#ctor(System.Type)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:NRails.Metadata.TypeExtend.Type">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="P:NRails.Metadata.TypeExtend.BusinessClass">
+            <summary>
+            业务类元数据
+            </summary>
+        </member>
+        <member name="T:NRails.Metadata.BusinessAttribute">
+            <summary>
+            业务元数据
+            </summary>
+        </member>
+        <member name="P:NRails.Metadata.BusinessAttribute.Name">
+            <summary>
+            获取或设置名称
+            </summary>
+        </member>
+        <member name="P:NRails.Metadata.BusinessAttribute.Attributes">
+            <summary>
+            附加属性
+            </summary>
+        </member>
+        <member name="T:NRails.Metadata.BusinessClassAttribute">
+            <summary>
+            业务类元数据
+            </summary>
+        </member>
+        <member name="T:NRails.Metadata.BusinessPropetryAttribute">
+            <summary>
+            业务属性元数据
+            </summary>
+        </member>
+        <member name="T:NRails.Domain.Validate.UniqueValidate">
+            <summary>
+            唯一标识验证
+            </summary>
+        </member>
+        <member name="M:NRails.Domain.Validate.UniqueValidate.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:NRails.Domain.OverrideSetupHelper.Unique``2(NRails.Domain.MetadataSetup{``0,``1},System.String)">
+            <summary>
+            比较验证
+            </summary>
+        </member>
+        <member name="T:NRails.Domain.MetadataDesinger">
+            <summary>
+            对象元数据设计类
+            </summary>
+        </member>
+        <member name="M:NRails.Domain.MetadataDesinger.Setup(System.Reflection.Assembly)">
+            <summary>
+            加载指定程序集中的所有业务元数据
+            </summary>
+        </member>
+        <member name="T:NRails.Domain.MetadataDesinger`1">
+            <summary>
+            对象元数据设计类
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:NRails.Domain.MetadataSetup`2">
+            <summary>
+            设计元数据
+            </summary>
+        </member>
+        <member name="M:NRails.Domain.MetadataSetup`2.#ctor(System.Linq.Expressions.Expression{System.Func{`0,`1}},NRails.Metadata.PropertyInfoExtend)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:NRails.Domain.MetadataSetupHelper">
+            <summary>
+            设计元数据
+            </summary>
+        </member>
+        <member name="M:NRails.Domain.MetadataSetupHelper.NotNull``2(NRails.Domain.MetadataSetup{``0,``1})">
+            <summary>
+            非空验证
+            </summary>
+        </member>
+        <member name="M:NRails.Domain.MetadataSetupHelper.NotNull``2(NRails.Domain.MetadataSetup{``0,``1},System.String)">
+            <summary>
+            非空验证
+            </summary>
+        </member>
+        <member name="M:NRails.Domain.MetadataSetupHelper.CompareTo``2(NRails.Domain.MetadataSetup{``0,``1},System.String,System.String)">
+            <summary>
+            比较验证
+            </summary>
+        </member>
+        <member name="M:NRails.Domain.MetadataSetupHelper.Ajax``2(NRails.Domain.MetadataSetup{``0,``1},System.String,System.String,System.String)">
+            <summary>
+            Ajax验证
+            </summary>
+            <param name="url">验证的Url</param>
+            <param name="error">错误提示</param>
+            <param name="onwait">验证过程的等待提示</param>
+        </member>
+        <member name="T:NRails.Domain.DomainObject">
+            <summary>
+            领域模型基类
+            </summary>
+        </member>
+        <member name="M:NRails.Domain.DomainObject.ToDomainLink">
+            <summary>
+            生成对象链接
+            </summary>
+        </member>
+        <member name="P:NRails.Domain.DomainObject.TypeName">
+            <summary>
+            对象类型名, 如果为代理类也会返回真实对象的类型名称
+            </summary>
+        </member>
+        <member name="P:NRails.Domain.DomainObject.EnableTrigger">
+            <summary>
+            是否允许引发Dao操作触发器
+            </summary>
+        </member>
+        <member name="T:NRails.Domain.DomainObject`1">
+            <summary>
+            泛型领域模型基类
+            </summary>
+        </member>
+        <member name="T:System.Metadata.DomainReflect">
+            <summary>
+            反射领域对象的元数据，包含业务属性等
+            </summary>
+        </member>
+        <member name="M:System.Metadata.DomainReflect.GetHashPropertyInfos(System.Object,System.Boolean)">
+            <summary>
+            反射获取对象的属性,　返回[属性名称, 属性]的键值对.
+            </summary>
+            <param name="child">是否遍历子对象属性</param>
+        </member>
+        <member name="M:System.Metadata.DomainReflect.GetPropertyInfos(System.Object,System.Boolean)">
+            <summary>
+            反射获取对象的属性
+            </summary>
+            <param name="child">是否遍历返回子对象的属性</param>
+        </member>
+        <member name="M:System.Metadata.DomainReflect.GetPropertyValue(System.Object,System.String)">
+            <summary>
+            反射获取对象指定属性的值, 遍历子对象的属性
+            </summary>
+        </member>
+        <member name="M:System.Metadata.DomainReflect.GetProperty(System.Object,System.String)">
+            <summary>
+            反射获取对象指定属性元数据, 遍历返回子对象的属性
+            </summary>
+        </member>
+        <member name="M:System.Metadata.DomainReflect.ClearCache">
+            <summary>
+            清空元数据缓存
+            </summary>
+        </member>
+        <member name="M:System.Metadata.DomainReflect.GetType(System.Object)">
+            <summary>
+            获取对象类型, 自动还原代理对象
+            </summary>
+        </member>
+        <member name="T:NRails.Domain.Validate.ValidateResult">
+            <summary>
+            验证结果
+            </summary>
+        </member>
+        <member name="T:NRails.Domain.Validate.ValidateResultItem">
+            <summary>
+            验证结果项
+            </summary>
+        </member>
+        <member name="T:NRails.Domain.Validate.ICustomValidate">
+            <summary>
+            自定义验证
+            </summary>
+        </member>
+        <member name="T:NRails.Domain.DomainHelper">
+            <summary>
+            领域对象辅助方法
+            </summary>
+        </member>
+        <member name="M:NRails.Domain.DomainHelper.Compare(System.Object,System.Object)">
+            <summary>
+            比较相同类型的两个对象的差异值
+            </summary>
+        </member>
+        <member name="M:NRails.Domain.DomainHelper.Compare``1(``0,``0)">
+            <summary>
+            比较相同类型的两个对象的差异值
+            </summary>
+        </member>
+        <member name="M:NRails.Domain.DomainHelper.PropertriesValues(System.Object)">
+            <summary>
+            获取对象所有属性的值
+            </summary>
+        </member>
+        <member name="T:NRails.Domain.DomainCompareResult">
+            <summary>
+            对象比较结果
+            </summary>
+        </member>
+        <member name="T:NRails.Domain.DomainLink">
+            <summary>
+            领域对象链接
+            </summary>
+        </member>
+        <member name="M:NRails.Domain.DomainLink.#ctor(System.String,System.String,System.Int64)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+    </members>
+</doc>

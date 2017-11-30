@@ -9,6 +9,9 @@ using static System.Console;
 
 namespace Josn的序列化和反序列化
 {
+    /// <summary>
+    /// 打基础时用的，基本上没有什么用处了
+    /// </summary>
     class Program
     {
         static void Main(string[] args)

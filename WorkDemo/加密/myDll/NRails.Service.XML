@@ -1,0 +1,2100 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NRails.Service</name>
+    </assembly>
+    <members>
+        <member name="E:NRails.Service.CtlDwmChannel.DwmIsUsing">
+            <summary>
+            判定通道是否正在被使用，返回true表示通道正在被使用
+            </summary>
+        </member>
+        <member name="M:NRails.Service.CtlDwmChannel.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Service.CtlDwmChannel.SetChannel(NRails.Service.DwmChannel)">
+            <summary>
+            
+            </summary>
+            <param name="dwm"></param>
+        </member>
+        <member name="F:NRails.Service.CtlDwmChannel.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NRails.Service.CtlDwmChannel.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NRails.Service.CtlDwmChannel.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="E:NRails.Service.FormDwmChannel.DwmIsUsing">
+            <summary>
+            当需要进行通道过滤时引发，返回true表示通道需要被过滤
+            </summary>
+        </member>
+        <member name="F:NRails.Service.FormDwmChannel.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NRails.Service.FormDwmChannel.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NRails.Service.FormDwmChannel.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:NRails.Service.StaticHelper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NRails.Service.Properties.Resources">
+            <summary>
+              一个强类型的资源类，用于查找本地化的字符串等。
+            </summary>
+        </member>
+        <member name="P:NRails.Service.Properties.Resources.ResourceManager">
+            <summary>
+              返回此类使用的缓存的 ResourceManager 实例。
+            </summary>
+        </member>
+        <member name="P:NRails.Service.Properties.Resources.Culture">
+            <summary>
+              使用此强类型资源类，为所有资源查找
+              重写当前线程的 CurrentUICulture 属性。
+            </summary>
+        </member>
+        <member name="P:NRails.Service.Properties.Resources.dwm">
+            <summary>
+              查找 System.Byte[] 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:NRails.Service.Properties.Resources.icon">
+            <summary>
+              查找类似于 (Icon) 的 System.Drawing.Icon 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:NRails.Service.Properties.Resources.Updater">
+            <summary>
+              查找 System.Byte[] 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="T:NRails.Service.ServiceAttribute">
+            <summary>
+            服务标签
+            </summary>
+        </member>
+        <member name="P:NRails.Service.ServiceAttribute.Id">
+            <summary>
+            服务编号，可以不进行指定，默认情况下如果不进行指定，那么将会是服务签名的哈希值
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceAttribute.Modifier">
+            <summary>
+            指定在生成客户端代码时该服务的可见性
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceAttribute.Async">
+            <summary>
+            true＝在自动生成客户端代码时，允许生成异步方法，默认为true
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceAttribute.ReloadName">
+            <summary>
+            重载名称，某些服务，比如Wcf和WebService不允许服务名称进行重载
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceAttribute.Validate">
+            <summary>
+            这是一个为二次开发预留的字段
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceAttribute.TagString">
+            <summary>
+            这是一个为二次开发预留的字段
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceAttribute._Id">
+            <summary>
+            服务编号
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceAttribute._Method">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceAttribute._VoidReturn">
+            <summary>
+            是否为空返回值
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceAttribute._Signature">
+            <summary>
+            服务签名,服务签名就是服务的函数签名，在同一个服务提供者中不能重复
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceAttribute._ServiceProvider">
+            <summary>
+            提供服务的实体对象
+            </summary>
+        </member>
+        <member name="P:NRails.Service.ServiceAttribute.ServiceProvider">
+            <summary>
+            获取提供服务的实体对象
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceAttribute.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Service.ServiceAttribute.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NRails.Service.ServiceAttribute.Method">
+            <summary>
+            服务所指向的函数实体
+            </summary>
+        </member>
+        <member name="P:NRails.Service.ServiceAttribute.VoidReturn">
+            <summary>
+            true=此服务调用后返回的结果为void
+            </summary>
+        </member>
+        <member name="P:NRails.Service.ServiceAttribute.Signature">
+            <summary>
+            服务签名,服务签名就是服务的函数签名，在同一个服务提供者中不能重复
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceAttribute.GetServiceAttribute(System.Reflection.MethodInfo,System.Object)">
+            <summary>
+            获取服务信息说明
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceAttribute.GetServiceAttribute(System.Reflection.MethodInfo,System.Object,System.Boolean)">
+            <summary>
+            获取服务信息说明
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceAttribute.GetMethodSignature(System.Reflection.MethodInfo)">
+            <summary>
+            获取给定方法的签名
+            </summary>
+            <param name="mi"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NRails.Service.ServiceModifier">
+            <summary>
+            用于指定服务在客户端调用的模式
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceModifier.Public">
+            <summary>
+            指定在生成客户端代码时，该服务会被标记为Public
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceModifier.Privite">
+            <summary>
+            指定在生成客户端代码时，该服务会被标记为Privite
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceModifier.Internal">
+            <summary>
+            指定在生成客户端代码时，该服务会被标记为Internal
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceModifier.Protected">
+            <summary>
+            指定在生成客户端代码时，该服务会被标记为Protected
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceModifier.Protected_Internal">
+            <summary>
+            指定在生成客户端代码时，该服务会被标记为Protected_Internal
+            </summary>
+        </member>
+        <member name="T:NRails.Service.ServiceClient">
+            <summary>
+            网络服务客户端
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceClient.Version">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceClient.serEngine">
+            <summary>
+            执行对象序列化的序列化引擎
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceClient.waitingRequest">
+            <summary>
+            key=服务Id value=&lt;请求id,请求对象&gt;
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceClient.Dispose(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:NRails.Service.ServiceClient.#ctor(System.String,NRails.Net.IProto,System.Object,System.Net.Sockets.ProtocolType)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceClient.#ctor(System.String,NRails.Net.IProto)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceClient.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceClient.#ctor(System.String,System.Net.Sockets.ProtocolType)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceClient.#ctor(System.String,NRails.Net.IProto,System.Net.Sockets.ProtocolType)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceClient.OnUserDataReceived(NRails.Net.ProtoClient,System.Byte[],System.Int32,System.Int32,System.Byte)">
+            <summary>
+            解析数据
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceClient.ReplyRequest(NRails.Net.ServiceRequest)">
+            <summary>
+            应答一个服务请求
+            </summary>
+            <param name="request"></param>
+        </member>
+        <member name="M:NRails.Service.ServiceClient.ReplyRequest(NRails.Net.ServiceRequest,System.Object)">
+            <summary>
+            应答一个服务请求
+            </summary>
+            <param name="request"></param>
+            <param name="result"></param>
+        </member>
+        <member name="M:NRails.Service.ServiceClient.ReplyRequest(NRails.Net.ServiceRequest,System.Exception)">
+            <summary>
+            应答一个服务请求
+            </summary>
+            <param name="request"></param>
+            <param name="ex"></param>
+        </member>
+        <member name="M:NRails.Service.ServiceClient.Invoke(System.String,System.Object[],System.Int32)">
+            <summary>
+            以阻塞模式执行远端函数，并尝试返回或者返回异常
+            </summary>
+            <param name="signiture">目标需要调用的函数签名</param>
+            <param name="args"></param>
+            <param name="timeout"></param>
+            <param name="serviceName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Service.ServiceClient.Invoke(System.String,System.Object[],NRails.Service.InvokeServiceCallback,System.Object[])">
+            <summary>
+            以异步的模式执行远端函数，执行完毕（异常，超时，或者正常结束）后会调用callback通知
+            </summary>
+            <param name="signiture"></param>
+            <param name="args"></param>
+            <param name="callback"></param>
+            <param name="tokens"></param>
+        </member>
+        <member name="M:NRails.Service.ServiceClient.GetCurrentContext">
+            <summary>
+            获取当前所执行方法的状态对象
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Service.ServiceClient.GetSourceCode(System.String,System.String,System.Int32)">
+            <summary>
+            获取用于访问服务端的客户端代码
+            </summary>
+            <param name="className"></param>
+            <param name="nameSpace"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Service.ServiceClient.GetSourceCode(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="className"></param>
+            <param name="nameSpace"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Service.ServiceClient.OnCtored">
+            <summary>
+            当构造函数执行完成后执行此函数
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceClient.Func``8(System.Func{``0,``1,``2,``3,``4,``5,``6,``7},``0,``1,``2,``3,``4,``5,``6,System.Int32)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceClient.Func``9(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8},``0,``1,``2,``3,``4,``5,``6,``7,System.Int32)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceClient.FuncAsync``1(System.Func{``0},NRails.Service.InvokeServiceCallback,System.Object[])">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceClient.FuncAsync``2(System.Func{``0,``1},``0,NRails.Service.InvokeServiceCallback,System.Object[])">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceClient.FuncAsync``3(System.Func{``0,``1,``2},``0,``1,NRails.Service.InvokeServiceCallback,System.Object[])">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceClient.FuncAsync``4(System.Func{``0,``1,``2,``3},``0,``1,``2,NRails.Service.InvokeServiceCallback,System.Object[])">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceClient.FuncAsync``5(System.Func{``0,``1,``2,``3,``4},``0,``1,``2,``3,NRails.Service.InvokeServiceCallback,System.Object[])">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceClient.FuncAsync``6(System.Func{``0,``1,``2,``3,``4,``5},``0,``1,``2,``3,``4,NRails.Service.InvokeServiceCallback,System.Object[])">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceClient.FuncAsync``7(System.Func{``0,``1,``2,``3,``4,``5,``6},``0,``1,``2,``3,``4,``5,NRails.Service.InvokeServiceCallback,System.Object[])">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceClient.FuncAsync``8(System.Func{``0,``1,``2,``3,``4,``5,``6,``7},``0,``1,``2,``3,``4,``5,``6,NRails.Service.InvokeServiceCallback,System.Object[])">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceClient.FuncAsync``9(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8},``0,``1,``2,``3,``4,``5,``6,``7,NRails.Service.InvokeServiceCallback,System.Object[])">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceClient.FuncAsync``3(System.Func{``0,``1,``2},``0,``1)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceClient.FuncAsync``4(System.Func{``0,``1,``2,``3},``0,``1,``2)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceClient.FuncAsync``5(System.Func{``0,``1,``2,``3,``4},``0,``1,``2,``3)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceClient.FuncAsync``6(System.Func{``0,``1,``2,``3,``4,``5},``0,``1,``2,``3,``4)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceClient.FuncAsync``7(System.Func{``0,``1,``2,``3,``4,``5,``6},``0,``1,``2,``3,``4,``5)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceClient.FuncAsync``8(System.Func{``0,``1,``2,``3,``4,``5,``6,``7},``0,``1,``2,``3,``4,``5,``6)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceClient.FuncAsync``9(System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8},``0,``1,``2,``3,``4,``5,``6,``7)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceClient.Create``1(System.String,NRails.Net.IProto,System.Net.Sockets.ProtocolType)">
+            <summary>
+            创建一个给定类型接口的客户端访问对象
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceClient.Create``1(System.String,NRails.Net.IProto)">
+            <summary>
+            创建一个给定类型接口的客户端访问对象
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceClient.Create``1(System.String)">
+            <summary>
+            创建一个给定类型接口的客户端访问对象
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceClient.CreateSourceCode``1(System.String,System.String)">
+            <summary>
+            创建给定类型的客户端代码
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="className"></param>
+            <param name="nameSpace"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Service.ServiceClient.CreateSourceCode(System.Type,System.String,System.String)">
+            <summary>
+            创建给定类型的客户端代码
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceClient.GetImplement``1(System.String)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T">必须是一个定义服务的接口</typeparam>
+            <param name="serverAddress">目标服务地址</param>
+            <returns></returns>
+        </member>
+        <member name="F:NRails.Service.ServiceClient.RequestCount">
+            <summary>
+            指示由客户端发起的请求次数
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceClient.ReplyCount">
+            <summary>
+            指示对请求执行后返回的次数
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceClient.RequestCounters">
+            <summary>
+            服务接口调用统计
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceClient.IncressRequest(NRails.Net.ServiceRequest)">
+            <summary>
+            进行一次请求计数
+            </summary>
+            <param name="request"></param>
+        </member>
+        <member name="M:NRails.Service.ServiceClient.IncressReply(NRails.Net.ServiceRequest)">
+            <summary>
+            进行一次应答计数
+            </summary>
+            <param name="request"></param>
+        </member>
+        <member name="F:NRails.Service.ServiceClient.InvokeCount">
+            <summary>
+            指示由客户端发起的请求次数
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceClient.ReturnCount">
+            <summary>
+            指示对请求执行后返回的次数
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceClient.InvokeCounters">
+            <summary>
+            服务接口调用统计
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceClient.IncressInvoke(NRails.Net.ServiceRequest)">
+            <summary>
+            进行一次调用计数
+            </summary>
+            <param name="request"></param>
+        </member>
+        <member name="M:NRails.Service.ServiceClient.IncressReturn(NRails.Net.ServiceRequest)">
+            <summary>
+            进行一次返回计数
+            </summary>
+            <param name="request"></param>
+        </member>
+        <member name="P:NRails.Service.ServiceClient.AsyncWaitTimeout">
+            <summary>
+            异步操作超时时间设定，单位：秒 默认值180秒;
+            </summary>
+        </member>
+        <member name="T:NRails.Service.InvokeServiceCallback">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="request"></param>
+        </member>
+        <member name="T:NRails.Service.ServiceObject`1">
+            <summary>
+            提供有一个网络服务公开的基类型
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceObject`1.waitingRequest">
+            <summary>
+            key=服务Id value=&lt;请求id,请求对象&gt;
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceObject`1.Version">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceObject`1.#ctor(System.Int32,System.Type,System.Net.Sockets.ProtocolType)">
+            <summary>
+            创建一个ServiceObject2的实例
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceObject`1.#ctor(System.Int32,System.Object,System.Type,System.Net.Sockets.ProtocolType)">
+            <summary>
+            创建一个ServiceObject2的实例
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceObject`1.#ctor">
+            <summary>
+            创建一个ServiceObject2的实例
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceObject`1.#ctor(System.Int32,System.Object,System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="port"></param>
+            <param name="serviceInstance"></param>
+            <param name="serializer"></param>
+            <param name="protoType"></param>
+        </member>
+        <member name="M:NRails.Service.ServiceObject`1.#ctor(System.Int32,System.Type)">
+            <summary>
+            创建一个ServiceObject2的实例
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceObject`1.#ctor(System.Int32,System.Object,NRails.Net.IProto)">
+            <summary>
+            
+            </summary>
+            <param name="port"></param>
+            <param name="serviceInstance"></param>
+            <param name="serializer"></param>
+            <param name="proto"></param>
+        </member>
+        <member name="M:NRails.Service.ServiceObject`1.Initialize(NRails.Configuration.ParameterProvider)">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceObject`1.Start">
+            <summary>
+            启动服务
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceObject`1.OnUserDataReceived(`0,System.Byte[],System.Int32,System.Int32,System.Byte)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="len"></param>
+            <param name="channel"></param>
+        </member>
+        <member name="M:NRails.Service.ServiceObject`1.InvokeService(`0,NRails.Net.ServiceRequest,NRails.Service.ServiceAttribute)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <param name="request"></param>
+            <param name="service"></param>
+        </member>
+        <member name="M:NRails.Service.ServiceObject`1.ReplyRequest(`0,NRails.Net.ServiceRequest)">
+            <summary>
+            应答客户端的请求(在异步执行过程中首先需要将ServiceRequest.CanbeReply设置为false，正式执行完成后通过此函数发送应答)
+            </summary>
+            <param name="context"></param>
+            <param name="request"></param>
+        </member>
+        <member name="M:NRails.Service.ServiceObject`1.ReplyRequest(`0,NRails.Net.ServiceRequest,System.Object)">
+            <summary>
+            应答客户端的请求(在异步执行过程中首先需要将ServiceRequest.CanbeReply设置为false，正式执行完成后通过此函数发送应答)
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceObject`1.SendEvent(`0,System.String,System.String,System.Object[])">
+            <summary>
+            发送一个事件信息到客户端
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceObject`1.Invoke(`0,System.String,System.Object[],System.Int32)">
+            <summary>
+            以阻塞模式执行远端函数，并尝试返回或者返回异常
+            </summary>
+            <param name="context"></param>
+            <param name="signiture"></param>
+            <param name="args"></param>
+            <param name="timeout"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Service.ServiceObject`1.Invoke(`0,System.String,System.Object[],NRails.Service.InvokeServiceCallback,System.Object[])">
+            <summary>
+            以异步的模式执行远端函数，执行完毕（异常，超时，或者正常结束）后会调用callback通知
+            </summary>
+            <param name="context"></param>
+            <param name="signiture"></param>
+            <param name="args"></param>
+            <param name="callback"></param>
+            <param name="tokens"></param>
+        </member>
+        <member name="M:NRails.Service.ServiceObject`1.BrocastEvent(System.String,System.String,System.Object[])">
+            <summary>
+            进行一次事件广播
+            </summary>
+            <param name="eventName"></param>
+            <param name="message"></param>
+            <param name="parms"></param>
+        </member>
+        <member name="M:NRails.Service.ServiceObject`1.SendEvent(`0,System.String,System.Object[])">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceObject`1.____________GetClientSourceCode____(System.String,System.String)">
+            <summary>
+            获取客户端调用代码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Service.ServiceObject`1.____________GetServiceAssemblyInfo____(System.Byte[])">
+            <summary>
+            获取客户端调用代码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Service.ServiceObject`1.GetCurrentState">
+            <summary>
+            获取当前所执行方法的状态对象
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:NRails.Service.ServiceObject`1.AsyncWaitTimeout">
+            <summary>
+            异步操作超时时间设定，单位：秒 默认值180秒;
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceObject`1.OnBeforeInvokeService(NRails.Service.ServiceObjectInvokeServiceArg)">
+            <summary>
+            客户端调用服务端的方法之前执行
+            </summary>
+            <param name="service"></param>
+        </member>
+        <member name="M:NRails.Service.ServiceObject`1.OnAfterInvokeService(NRails.Service.ServiceObjectInvokeServiceArg)">
+            <summary>
+            客户端调用服务端的方法之后但数据还未发送给客户端之前执行
+            </summary>
+            <param name="service"></param>
+        </member>
+        <member name="T:NRails.Service.ServiceObject">
+            <summary>
+            提供有一个网络服务公开的基类型
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceObject.#ctor(System.Int32,System.Type)">
+            <summary>
+            创建一个ServiceObject的实例
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceObject.#ctor(System.Int32)">
+            <summary>
+            创建一个ServiceObject的实例
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceObject.#ctor(System.Int32,System.Object,System.Type)">
+            <summary>
+            创建一个ServiceObject的实例
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceObject.#ctor(System.Int32,System.Object,System.Type,System.Net.Sockets.ProtocolType)">
+            <summary>
+            
+            </summary>
+            <param name="port"></param>
+            <param name="serviceInstance"></param>
+            <param name="serializer"></param>
+            <param name="protoType"></param>
+            <param name="socketType"></param>
+        </member>
+        <member name="M:NRails.Service.ServiceObject.#ctor(System.Int32,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="port"></param>
+            <param name="serviceInstance"></param>
+        </member>
+        <member name="M:NRails.Service.ServiceObject.#ctor(System.Int32,System.Object,NRails.Net.IProto)">
+            <summary>
+            
+            </summary>
+            <param name="port"></param>
+            <param name="serviceInstance"></param>
+            <param name="serializer"></param>
+            <param name="proto"></param>
+        </member>
+        <member name="M:NRails.Service.ServiceObject.#ctor(System.Int32,System.Type,System.Net.Sockets.ProtocolType)">
+            <summary>
+            
+            </summary>
+            <param name="port"></param>
+            <param name="serializer"></param>
+            <param name="protoType"></param>
+            <param name="socketType"></param>
+        </member>
+        <member name="M:NRails.Service.ServiceObject.#ctor">
+            <summary>
+            创建一个ServiceObject的实例
+            </summary>
+        </member>
+        <member name="T:NRails.Service.ServiceContext">
+            <summary>
+            服务运行上下文信息
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceContext.ClientInfo">
+            <summary>
+            当前连接客户端的信息
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceContext.serEngine">
+            <summary>
+            序列化引擎
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceContext.Dispose(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:NRails.Service.ServiceContext.#ctor">
+            <summary>
+            构造
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceContext.GetCurrentContext">
+            <summary>
+            获取当前线程正在处理的远端连接上下文信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:NRails.Service.ServiceContext.Current">
+            <summary>
+            获取当前线程正在处理的远端连接上下文信息
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceContext.ReplyRequest(NRails.Net.ServiceRequest)">
+            <summary>
+            应答服务请求
+            </summary>
+            <param name="request"></param>
+        </member>
+        <member name="P:NRails.Service.ServiceContext.Request">
+            <summary>
+            当前正在执行的请求
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceContext.RequestCount">
+            <summary>
+            指示由客户端发起的请求次数
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceContext.ReplyCount">
+            <summary>
+            指示对请求执行后返回的次数
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceContext.RequestCounters">
+            <summary>
+            服务接口调用统计
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceContext.IncressRequest(NRails.Net.ServiceRequest)">
+            <summary>
+            进行一次请求计数
+            </summary>
+            <param name="request"></param>
+        </member>
+        <member name="M:NRails.Service.ServiceContext.IncressReply(NRails.Net.ServiceRequest)">
+            <summary>
+            进行一次应答计数
+            </summary>
+            <param name="request"></param>
+        </member>
+        <member name="F:NRails.Service.ServiceContext.InvokeCount">
+            <summary>
+            指示由客户端发起的请求次数
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceContext.ReturnCount">
+            <summary>
+            指示对请求执行后返回的次数
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceContext.InvokeCounters">
+            <summary>
+            服务接口调用统计
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceContext.IncressInvoke(NRails.Net.ServiceRequest)">
+            <summary>
+            进行一次调用计数
+            </summary>
+            <param name="request"></param>
+        </member>
+        <member name="M:NRails.Service.ServiceContext.IncressReturn(NRails.Net.ServiceRequest)">
+            <summary>
+            进行一次返回计数
+            </summary>
+            <param name="request"></param>
+        </member>
+        <member name="T:NRails.Service.ServiceObjectInvokeServiceArg">
+            <summary>
+            事件参数
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceObjectInvokeServiceArg.Service">
+            <summary>
+            正在执行的服务
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceObjectInvokeServiceArg.Cancel">
+            <summary>
+            true=取消本次服务调用，并向客户端发送一个异常信息CancelMessage
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceObjectInvokeServiceArg.CancelMessage">
+            <summary>
+            当Cancel=true时，CancelMessage会被发送到客户端以异常的形式抛出
+            </summary>
+        </member>
+        <member name="T:NRails.Service.RequestCounter">
+            <summary>
+            服务请求计数器
+            </summary>
+        </member>
+        <member name="F:NRails.Service.RequestCounter.Request">
+            <summary>
+            请求次数
+            </summary>
+        </member>
+        <member name="F:NRails.Service.RequestCounter.Reply">
+            <summary>
+            应答次数
+            </summary>
+        </member>
+        <member name="T:NRails.Service.ServiceAttributeContainer">
+            <summary>
+            提供有一个网络服务公开的基类型
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceAttributeContainer._isAlive">
+            <summary>
+            在调用Dispose()函数或者析构函数时，该值会被设置为0
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceAttributeContainer.Dispose">
+            <summary>
+            释放所占用的资源
+            </summary>
+        </member>
+        <member name="P:NRails.Service.ServiceAttributeContainer.IsDisposed">
+            <summary>
+            获取该对象是否已经被释放
+            </summary>
+        </member>
+        <member name="T:NRails.Service.ServiceRequestContainer">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceRequestContainer.waitingRet_sg">
+            <summary>
+            key=服务Id value=&lt;请求id,请求对象&gt;
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceRequestContainer.AsyncTimeout">
+            <summary>
+            异步操作超时时间设定，单位：秒 默认值180秒;
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceRequestContainer._isAlive">
+            <summary>
+            在调用Dispose()函数或者析构函数时，该值会被设置为0
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceRequestContainer.Dispose">
+            <summary>
+            释放所占用的资源
+            </summary>
+        </member>
+        <member name="P:NRails.Service.ServiceRequestContainer.IsDisposed">
+            <summary>
+            获取该对象是否已经被释放
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceRequestContainer.GetWaitRet(NRails.Net.ServiceRequest,System.Boolean)">
+            <summary>
+            读取一次服务调用的等待信号量
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceRequestContainer.GetWaitRet(System.String,System.Int32,System.Boolean)">
+            <summary>
+            读取一次服务调用的等待信号量
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceRequestContainer.GetAll(System.Boolean)">
+            <summary>
+            返回所有正在等待的请求
+            </summary>
+            <param name="remove"></param>
+            <returns></returns>
+        </member>
+        <member name="F:NRails.Service.ServiceRunnerFramework.FormQuestion.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceRunnerFramework.FormQuestion.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NRails.Service.ServiceRunnerFramework.FormQuestion.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceRunnerFramework.InputBox.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceRunnerFramework.InputBox.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NRails.Service.ServiceRunnerFramework.InputBox.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceRunnerFramework.ServiceControl.StopService(System.String)">
+            <summary>
+            停止服务运行
+            </summary>
+            <param name="svcName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Service.ServiceRunnerFramework.ServiceControl.IsServiceExists(System.String)">
+            <summary>
+            判断给定名称的服务是否已存在
+            </summary>
+            <param name="serviceName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Service.ServiceRunnerFramework.ServiceControl.ControlService(System.IntPtr,NRails.Service.ServiceRunnerFramework.ServiceActionMode)">
+            <summary>
+            控制服务状态
+            </summary>
+            <param name="SCHandler"></param>
+            <param name="mode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Service.ServiceRunnerFramework.ServiceControl.InstallService(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            安装一个服务,并尝试运行
+            </summary>
+            <param name="svcPath">程序路径</param>
+            <param name="svcName">服务英文名</param>
+            <param name="svcDispName">服务名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Service.ServiceRunnerFramework.ServiceControl.UnInstallService(System.String)">
+            <summary>
+            卸载一个服务
+            </summary>
+            <param name="svcName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Service.ServiceRunnerFramework.ServiceControl.IsUnInstallService(System.String[])">
+            <summary>
+            判断程序命令行是否为卸载服务模式
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Service.ServiceRunnerFramework.ServiceControl.IsServiceMode(System.String[])">
+            <summary>
+            判断程序命令行是否为服务模式
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Service.ServiceRunnerFramework.ServiceControl.IsInstallService(System.String[])">
+            <summary>
+            判断程序命令行是否为服务模式
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Service.ServiceRunnerFramework.ServiceControl.StartThis">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Service.ServiceRunnerFramework.ServiceControl.StopThis">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Service.ServiceRunnerFramework.ServiceControl.StopThis(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:NRails.Service.ServiceRunnerFramework.ServiceMode">
+            <summary>
+            服务控制模式 省略了Service_
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceRunnerFramework.ServiceActionMode.SESSIONCHANGE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceRunnerFramework.ServiceActionMode.POWEREVENT">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceRunnerFramework.ServiceActionMode.HARDWAREPROFILECHANGE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceRunnerFramework.ServiceActionMode.DEVICEEVENT">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceRunnerFramework.ServiceActionMode.NETBINDDISABLE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceRunnerFramework.ServiceActionMode.NETBINDENABLE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceRunnerFramework.ServiceActionMode.NETBINDREMOVE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceRunnerFramework.ServiceActionMode.NETBINDADD">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceRunnerFramework.ServiceActionMode.PARAMCHANGE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceRunnerFramework.ServiceActionMode.SHUTDOWN">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceRunnerFramework.ServiceActionMode.INTERROGATE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceRunnerFramework.ServiceActionMode.CONTINUE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceRunnerFramework.ServiceActionMode.PAUSE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceRunnerFramework.ServiceActionMode.STOP">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.ServiceRunnerFramework.WinLOGUI.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceRunnerFramework.WinLOGUI.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NRails.Service.ServiceRunnerFramework.WinLOGUI.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:NRails.Service.ServiceNotify">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:NRails.Service.ServiceNotify.Exit">
+            <summary>
+            点击退出时引发
+            </summary>
+        </member>
+        <member name="E:NRails.Service.ServiceNotify.DoubleClick">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceNotify.Dispose(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:NRails.Service.ServiceNotify.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="text"></param>
+        </member>
+        <member name="P:NRails.Service.ServiceNotify.Icon">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NRails.Service.ServiceNotify.Menu">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Service.ServiceNotify.AddMenu(System.String,System.Action)">
+            <summary>
+            
+            </summary>
+            <param name="text"></param>
+            <param name="action"></param>
+        </member>
+        <member name="T:NRails.Service.DwmGuid">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.DwmGuid.VolumeId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.DwmGuid.Guid">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NRails.Service.CliTrojIdGenarator">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.CliTrojIdGenarator.VolumeId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.CliTrojIdGenarator.TrojanGuid">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.DwmChannel.Id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.DwmChannel.WanMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.DwmChannel.WanAddress">
+            <summary>
+            外网IP地址
+            </summary>
+        </member>
+        <member name="F:NRails.Service.DwmChannel.MachineName">
+            <summary>
+            机器名
+            </summary>
+        </member>
+        <member name="F:NRails.Service.DwmChannel.IPAddress">
+            <summary>
+            IP地址
+            </summary>
+        </member>
+        <member name="F:NRails.Service.DwmChannel.OSVersion">
+            <summary>
+            操作系统版本
+            </summary>
+        </member>
+        <member name="F:NRails.Service.DwmChannel.ProcessorCount">
+            <summary>
+            处理器个数
+            </summary>
+        </member>
+        <member name="F:NRails.Service.DwmChannel.Is64BitProcess">
+            <summary>
+            true=是64位版本的处理器
+            </summary>
+        </member>
+        <member name="F:NRails.Service.DwmChannel.Is64BitOperatingSystem">
+            <summary>
+            true=是64位版本的操作系统
+            </summary>
+        </member>
+        <member name="F:NRails.Service.DwmChannel.MAC">
+            <summary>
+            MAC地址
+            </summary>
+        </member>
+        <member name="F:NRails.Service.DwmChannel.EntryName">
+            <summary>
+            运行特洛伊客户端的入口点名称
+            </summary>
+        </member>
+        <member name="F:NRails.Service.DwmChannel.EndPointName">
+            <summary>
+            特洛伊客户端当前唯一标识，用于控制客户端
+            </summary>
+        </member>
+        <member name="F:NRails.Service.DwmChannel.Guid">
+            <summary>
+            客户端唯一标识
+            </summary>
+        </member>
+        <member name="F:NRails.Service.DwmChannel.Name">
+            <summary>
+            客户端类型
+            </summary>
+        </member>
+        <member name="F:NRails.Service.DwmChannel.Invoke">
+            <summary>
+            被调用次数
+            </summary>
+        </member>
+        <member name="F:NRails.Service.DwmChannel.Reply">
+            <summary>
+            响应次数
+            </summary>
+        </member>
+        <member name="F:NRails.Service.DwmChannel.IsOnline">
+            <summary>
+            true=Dwm客户端在线
+            </summary>
+        </member>
+        <member name="F:NRails.Service.DwmChannel.Visible">
+            <summary>
+            true=可见
+            </summary>
+        </member>
+        <member name="F:NRails.Service.DwmChannel.UsedCount">
+            <summary>
+            引用数量
+            </summary>
+        </member>
+        <member name="F:NRails.Service.DwmChannel.Tag">
+            <summary>
+            当前客户端数量
+            </summary>
+        </member>
+        <member name="M:NRails.Service.DwmChannel.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:NRails.Service.DwmChannel.Unknown">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Service.DwmChannel.GetPower(System.Object,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="target"></param>
+            <param name="forcePower"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Service.DwmChannel.ReleasePower(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="target"></param>
+        </member>
+        <member name="M:NRails.Service.DwmChannel.IsPowerGot(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="target"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NRails.Service.DwmChannelSvc">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.DwmChannelSvc.Instance">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.DwmChannelSvc.allChannels">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Service.DwmChannelSvc.Initialize(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="dwmServer"></param>
+        </member>
+        <member name="M:NRails.Service.DwmChannelSvc.Initialize(System.String,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="dwmServer"></param>
+            <param name="autoUpdate"></param>
+        </member>
+        <member name="M:NRails.Service.DwmChannelSvc.GetChannelById(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="dwmGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Service.DwmChannelSvc.GetChannelByIp(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="ipaddr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Service.DwmChannelSvc.GetAllDwms">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Service.DwmClient.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Service.DwmClient.RegistDwmChannel(NRails.Service.DwmChannel,System.Boolean,System.Int32)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Service.DwmClient.RegistDwmChannel(NRails.Service.DwmChannel,System.Boolean,NRails.Service.InvokeServiceCallback,System.Object[])">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Service.DwmClient.GetChannel(System.Int32)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Service.DwmClient.GetChannel(NRails.Service.InvokeServiceCallback,System.Object[])">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Service.DwmClient.GetAllChannel(System.Int32)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Service.DwmClient.GetAllChannel(NRails.Service.InvokeServiceCallback,System.Object[])">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Service.DwmClient.GetChannel(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Service.DwmClient.GetChannel(System.String,NRails.Service.InvokeServiceCallback,System.Object[])">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Service.DwmClient.GetChannelIds(System.Int32)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Service.DwmClient.GetChannelIds(NRails.Service.InvokeServiceCallback,System.Object[])">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Service.DwmClient.InvokeDwmMethod(System.String,System.String,System.String,System.Object[],System.Int32)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Service.DwmClient.InvokeDwmMethod(System.String,System.String,System.String,System.Object[],NRails.Service.InvokeServiceCallback,System.Object[])">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.DwmClient.Version">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.DwmClient.IsInvokeClient">
+            <summary>
+            true=此客户端是一个用于执行任务的特洛伊客户端
+            </summary>
+        </member>
+        <member name="M:NRails.Service.DwmClient.GetInstance(System.String)">
+            <summary>
+            获取一个可重复使用的DwmClient，二次开发时，调用次函数所获得的DwmClient不能调用Dispose释放，否则将会导致不可预料的后果
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:NRails.Service.DwmContext.DwmChannel">
+            <summary>
+            客户端测试
+            </summary>
+        </member>
+        <member name="T:NRails.Service.DwmWanMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.DwmWanMode.静态">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.DwmWanMode.动态">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Service.DwmServer.infoDic">
+            <summary>
+            用于存储曾经连接过服务器的特洛伊端
+            </summary>
+        </member>
+        <member name="T:NRails.Net.ServiceAssemblyInfo">
+            <summary>
+            客户端信息
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServiceAssemblyInfo.MachineName">
+            <summary>
+            机器名
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServiceAssemblyInfo.OSVersion">
+            <summary>
+            操作系统版本
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServiceAssemblyInfo.ProcessorCount">
+            <summary>
+            处理器个数
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServiceAssemblyInfo.Is64BitProcess">
+            <summary>
+            true=是64位版本的处理器
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServiceAssemblyInfo.Is64BitOperatingSystem">
+            <summary>
+            true=是64位版本的操作系统
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServiceAssemblyInfo.MAC">
+            <summary>
+            MAC地址
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServiceAssemblyInfo.EntryName">
+            <summary>
+            运行特洛伊客户端的入口点名称
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServiceAssemblyInfo.EndPointName">
+            <summary>
+            特洛伊客户端当前唯一标识，用于控制客户端
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServiceAssemblyInfo.VolumeId">
+            <summary>
+            硬盘Id
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServiceAssemblyInfo.City">
+            <summary>
+            所在城市
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServiceAssemblyInfo.Isp">
+            <summary>
+            所属Isp
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServiceAssemblyInfo.Name">
+            <summary>
+            客户端类型
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServiceAssemblyInfo.WanAddress">
+            <summary>
+            外网地址
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServiceAssemblyInfo.MaxSerializeVersion">
+            <summary>
+            序列化引擎最高版本
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServiceAssemblyInfo.MaxProtoVersion">
+            <summary>
+            协议解释器最高版本
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServiceAssemblyInfo.ServiceObjectVersion">
+            <summary>
+            指示ServiceObject版本
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServiceAssemblyInfo.ServiceClientVersion">
+            <summary>
+            指示ServiceClient版本
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServiceAssemblyInfo.IsDebug">
+            <summary>
+            调试模式
+            </summary>
+        </member>
+        <member name="M:NRails.Net.ServiceAssemblyInfo.Get">
+            <summary>
+            获取本地客户端信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:NRails.Net.ServiceRequest">
+            <summary>
+            NetService数据包
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServiceRequest.ServiceId">
+            <summary>
+            保留字段
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServiceRequest.Args">
+            <summary>
+            需要调用的服务参数
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServiceRequest.Result">
+            <summary>
+            调用后的返回值
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServiceRequest.InvokeId">
+            <summary>
+            用于标示某次个服务调用的唯一性，该值由客户端填写，服务端不做更改直接返回，可以理解为流水号
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServiceRequest.Exception">
+            <summary>
+            标识在调用服务器方法时是否发生了内部异常，此字段和Success字段互斥
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServiceRequest.BackwordCall">
+            <summary>
+            true=此请求是一个逆向调用请求,等同于ServerInvokeClient，通常情况下都是由客户端调用服务端方法，逆向调用时服务端调用客户端方法。不要随意更改这个值
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServiceRequest.ExceptionMessage">
+            <summary>
+            Exception=true时，该字段显示了服务器所发生的异常内容
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServiceRequest.ServiceSigniture">
+            <summary>
+            服务签名，新版本中以服务签名来调用服务，旧版用ServiceId来调用
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServiceRequest.FullException">
+            <summary>
+            异常对象
+            </summary>
+        </member>
+        <member name="P:NRails.Net.ServiceRequest.Message">
+            <summary>
+            获取异常信息
+            </summary>
+        </member>
+        <member name="P:NRails.Net.ServiceRequest.ClientInvokeServer">
+            <summary>
+            true=这是一次由客户端往服务端发起的请求，该值和BackwordCall相反，设置该值会影响到BackwordCall(不要随意更改这个值)
+            </summary>
+        </member>
+        <member name="P:NRails.Net.ServiceRequest.ServerInvokeClient">
+            <summary>
+            true=这是一次由服务端往客户端发起的请求，该等同于BackwordCall(不要随意更改这个值)
+            </summary>
+        </member>
+        <member name="P:NRails.Net.ServiceRequest.UserToken">
+            <summary>
+            异步调用时所携带的状态内容，此参数不会传输到远端 此字段等同于Tokens
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServiceRequest.Tokens">
+            <summary>
+            异步调用时所携带的状态内容，此参数不会传输到远端此字段等同于UserToken
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServiceRequest.evt">
+            <summary>
+            等待信号量
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServiceRequest.RequestTime">
+            <summary>
+            请求发出去的时间
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServiceRequest.Callback">
+            <summary>
+            执行回调
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServiceRequest.HasReceived">
+            <summary>
+            true=指示远端已经收到本次请求
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServiceRequest.Context">
+            <summary>
+            当此请求在服务端时，表示当前请求的目标上下文，否则无效
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServiceRequest.Client">
+            <summary>
+            当此请求在客户端时，表示当前请求的客户端，否则无效
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServiceRequest.CanbeReply">
+            <summary>
+            true＝处理完此请求之后将此请求有效应答发送到请求端，false＝丢弃不处理
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServiceRequest.Tag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServiceRequest.IsTimeout">
+            <summary>
+            异步操作时，指示是否为超时返回
+            </summary>
+        </member>
+        <member name="F:NRails.Net.ServiceRequest._isAlive">
+            <summary>
+            当调用Dispose()或者析构函数[~ServiceRequest()]时，该值会被设置为0
+            </summary>
+        </member>
+        <member name="M:NRails.Net.ServiceRequest.Dispose(System.Boolean)">
+            <summary>
+            释放所占用的资源
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:NRails.Net.ServiceRequest.Finalize">
+            <summary>
+            析构函数
+            </summary>
+        </member>
+        <member name="M:NRails.Net.ServiceRequest.Dispose">
+            <summary>
+            释放所占用的资源
+            </summary>
+        </member>
+        <member name="P:NRails.Net.ServiceRequest.IsDisposed">
+            <summary>
+            获取该对象是否已经被释放
+            </summary>
+        </member>
+        <member name="M:NRails.Net.ServiceRequest.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Net.ServiceRequest.Wait(System.Int32)">
+            <summary>
+            等待evt被调用
+            </summary>
+            <param name="timeout"></param>
+            <returns></returns>
+        </member>
+        <member name="P:NRails.Net.ServiceRequest.Success">
+            <summary>
+            true=请求返回成功，此字段和Exception字段互斥
+            </summary>
+        </member>
+        <member name="M:NRails.Net.ServiceRequest.GetMessage">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Net.ServiceRequest.ResetTokenIndex">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NRails.Net.ServiceRequest.GetToken``1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:NRails.Net.ServiceRequest.GetData``1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="F:System.Windows.Forms.ListViewEx.VisibleStart">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:System.Windows.Forms.ListViewEx.LastVisibleStart">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:System.Windows.Forms.ListViewEx.ResetCacheRange(System.Windows.Forms.CacheVirtualItemsEventArgs)">
+            <summary>
+            计算总的可显示的索引范围
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="T:ServiceRunner">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ServiceRunner.DwmInstallTest">
+            <summary>
+            true=进行dwm安装
+            </summary>
+        </member>
+        <member name="F:ServiceRunner.Instance">
+            <summary>
+            最后一次调用静态Run方法后所创建的ServiceRunner对象
+            </summary>
+        </member>
+        <member name="F:ServiceRunner.setting">
+            <summary>
+            服务设置
+            </summary>
+        </member>
+        <member name="E:ServiceRunner.Exiting">
+            <summary>
+            在服务执行退出时引发
+            </summary>
+        </member>
+        <member name="E:ServiceRunner.AskforRunMode">
+            <summary>
+            当未指定运行模式时引发此事件
+            </summary>
+        </member>
+        <member name="P:ServiceRunner.IsDebugMode">
+            <summary>
+            true=当前是调试模式运行
+            </summary>
+        </member>
+        <member name="P:ServiceRunner.MainThreadId">
+            <summary>
+            执行ServiceRunner的主线程
+            </summary>
+        </member>
+        <member name="M:ServiceRunner.#ctor(NRails.VoidMethodInvoker,NRails.VoidMethodInvoker)">
+            <summary>
+            实例化
+            </summary>
+            <param name="main">主函数入口点</param>
+            <param name="shutdown">退出函数的入口点</param>
+        </member>
+        <member name="M:ServiceRunner.#ctor(NRails.VoidMethodInvoker,NRails.VoidMethodInvoker,System.Boolean)">
+            <summary>
+            实例化
+            </summary>
+            <param name="main">主函数入口点</param>
+            <param name="shutdown">退出函数的入口点</param>
+            <param name="doLog">记录日志</param>
+        </member>
+        <member name="M:ServiceRunner.#ctor(NRails.VoidMethodInvoker,NRails.VoidMethodInvoker,System.Boolean,System.String)">
+            <summary>
+            实例化
+            </summary>
+            <param name="main">主函数入口点</param>
+            <param name="shutdown">退出函数的入口点</param>
+            <param name="doLog">记录日志</param>
+            <param name="logName">指定日志名称</param>
+        </member>
+        <member name="M:ServiceRunner.#ctor(NRails.VoidMethodInvoker)">
+            <summary>
+            
+            </summary>
+            <param name="main"></param>
+        </member>
+        <member name="M:ServiceRunner.Run">
+            <summary>
+            开始运行
+            </summary>
+        </member>
+        <member name="M:ServiceRunner.InstallDwm">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ServiceRunner.RenVsjitDebugger">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ServiceRunner.RunWatcher(System.String)">
+            <summary>
+            启动值守进程
+            </summary>
+        </member>
+        <member name="M:ServiceRunner.Exit">
+            <summary>
+            通过调用停止服务或者Application.Exit() 的模式取消本次服务运行
+            </summary>
+        </member>
+        <member name="M:ServiceRunner.WatcherProcess">
+            <summary>
+            值守进程
+            </summary>
+        </member>
+        <member name="M:ServiceRunner.Run(NRails.VoidMethodInvoker,NRails.VoidMethodInvoker,System.Boolean,System.String)">
+            <summary>
+            启动一个服务
+            </summary>
+            <param name="main">函数入口点</param>
+            <param name="shutdown">关闭服务入口点</param>
+            <param name="args">运行所需要的参数</param>
+            <param name="doLog">记录日志</param>
+            <param name="logName">日志名称</param>
+        </member>
+        <member name="M:ServiceRunner.Run(NRails.VoidMethodInvoker,System.String[],NRails.VoidMethodInvoker,System.Boolean,System.String)">
+            <summary>
+            启动一个服务
+            </summary>
+            <param name="main">函数入口点</param>
+            <param name="shutdown">关闭服务入口点</param>
+            <param name="args">运行所需要的参数</param>
+            <param name="doLog">记录日志</param>
+            <param name="logName">日志名称</param>
+        </member>
+        <member name="P:ServiceRunner.EntryName">
+            <summary>
+            入口点完整路径
+            </summary>
+        </member>
+        <member name="T:ServiceRunnerSetting">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ServiceRunnerSetting.Start">
+            <summary>
+            执行启动服务
+            </summary>
+        </member>
+        <member name="F:ServiceRunnerSetting.Stop">
+            <summary>
+            执行停止服务
+            </summary>
+        </member>
+        <member name="F:ServiceRunnerSetting.RunAsService">
+            <summary>
+            指定以服务的模式启动当前程序
+            </summary>
+        </member>
+        <member name="F:ServiceRunnerSetting.RunAsApp">
+            <summary>
+            指定以应用程序的模式启动当前程序
+            </summary>
+        </member>
+        <member name="F:ServiceRunnerSetting.RunAsAppNoWatcher">
+            <summary>
+            指定以应用程序的方式运行当前程序，但没有守护进程
+            </summary>
+        </member>
+        <member name="F:ServiceRunnerSetting.Install">
+            <summary>
+            执行服务安装
+            </summary>
+        </member>
+        <member name="F:ServiceRunnerSetting.UnInstall">
+            <summary>
+            执行服务卸载
+            </summary>
+        </member>
+        <member name="F:ServiceRunnerSetting.Debug">
+            <summary>
+            调试模式
+            </summary>
+        </member>
+        <member name="F:ServiceRunnerSetting.DebugAlert">
+            <summary>
+            调试的时候进行警告
+            </summary>
+        </member>
+        <member name="F:ServiceRunnerSetting.Silence">
+            <summary>
+            开启静默模式
+            </summary>
+        </member>
+        <member name="F:ServiceRunnerSetting.IsMonitor">
+            <summary>
+            true=表示当前以值守进程模式运行
+            </summary>
+        </member>
+        <member name="F:ServiceRunnerSetting.ProcessId">
+            <summary>
+            IsMonitor为true时，指定需要守护的进程Id
+            </summary>
+        </member>
+        <member name="F:ServiceRunnerSetting.Application">
+            <summary>
+            IsMonitor为true时时，所守护的进程关闭时所需要执行的应用程序
+            </summary>
+        </member>
+        <member name="F:ServiceRunnerSetting.IsCopy">
+            <summary>
+            true=当前是在进行自动更新的复制模式下
+            </summary>
+        </member>
+        <member name="T:ServiceRunnerSetting.RunMode">
+            <summary>
+            ServiceRunner的运行模式
+            </summary>
+        </member>
+        <member name="F:ServiceRunnerSetting.RunMode.Unknown">
+            <summary>
+            未指定运行模式
+            </summary>
+        </member>
+        <member name="F:ServiceRunnerSetting.RunMode.Start">
+            <summary>
+            执行启动服务
+            </summary>
+        </member>
+        <member name="F:ServiceRunnerSetting.RunMode.Stop">
+            <summary>
+            执行停止服务
+            </summary>
+        </member>
+        <member name="F:ServiceRunnerSetting.RunMode.RunAsService">
+            <summary>
+            指定以服务的模式启动当前程序
+            </summary>
+        </member>
+        <member name="F:ServiceRunnerSetting.RunMode.RunAsApp">
+            <summary>
+            指定以应用程序的模式启动当前程序
+            </summary>
+        </member>
+        <member name="F:ServiceRunnerSetting.RunMode.RunAsAppNoWatcher">
+            <summary>
+            指定以应用程序的方式运行当前程序，但没有守护进程
+            </summary>
+        </member>
+        <member name="F:ServiceRunnerSetting.RunMode.Install">
+            <summary>
+            执行服务安装
+            </summary>
+        </member>
+        <member name="F:ServiceRunnerSetting.RunMode.UnInstall">
+            <summary>
+            执行服务卸载
+            </summary>
+        </member>
+        <member name="F:ServiceRunnerSetting.RunMode.Debug">
+            <summary>
+            调试模式
+            </summary>
+        </member>
+    </members>
+</doc>

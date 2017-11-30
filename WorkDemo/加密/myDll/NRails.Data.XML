@@ -1,0 +1,1164 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NRails.Data</name>
+    </assembly>
+    <members>
+        <member name="T:System.ModuleMapping">
+            <summary>
+            将键值对值写入到对象中具有相同名称的值中
+            </summary>
+        </member>
+        <member name="M:System.ModuleMapping.HashToModule(System.Collections.Specialized.NameValueCollection,System.Object)">
+            <summary>
+            从一个键值对中, 将值映射到指定对象中, 属性名称与键名相等的属性中.
+            如果类中存在不为Null的类型为对象的属性, 也会列入映射计算. 具体使用请参见该类的单元测试.
+            </summary>
+        </member>
+        <member name="T:NRails.Dao.SessionManager">
+            <summary>
+            数据库管理类
+            </summary>
+        </member>
+        <member name="M:NRails.Dao.SessionManager.#ctor(NHibernate.Cfg.Configuration)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:NRails.Dao.SessionManager.DeleteSession">
+            <summary>
+            2012-2-15 hmj 删除当前线程session缓存
+            </summary>
+        </member>
+        <member name="P:NRails.Dao.SessionManager.Instance">
+            <summary>
+            全局单例
+            </summary>
+        </member>
+        <member name="M:NRails.Data.DBHelper.CreateSqlServerDB(System.String,System.String,System.String,System.String)">
+            <summary>
+            创建SQLServer数据库
+            </summary>
+            <param name="database">数据库名</param>
+        </member>
+        <member name="M:NRails.Data.DBHelper.CreateSqlServerDB(System.Data.SqlClient.SqlConnectionStringBuilder)">
+            <summary>
+            创建SQLServer数据库
+            </summary>
+            <param name="database">数据库名</param>
+        </member>
+        <member name="M:NRails.Data.DBHelper.CreateTables">
+            <summary>
+            创建表结构
+            </summary>
+        </member>
+        <member name="T:NRails.Dao.JsonObjectType`1">
+            <summary>
+            自定义映射, 将对象序列为Json对象来存储
+            </summary>
+        </member>
+        <member name="T:Microsoft.ApplicationBlocks.Data.SqlHelper">
+            <summary>
+            The SqlHelper class is intended to encapsulate high performance, scalable best practices for 
+            common uses of SqlClient.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.AttachParameters(System.Data.SqlClient.SqlCommand,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            This method is used to attach array of SqlParameters to a SqlCommand.
+            
+            This method will assign a value of DbNull to any parameter with a direction of
+            InputOutput and a value of null.  
+            
+            This behavior will prevent default values from being used, but
+            this will be the less common case than an intended pure output parameter (derived as InputOutput)
+            where the user provided no input value.
+            </summary>
+            <param name="command">The command to which the parameters will be added</param>
+            <param name="commandParameters">an array of SqlParameters tho be added to command</param>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.AssignParameterValues(System.Data.SqlClient.SqlParameter[],System.Object[])">
+            <summary>
+            This method assigns an array of values to an array of SqlParameters.
+            </summary>
+            <param name="commandParameters">array of SqlParameters to be assigned values</param>
+            <param name="parameterValues">array of objects holding the values to be assigned</param>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.PrepareCommand(System.Data.SqlClient.SqlCommand,System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            This method opens (if necessary) and assigns a connection, transaction, command type and parameters 
+            to the provided command.
+            </summary>
+            <param name="command">the SqlCommand to be prepared</param>
+            <param name="connection">a valid SqlConnection, on which to execute this command</param>
+            <param name="transaction">a valid SqlTransaction, or 'null'</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <param name="commandParameters">an array of SqlParameters to be associated with the command or 'null' if no parameters are required</param>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteDeleteQuery(System.String,System.String,System.Int32)">
+            <summary>
+            Execute a SQL delete statement against the database specified in the connection string. 
+            </summary>
+            <param name="connectionString">The given connection string to connect to the database</param>
+            <param name="deleteText">The SQL DELETE statement to execute</param>
+            <param name="userID">The 24/7 ID of the user invoking the DELETE</param>
+            <returns>An integer representing the number of rows affected by the DELETE command</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteDeleteQuery(System.Data.SqlClient.SqlTransaction,System.String,System.Int32)">
+            <summary>
+            Execute a SQL delete statement against the database specified in the transaction. 
+            </summary>
+            <param name="transaction">The transaction this DELETE statement will be part of</param>
+            <param name="deleteText">The SQL DELETE statement to execute</param>
+            <param name="userID">The 24/7 ID of the user invoking the DELETE</param>
+            <returns>An integer representing the number of rows affected by the DELETE command</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteNonQuery(System.String,System.Data.CommandType,System.String)">
+            <summary>
+            Execute a SqlCommand (that returns no resultset and takes no parameters) against the database specified in 
+            the connection string. 
+            </summary>
+            <remarks>
+            e.g.:  
+             int result = ExecuteNonQuery(connString, CommandType.StoredProcedure, "PublishOrders");
+            </remarks>
+            <param name="connectionString">a valid connection string for a SqlConnection</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <returns>an int representing the number of rows affected by the command</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteNonQuery(System.String,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute a SqlCommand (that returns no resultset) against the database specified in the connection string 
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             int result = ExecuteNonQuery(connString, CommandType.StoredProcedure, "PublishOrders", new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="connectionString">a valid connection string for a SqlConnection</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <param name="commandParameters">an array of SqlParamters used to execute the command</param>
+            <returns>an int representing the number of rows affected by the command</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteNonQuery(System.String,System.String,System.Object[])">
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns no resultset) against the database specified in 
+            the connection string using the provided parameter values.  This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <remarks>
+            This method provides no access to output parameters or the stored procedure's return value parameter.
+            
+            e.g.:  
+             int result = ExecuteNonQuery(connString, "PublishOrders", 24, 36);
+            </remarks>
+            <param name="connectionString">a valid connection string for a SqlConnection</param>
+            <param name="spName">the name of the stored prcedure</param>
+            <param name="parameterValues">an array of objects to be assigned as the input values of the stored procedure</param>
+            <returns>an int representing the number of rows affected by the command</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteNonQuery(System.Data.SqlClient.SqlConnection,System.Data.CommandType,System.String)">
+            <summary>
+            Execute a SqlCommand (that returns no resultset and takes no parameters) against the provided SqlConnection. 
+            </summary>
+            <remarks>
+            e.g.:  
+             int result = ExecuteNonQuery(conn, CommandType.StoredProcedure, "PublishOrders");
+            </remarks>
+            <param name="connection">a valid SqlConnection</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <returns>an int representing the number of rows affected by the command</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteNonQuery(System.Data.SqlClient.SqlConnection,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute a SqlCommand (that returns no resultset) against the specified SqlConnection 
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             int result = ExecuteNonQuery(conn, CommandType.StoredProcedure, "PublishOrders", new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="connection">a valid SqlConnection</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <param name="commandParameters">an array of SqlParamters used to execute the command</param>
+            <returns>an int representing the number of rows affected by the command</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteNonQuery(System.Data.SqlClient.SqlConnection,System.String,System.Object[])">
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns no resultset) against the specified SqlConnection 
+            using the provided parameter values.  This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <remarks>
+            This method provides no access to output parameters or the stored procedure's return value parameter.
+            
+            e.g.:  
+             int result = ExecuteNonQuery(conn, "PublishOrders", 24, 36);
+            </remarks>
+            <param name="connection">a valid SqlConnection</param>
+            <param name="spName">the name of the stored procedure</param>
+            <param name="parameterValues">an array of objects to be assigned as the input values of the stored procedure</param>
+            <returns>an int representing the number of rows affected by the command</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteNonQuery(System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String)">
+            <summary>
+            Execute a SqlCommand (that returns no resultset and takes no parameters) against the provided SqlTransaction. 
+            </summary>
+            <remarks>
+            e.g.:  
+             int result = ExecuteNonQuery(trans, CommandType.StoredProcedure, "PublishOrders");
+            </remarks>
+            <param name="transaction">a valid SqlTransaction</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <returns>an int representing the number of rows affected by the command</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteNonQuery(System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute a SqlCommand (that returns no resultset) against the specified SqlTransaction
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             int result = ExecuteNonQuery(trans, CommandType.StoredProcedure, "GetOrders", new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="transaction">a valid SqlTransaction</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <param name="commandParameters">an array of SqlParamters used to execute the command</param>
+            <returns>an int representing the number of rows affected by the command</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteNonQuery(System.Data.SqlClient.SqlTransaction,System.String,System.Object[])">
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns no resultset) against the specified 
+            SqlTransaction using the provided parameter values.  This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <remarks>
+            This method provides no access to output parameters or the stored procedure's return value parameter.
+            
+            e.g.:  
+             int result = ExecuteNonQuery(conn, trans, "PublishOrders", 24, 36);
+            </remarks>
+            <param name="transaction">a valid SqlTransaction</param>
+            <param name="spName">the name of the stored procedure</param>
+            <param name="parameterValues">an array of objects to be assigned as the input values of the stored procedure</param>
+            <returns>an int representing the number of rows affected by the command</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteDataset(System.String,System.Data.CommandType,System.String)">
+            <summary>
+            Execute a SqlCommand (that returns a resultset and takes no parameters) against the database specified in 
+            the connection string. 
+            </summary>
+            <remarks>
+            e.g.:  
+             DataSet ds = ExecuteDataset(connString, CommandType.StoredProcedure, "GetOrders");
+            </remarks>
+            <param name="connectionString">a valid connection string for a SqlConnection</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <returns>a dataset containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteDataset(System.String,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute a SqlCommand (that returns a resultset) against the database specified in the connection string 
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             DataSet ds = ExecuteDataset(connString, CommandType.StoredProcedure, "GetOrders", new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="connectionString">a valid connection string for a SqlConnection</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <param name="commandParameters">an array of SqlParamters used to execute the command</param>
+            <returns>a dataset containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteDataset(System.String,System.String,System.Object[])">
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a resultset) against the database specified in 
+            the connection string using the provided parameter values.  This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <remarks>
+            This method provides no access to output parameters or the stored procedure's return value parameter.
+            
+            e.g.:  
+             DataSet ds = ExecuteDataset(connString, "GetOrders", 24, 36);
+            </remarks>
+            <param name="connectionString">a valid connection string for a SqlConnection</param>
+            <param name="spName">the name of the stored procedure</param>
+            <param name="parameterValues">an array of objects to be assigned as the input values of the stored procedure</param>
+            <returns>a dataset containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteDataset(System.Data.SqlClient.SqlConnection,System.Data.CommandType,System.String)">
+            <summary>
+            Execute a SqlCommand (that returns a resultset and takes no parameters) against the provided SqlConnection. 
+            </summary>
+            <remarks>
+            e.g.:  
+             DataSet ds = ExecuteDataset(conn, CommandType.StoredProcedure, "GetOrders");
+            </remarks>
+            <param name="connection">a valid SqlConnection</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <returns>a dataset containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteDataset(System.Data.SqlClient.SqlConnection,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute a SqlCommand (that returns a resultset) against the specified SqlConnection 
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             DataSet ds = ExecuteDataset(conn, CommandType.StoredProcedure, "GetOrders", new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="connection">a valid SqlConnection</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <param name="commandParameters">an array of SqlParamters used to execute the command</param>
+            <returns>a dataset containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteDataset(System.Data.SqlClient.SqlConnection,System.String,System.Object[])">
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a resultset) against the specified SqlConnection 
+            using the provided parameter values.  This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <remarks>
+            This method provides no access to output parameters or the stored procedure's return value parameter.
+            
+            e.g.:  
+             DataSet ds = ExecuteDataset(conn, "GetOrders", 24, 36);
+            </remarks>
+            <param name="connection">a valid SqlConnection</param>
+            <param name="spName">the name of the stored procedure</param>
+            <param name="parameterValues">an array of objects to be assigned as the input values of the stored procedure</param>
+            <returns>a dataset containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteDataset(System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String)">
+            <summary>
+            Execute a SqlCommand (that returns a resultset and takes no parameters) against the provided SqlTransaction. 
+            </summary>
+            <remarks>
+            e.g.:  
+             DataSet ds = ExecuteDataset(trans, CommandType.StoredProcedure, "GetOrders");
+            </remarks>
+            <param name="transaction">a valid SqlTransaction</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <returns>a dataset containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteDataset(System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute a SqlCommand (that returns a resultset) against the specified SqlTransaction
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             DataSet ds = ExecuteDataset(trans, CommandType.StoredProcedure, "GetOrders", new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="transaction">a valid SqlTransaction</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <param name="commandParameters">an array of SqlParamters used to execute the command</param>
+            <returns>a dataset containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteDataset(System.Data.SqlClient.SqlTransaction,System.String,System.Object[])">
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a resultset) against the specified 
+            SqlTransaction using the provided parameter values.  This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <remarks>
+            This method provides no access to output parameters or the stored procedure's return value parameter.
+            
+            e.g.:  
+             DataSet ds = ExecuteDataset(trans, "GetOrders", 24, 36);
+            </remarks>
+            <param name="transaction">a valid SqlTransaction</param>
+            <param name="spName">the name of the stored procedure</param>
+            <param name="parameterValues">an array of objects to be assigned as the input values of the stored procedure</param>
+            <returns>a dataset containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[],Microsoft.ApplicationBlocks.Data.SqlHelper.SqlConnectionOwnership)">
+            <summary>
+            Create and prepare a SqlCommand, and call ExecuteReader with the appropriate CommandBehavior.
+            </summary>
+            <remarks>
+            If we created and opened the connection, we want the connection to be closed when the DataReader is closed.
+            
+            If the caller provided the connection, we want to leave it to them to manage.
+            </remarks>
+            <param name="connection">a valid SqlConnection, on which to execute this command</param>
+            <param name="transaction">a valid SqlTransaction, or 'null'</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <param name="commandParameters">an array of SqlParameters to be associated with the command or 'null' if no parameters are required</param>
+            <param name="connectionOwnership">indicates whether the connection parameter was provided by the caller, or created by SqlHelper</param>
+            <returns>SqlDataReader containing the results of the command</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(System.String,System.Data.CommandType,System.String)">
+            <summary>
+            Execute a SqlCommand (that returns a resultset and takes no parameters) against the database specified in 
+            the connection string. 
+            </summary>
+            <remarks>
+            e.g.:  
+             SqlDataReader dr = ExecuteReader(connString, CommandType.StoredProcedure, "GetOrders");
+            </remarks>
+            <param name="connectionString">a valid connection string for a SqlConnection</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <returns>a SqlDataReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(System.String,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute a SqlCommand (that returns a resultset) against the database specified in the connection string 
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             SqlDataReader dr = ExecuteReader(connString, CommandType.StoredProcedure, "GetOrders", new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="connectionString">a valid connection string for a SqlConnection</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <param name="commandParameters">an array of SqlParamters used to execute the command</param>
+            <returns>a SqlDataReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(System.String,System.String,System.Object[])">
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a resultset) against the database specified in 
+            the connection string using the provided parameter values.  This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <remarks>
+            This method provides no access to output parameters or the stored procedure's return value parameter.
+            
+            e.g.:  
+             SqlDataReader dr = ExecuteReader(connString, "GetOrders", 24, 36);
+            </remarks>
+            <param name="connectionString">a valid connection string for a SqlConnection</param>
+            <param name="spName">the name of the stored procedure</param>
+            <param name="parameterValues">an array of objects to be assigned as the input values of the stored procedure</param>
+            <returns>a SqlDataReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(System.Data.SqlClient.SqlConnection,System.Data.CommandType,System.String)">
+            <summary>
+            Execute a SqlCommand (that returns a resultset and takes no parameters) against the provided SqlConnection. 
+            </summary>
+            <remarks>
+            e.g.:  
+             SqlDataReader dr = ExecuteReader(conn, CommandType.StoredProcedure, "GetOrders");
+            </remarks>
+            <param name="connection">a valid SqlConnection</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <returns>a SqlDataReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(System.Data.SqlClient.SqlConnection,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute a SqlCommand (that returns a resultset) against the specified SqlConnection 
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             SqlDataReader dr = ExecuteReader(conn, CommandType.StoredProcedure, "GetOrders", new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="connection">a valid SqlConnection</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <param name="commandParameters">an array of SqlParamters used to execute the command</param>
+            <returns>a SqlDataReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(System.Data.SqlClient.SqlConnection,System.String,System.Object[])">
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a resultset) against the specified SqlConnection 
+            using the provided parameter values.  This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <remarks>
+            This method provides no access to output parameters or the stored procedure's return value parameter.
+            
+            e.g.:  
+             SqlDataReader dr = ExecuteReader(conn, "GetOrders", 24, 36);
+            </remarks>
+            <param name="connection">a valid SqlConnection</param>
+            <param name="spName">the name of the stored procedure</param>
+            <param name="parameterValues">an array of objects to be assigned as the input values of the stored procedure</param>
+            <returns>a SqlDataReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String)">
+            <summary>
+            Execute a SqlCommand (that returns a resultset and takes no parameters) against the provided SqlTransaction. 
+            </summary>
+            <remarks>
+            e.g.:  
+             SqlDataReader dr = ExecuteReader(trans, CommandType.StoredProcedure, "GetOrders");
+            </remarks>
+            <param name="transaction">a valid SqlTransaction</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <returns>a SqlDataReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute a SqlCommand (that returns a resultset) against the specified SqlTransaction
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+              SqlDataReader dr = ExecuteReader(trans, CommandType.StoredProcedure, "GetOrders", new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="transaction">a valid SqlTransaction</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <param name="commandParameters">an array of SqlParamters used to execute the command</param>
+            <returns>a SqlDataReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteReader(System.Data.SqlClient.SqlTransaction,System.String,System.Object[])">
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a resultset) against the specified
+            SqlTransaction using the provided parameter values.  This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <remarks>
+            This method provides no access to output parameters or the stored procedure's return value parameter.
+            
+            e.g.:  
+             SqlDataReader dr = ExecuteReader(trans, "GetOrders", 24, 36);
+            </remarks>
+            <param name="transaction">a valid SqlTransaction</param>
+            <param name="spName">the name of the stored procedure</param>
+            <param name="parameterValues">an array of objects to be assigned as the input values of the stored procedure</param>
+            <returns>a SqlDataReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteScalar(System.String,System.Data.CommandType,System.String)">
+            <summary>
+            Execute a SqlCommand (that returns a 1x1 resultset and takes no parameters) against the database specified in 
+            the connection string. 
+            </summary>
+            <remarks>
+            e.g.:  
+             int orderCount = (int)ExecuteScalar(connString, CommandType.StoredProcedure, "GetOrderCount");
+            </remarks>
+            <param name="connectionString">a valid connection string for a SqlConnection</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <returns>an object containing the value in the 1x1 resultset generated by the command</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteScalar(System.String,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute a SqlCommand (that returns a 1x1 resultset) against the database specified in the connection string 
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             int orderCount = (int)ExecuteScalar(connString, CommandType.StoredProcedure, "GetOrderCount", new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="connectionString">a valid connection string for a SqlConnection</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <param name="commandParameters">an array of SqlParamters used to execute the command</param>
+            <returns>an object containing the value in the 1x1 resultset generated by the command</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteScalar(System.String,System.String,System.Object[])">
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a 1x1 resultset) against the database specified in 
+            the connection string using the provided parameter values.  This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <remarks>
+            This method provides no access to output parameters or the stored procedure's return value parameter.
+            
+            e.g.:  
+             int orderCount = (int)ExecuteScalar(connString, "GetOrderCount", 24, 36);
+            </remarks>
+            <param name="connectionString">a valid connection string for a SqlConnection</param>
+            <param name="spName">the name of the stored procedure</param>
+            <param name="parameterValues">an array of objects to be assigned as the input values of the stored procedure</param>
+            <returns>an object containing the value in the 1x1 resultset generated by the command</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteScalar(System.Data.SqlClient.SqlConnection,System.Data.CommandType,System.String)">
+            <summary>
+            Execute a SqlCommand (that returns a 1x1 resultset and takes no parameters) against the provided SqlConnection. 
+            </summary>
+            <remarks>
+            e.g.:  
+             int orderCount = (int)ExecuteScalar(conn, CommandType.StoredProcedure, "GetOrderCount");
+            </remarks>
+            <param name="connection">a valid SqlConnection</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <returns>an object containing the value in the 1x1 resultset generated by the command</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteScalar(System.Data.SqlClient.SqlConnection,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute a SqlCommand (that returns a 1x1 resultset) against the specified SqlConnection 
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             int orderCount = (int)ExecuteScalar(conn, CommandType.StoredProcedure, "GetOrderCount", new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="connection">a valid SqlConnection</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <param name="commandParameters">an array of SqlParamters used to execute the command</param>
+            <returns>an object containing the value in the 1x1 resultset generated by the command</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteScalar(System.Data.SqlClient.SqlConnection,System.String,System.Object[])">
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a 1x1 resultset) against the specified SqlConnection 
+            using the provided parameter values.  This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <remarks>
+            This method provides no access to output parameters or the stored procedure's return value parameter.
+            
+            e.g.:  
+             int orderCount = (int)ExecuteScalar(conn, "GetOrderCount", 24, 36);
+            </remarks>
+            <param name="connection">a valid SqlConnection</param>
+            <param name="spName">the name of the stored procedure</param>
+            <param name="parameterValues">an array of objects to be assigned as the input values of the stored procedure</param>
+            <returns>an object containing the value in the 1x1 resultset generated by the command</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteScalar(System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String)">
+            <summary>
+            Execute a SqlCommand (that returns a 1x1 resultset and takes no parameters) against the provided SqlTransaction. 
+            </summary>
+            <remarks>
+            e.g.:  
+             int orderCount = (int)ExecuteScalar(trans, CommandType.StoredProcedure, "GetOrderCount");
+            </remarks>
+            <param name="transaction">a valid SqlTransaction</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <returns>an object containing the value in the 1x1 resultset generated by the command</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteScalar(System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute a SqlCommand (that returns a 1x1 resultset) against the specified SqlTransaction
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             int orderCount = (int)ExecuteScalar(trans, CommandType.StoredProcedure, "GetOrderCount", new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="transaction">a valid SqlTransaction</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <param name="commandParameters">an array of SqlParamters used to execute the command</param>
+            <returns>an object containing the value in the 1x1 resultset generated by the command</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteScalar(System.Data.SqlClient.SqlTransaction,System.String,System.Object[])">
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a 1x1 resultset) against the specified
+            SqlTransaction using the provided parameter values.  This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <remarks>
+            This method provides no access to output parameters or the stored procedure's return value parameter.
+            
+            e.g.:  
+             int orderCount = (int)ExecuteScalar(trans, "GetOrderCount", 24, 36);
+            </remarks>
+            <param name="transaction">a valid SqlTransaction</param>
+            <param name="spName">the name of the stored procedure</param>
+            <param name="parameterValues">an array of objects to be assigned as the input values of the stored procedure</param>
+            <returns>an object containing the value in the 1x1 resultset generated by the command</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteXmlReader(System.Data.SqlClient.SqlConnection,System.Data.CommandType,System.String)">
+            <summary>
+            Execute a SqlCommand (that returns a resultset and takes no parameters) against the provided SqlConnection. 
+            </summary>
+            <remarks>
+            e.g.:  
+             XmlReader r = ExecuteXmlReader(conn, CommandType.StoredProcedure, "GetOrders");
+            </remarks>
+            <param name="connection">a valid SqlConnection</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command using "FOR XML AUTO"</param>
+            <returns>an XmlReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteXmlReader(System.Data.SqlClient.SqlConnection,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute a SqlCommand (that returns a resultset) against the specified SqlConnection 
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             XmlReader r = ExecuteXmlReader(conn, CommandType.StoredProcedure, "GetOrders", new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="connection">a valid SqlConnection</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command using "FOR XML AUTO"</param>
+            <param name="commandParameters">an array of SqlParamters used to execute the command</param>
+            <returns>an XmlReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteXmlReader(System.Data.SqlClient.SqlConnection,System.String,System.Object[])">
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a resultset) against the specified SqlConnection 
+            using the provided parameter values.  This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <remarks>
+            This method provides no access to output parameters or the stored procedure's return value parameter.
+            
+            e.g.:  
+             XmlReader r = ExecuteXmlReader(conn, "GetOrders", 24, 36);
+            </remarks>
+            <param name="connection">a valid SqlConnection</param>
+            <param name="spName">the name of the stored procedure using "FOR XML AUTO"</param>
+            <param name="parameterValues">an array of objects to be assigned as the input values of the stored procedure</param>
+            <returns>an XmlReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteXmlReader(System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String)">
+            <summary>
+            Execute a SqlCommand (that returns a resultset and takes no parameters) against the provided SqlTransaction. 
+            </summary>
+            <remarks>
+            e.g.:  
+             XmlReader r = ExecuteXmlReader(trans, CommandType.StoredProcedure, "GetOrders");
+            </remarks>
+            <param name="transaction">a valid SqlTransaction</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command using "FOR XML AUTO"</param>
+            <returns>an XmlReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteXmlReader(System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute a SqlCommand (that returns a resultset) against the specified SqlTransaction
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             XmlReader r = ExecuteXmlReader(trans, CommandType.StoredProcedure, "GetOrders", new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="transaction">a valid SqlTransaction</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command using "FOR XML AUTO"</param>
+            <param name="commandParameters">an array of SqlParamters used to execute the command</param>
+            <returns>an XmlReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteXmlReader(System.Data.SqlClient.SqlTransaction,System.String,System.Object[])">
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a resultset) against the specified 
+            SqlTransaction using the provided parameter values.  This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <remarks>
+            This method provides no access to output parameters or the stored procedure's return value parameter.
+            
+            e.g.:  
+             XmlReader r = ExecuteXmlReader(trans, "GetOrders", 24, 36);
+            </remarks>
+            <param name="transaction">a valid SqlTransaction</param>
+            <param name="spName">the name of the stored procedure</param>
+            <param name="parameterValues">an array of objects to be assigned as the input values of the stored procedure</param>
+            <returns>a dataset containing the resultset generated by the command</returns>
+        </member>
+        <member name="T:Microsoft.ApplicationBlocks.Data.SqlHelper.SqlConnectionOwnership">
+            <summary>
+            this enum is used to indicate whether the connection was provided by the caller, or created by SqlHelper, so that
+            we can set the appropriate CommandBehavior when calling ExecuteReader()
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationBlocks.Data.SqlHelper.SqlConnectionOwnership.Internal">
+            <summary>Connection is owned and managed by SqlHelper</summary>
+        </member>
+        <member name="F:Microsoft.ApplicationBlocks.Data.SqlHelper.SqlConnectionOwnership.External">
+            <summary>Connection is owned and managed by the caller</summary>
+        </member>
+        <member name="T:Microsoft.ApplicationBlocks.Data.SqlHelperParameterCache">
+            <summary>
+            SqlHelperParameterCache provides functions to leverage a static cache of procedure parameters, and the
+            ability to discover parameters for stored procedures at run-time.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelperParameterCache.DiscoverSpParameterSet(System.String,System.String,System.Boolean)">
+            <summary>
+            resolve at run time the appropriate set of SqlParameters for a stored procedure
+            </summary>
+            <param name="connectionString">a valid connection string for a SqlConnection</param>
+            <param name="spName">the name of the stored procedure</param>
+            <param name="includeReturnValueParameter">whether or not to include their return value parameter</param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelperParameterCache.CacheParameterSet(System.String,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            add parameter array to the cache
+            </summary>
+            <param name="connectionString">a valid connection string for a SqlConnection</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <param name="commandParameters">an array of SqlParamters to be cached</param>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelperParameterCache.GetCachedParameterSet(System.String,System.String)">
+            <summary>
+            retrieve a parameter array from the cache
+            </summary>
+            <param name="connectionString">a valid connection string for a SqlConnection</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <returns>an array of SqlParamters</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelperParameterCache.GetSpParameterSet(System.String,System.String)">
+            <summary>
+            Retrieves the set of SqlParameters appropriate for the stored procedure
+            </summary>
+            <remarks>
+            This method will query the database for this information, and then store it in a cache for future requests.
+            </remarks>
+            <param name="connectionString">a valid connection string for a SqlConnection</param>
+            <param name="spName">the name of the stored procedure</param>
+            <returns>an array of SqlParameters</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationBlocks.Data.SqlHelperParameterCache.GetSpParameterSet(System.String,System.String,System.Boolean)">
+            <summary>
+            Retrieves the set of SqlParameters appropriate for the stored procedure
+            </summary>
+            <remarks>
+            This method will query the database for this information, and then store it in a cache for future requests.
+            </remarks>
+            <param name="connectionString">a valid connection string for a SqlConnection</param>
+            <param name="spName">the name of the stored procedure</param>
+            <param name="includeReturnValueParameter">a bool value indicating whether the return value parameter should be included in the results</param>
+            <returns>an array of SqlParameters</returns>
+        </member>
+        <member name="T:NRails.Data.HqlCondition">
+            <summary>
+            Hql条件类
+            </summary>
+        </member>
+        <member name="T:NRails.Dao.DaoFactory">
+            <summary>
+            Dao工厂类
+            </summary>
+        </member>
+        <member name="T:NRails.Dao.DaoProvider">
+            <summary>
+            Dao工厂类的提供程序
+            </summary>
+        </member>
+        <member name="T:NRails.Dao.DefaultDaoProvider">
+            <summary>
+            默认的Dao提供程序, 以DaoBase为基类
+            </summary>
+        </member>
+        <member name="T:NRails.Dao.NHibernateLog">
+            <summary>
+            NHibernate日志类
+            </summary>
+        </member>
+        <member name="M:NRails.Dao.NHibernateLog.BeginLog">
+            <summary>
+            创建一个NHibernate日志记录器
+            </summary>
+        </member>
+        <member name="M:NRails.Dao.NHibernateLog.EndLog(System.IO.StringWriter)">
+            <summary>
+            将一个NHibernate日志记录器的内容写入日志
+            </summary>
+        </member>
+        <member name="T:NRails.Dao.DaoBase">
+            <summary>
+            数据访问基类, 非泛型版本
+            </summary>
+        </member>
+        <member name="M:NRails.Dao.DaoBase.#cctor">
+            <summary>
+            静态构造函数
+            </summary>
+        </member>
+        <member name="M:NRails.Dao.DaoBase.CloseSession">
+            <summary>
+            关闭session hmj 2012-2-15
+            </summary>
+        </member>
+        <member name="M:NRails.Dao.DaoBase.ClearCache(System.Type)">
+            <summary>
+            清空二级缓存
+            </summary>
+        </member>
+        <member name="M:NRails.Dao.DaoBase.ClearCache(System.Type,System.Int64)">
+            <summary>
+            清空二级缓存中的指定对象
+            </summary>
+        </member>
+        <member name="M:NRails.Dao.DaoBase.SaveOrUpdateCopy(NRails.Domain.IDomainObject)">
+            <summary>
+            可以跨Session的保存对象方法
+            </summary>
+        </member>
+        <member name="M:NRails.Dao.DaoBase.Save(NRails.Domain.IDomainObject)">
+            <summary>
+             保存对象
+            </summary>
+        </member>
+        <member name="M:NRails.Dao.DaoBase.SaveOrUpdate(NRails.Domain.IDomainObject)">
+            <summary>
+            更新, 同时进行更新对象时间戳, 关键字
+            </summary>
+        </member>
+        <member name="M:NRails.Dao.DaoBase.Delete(NRails.Domain.IDomainObject)">
+            <summary>
+            删除a
+            </summary>
+        </member>
+        <member name="M:NRails.Dao.DaoBase.DeleteByID(System.Type,System.Int64)">
+            <summary>
+            根据对象ID进行删除
+            </summary>
+        </member>
+        <member name="M:NRails.Dao.DaoBase.Get(System.String,System.Object)">
+            <summary>
+            [入口]通用获取对象方法
+            </summary>
+            <param name="typename">对象类型</param>
+            <param name="id">对象ID</param>
+        </member>
+        <member name="M:NRails.Dao.DaoBase.Get(System.Type,System.Object)">
+            <summary>
+            通用获取对象方法
+            </summary>
+            <param name="typename">对象类型</param>
+            <param name="id">对象ID</param>
+        </member>
+        <member name="M:NRails.Dao.DaoBase.GetFromDB(System.Type,System.Object)">
+            <summary>
+            [入口]查找对象, 跳过缓存直接从数据库中取
+            </summary>
+        </member>
+        <member name="M:NRails.Dao.DaoBase.Get(System.Type,NRails.Domain.IDCollection)">
+            <summary>
+            根据ID查找多个对象,ID=-1时表示取全部
+            </summary>
+        </member>
+        <member name="M:NRails.Dao.DaoBase.UniqueResult``1(System.String,System.Boolean)">
+            <summary>
+            根据Hql条件单个对象
+            </summary>
+        </member>
+        <member name="M:NRails.Dao.DaoBase.ListResult``1(System.String,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            根据Hql条件查询一个结果集
+            </summary>
+        </member>
+        <member name="M:NRails.Dao.DaoBase.CreateHqlQuery(System.String)">
+            <summary>
+            [入口]根据Hql创建一个查询对象
+            </summary>
+        </member>
+        <member name="M:NRails.Dao.DaoBase.ListResult``1(System.String,System.Boolean)">
+            <summary>
+            根据Hql条件查询对象的结果集
+            </summary>
+        </member>
+        <member name="P:NRails.Dao.DaoBase.Listeners">
+            <summary>
+            Dao监听对象
+            </summary>
+        </member>
+        <member name="T:NRails.Dao.DaoBase`1">
+            <summary>
+            泛型数据访问类
+            </summary>
+        </member>
+        <member name="M:NRails.Dao.DaoBase`1.ClearCache">
+            <summary>
+            清空二级缓存
+            </summary>
+        </member>
+        <member name="M:NRails.Dao.DaoBase`1.ClearCache(System.Int64)">
+            <summary>
+            清空二级缓存
+            </summary>
+        </member>
+        <member name="M:NRails.Dao.DaoBase`1.GetQuery">
+            <summary>
+            获取查询对象
+            </summary>
+        </member>
+        <member name="M:NRails.Dao.DaoBase`1.GetQuery(System.Boolean)">
+            <summary>
+            [入口]获取查询对象
+            </summary>
+            <param name="cache">是否缓存本次查询, 默认为不启用</param>
+        </member>
+        <member name="M:NRails.Dao.DaoBase`1.DeleteByID(System.Int64)">
+            <summary>
+            根据对象ID进行删除
+            </summary>
+        </member>
+        <member name="M:NRails.Dao.DaoBase`1.Get(System.Object)">
+            <summary>
+            根据ID查找对象
+            </summary>
+        </member>
+        <member name="M:NRails.Dao.DaoBase`1.GetFromDB(System.Object)">
+            <summary>
+            查找对象, 跳过缓存直接从数据库中取
+            </summary>
+        </member>
+        <member name="M:NRails.Dao.DaoBase`1.Get(NRails.Domain.IDCollection)">
+            <summary>
+            根据ID查找多个对象
+            </summary>
+        </member>
+        <member name="M:NRails.Dao.DaoBase`1.Count(System.Func{`0,System.Boolean})">
+            <summary>
+            个数统计
+            </summary>
+        </member>
+        <member name="M:NRails.Dao.DaoBase`1.Get(System.Func{`0,System.Boolean})">
+            <summary>
+            查找满足条件的对象
+            </summary>
+        </member>
+        <member name="M:NRails.Dao.DaoBase`1.GetAll(System.Func{`0,System.Boolean})">
+            <summary>
+            查找满足指定条件的对象集合, 延迟
+            </summary>
+        </member>
+        <member name="M:NRails.Dao.DaoBase`1.GetAll">
+            <summary>
+            查找所有对象集合,默认缓存
+            </summary>
+        </member>
+        <member name="M:NRails.Dao.DaoBase`1.GetAll(System.Boolean)">
+            <summary>
+            查找所有对象集合
+            </summary>
+        </member>
+        <member name="M:NRails.Dao.DaoBase`1.GetAllByHql(System.String)">
+            <summary>
+            根据Hql条件语句返回结果集, 默认缓存
+            </summary>
+        </member>
+        <member name="M:NRails.Dao.DaoBase`1.GetPage(System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            分页查询
+            </summary>
+        </member>
+        <member name="M:NRails.Dao.DaoBase`1.GetPage(System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String,System.String)">
+            <summary>
+            分页查询
+            </summary>
+        </member>
+        <member name="M:NRails.Dao.DaoBase`1.GetPage(System.Int32,System.Int32,System.String,System.String,System.String)">
+            <summary>
+            分页查询
+            </summary>
+        </member>
+        <member name="M:NRails.Dao.DaoBase`1.GetCustomPage``1(System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            自定义复杂分页查询
+            </summary>
+        </member>
+        <member name="M:NRails.Dao.DaoBase`1.ExecuteHql``1(System.String)">
+            <summary>
+            执行一条HQL语句，返回指定类型的结果集
+            </summary>
+            <param name="hql">查询字符串</param>
+        </member>
+        <member name="M:NRails.Dao.DaoBase`1.ExecuteHql``1(System.String,System.Boolean)">
+            <summary>
+            执行一条HQL语句，返回指定类型的结果集
+            </summary>
+            <param name="hql">查询字符串</param>
+        </member>
+        <member name="M:NRails.Dao.DaoBase`1.CompleteQuery(System.String,System.String)">
+            <summary>
+            智能提示功能
+            </summary>
+            <param name="query">返回的结果集</param>
+        </member>
+        <member name="M:NRails.Dao.DaoBase`1.CompleteQuery(System.String)">
+            <summary>
+            智能提示功能
+            </summary>
+            <param name="query">返回的结果集</param>
+        </member>
+        <member name="M:NRails.Dao.DaoBase`1.SearchByKeyword(System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String,System.String,System.String)">
+            <summary>
+            根据keyword进行搜索, 通常用于搜索
+            </summary>
+        </member>
+        <member name="T:NRails.Dao.DaoEventArgs">
+            <summary>
+            Dao操作事件参数类
+            </summary>
+        </member>
+        <member name="M:NRails.Dao.DaoEventArgs.#ctor(NRails.Domain.IDomainObject)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:System.Collections.Generic.PageList`1.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:System.Collections.Generic.PageList`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Int32)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:System.Collections.Generic.EmptyPageList`1.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:NRails.NRailsConfig">
+            <summary>
+            NRails框架配置类
+            </summary>
+        </member>
+        <member name="M:NRails.NRailsConfig.#cctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:NRails.NRailsConfig.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:NRails.Dao.NHSessionFactory.DeleteSession">
+            <summary>
+            清除按线程存储的session缓存,2012-2-15 hmj
+            </summary>
+        </member>
+        <member name="T:NRails.Dao.MemoryDaoBase`1">
+            <summary>
+            内存Dao
+            </summary>
+        </member>
+        <member name="M:NRails.Dao.MemoryDaoBase`1.Init">
+            <summary>
+            初始化载入
+            </summary>
+        </member>
+        <member name="T:NRails.Dao.DomainMapping">
+            <summary>
+            领域模型映射规则, 映射ID时, 变为从数据库中取该ID的领域对象
+            </summary>
+        </member>
+        <member name="T:NRails.Dao.DaoListener">
+            <summary>
+            Dao监听类
+            </summary>
+        </member>
+        <member name="T:NRails.Dao.KeyworkDaoListener">
+            <summary>
+            在对象保存和修改时, 更新其关键字
+            </summary>
+        </member>
+    </members>
+</doc>

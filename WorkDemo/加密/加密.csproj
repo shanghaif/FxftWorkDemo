@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>加密</RootNamespace>
     <AssemblyName>加密</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -22,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,6 +33,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="NRails.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -51,10 +54,47 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="dll\NRails.Core.dll" />
+    <Content Include="myDll\NRails.Controls.dll" />
+    <Content Include="myDll\NRails.Core.dll" />
+    <Content Include="myDll\NRails.Core.pdb" />
+    <Content Include="myDll\NRails.Core.Silverlight.dll" />
+    <Content Include="myDll\NRails.Core.XML" />
+    <Content Include="myDll\NRails.Data.dll" />
+    <Content Include="myDll\NRails.Data.XML" />
+    <Content Include="myDll\NRails.Domain.dll" />
+    <Content Include="myDll\NRails.Domain.Silverlight.dll" />
+    <Content Include="myDll\NRails.Domain.XML" />
+    <Content Include="myDll\NRails.Net.dll" />
+    <Content Include="myDll\NRails.Net.pdb" />
+    <Content Include="myDll\NRails.Net.Silverlight.dll" />
+    <Content Include="myDll\NRails.Net.XML" />
+    <Content Include="myDll\NRails.Others.dll" />
+    <Content Include="myDll\NRails.ScriptEngine.dll" />
+    <Content Include="myDll\NRails.Security.dll" />
+    <Content Include="myDll\NRails.Serialize.dll" />
+    <Content Include="myDll\NRails.Serialize.Silverlight.dll" />
+    <Content Include="myDll\NRails.Serialize.XML" />
+    <Content Include="myDll\NRails.Service.dll" />
+    <Content Include="myDll\NRails.Service.pdb" />
+    <Content Include="myDll\NRails.Service.Silverlight.dll" />
+    <Content Include="myDll\NRails.Service.XML" />
+    <Content Include="myDll\NRails.ServiceRunner.dll" />
+    <Content Include="myDll\NRails.ServiceRunner.XML" />
+    <Content Include="myDll\NRails.Store.dll" />
+    <Content Include="myDll\NRails.Store.pdb" />
+    <Content Include="myDll\NRails.Store.Profile.dll" />
+    <Content Include="myDll\NRails.Store.XML" />
+    <Content Include="myDll\NRails.Web.dll" />
+    <Content Include="myDll\NRails.Web.XML" />
+    <Content Include="myDll\NRails.Win32API.dll" />
+    <Content Include="myDll\NRails.Win32API.XML" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

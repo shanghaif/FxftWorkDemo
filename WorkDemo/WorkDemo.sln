@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XMLDemo", "XMLDemo\XMLDemo.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XMLTest", "TEST\XMLTest.csproj", "{A2BDA6B8-3317-487A-8EAB-A061ED0BAC36}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IJson_Http_Post", "IJson_Http_Post\IJson_Http_Post.csproj", "{640988D2-DD70-4B9A-B7C0-C0124D3C3D14}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{A2BDA6B8-3317-487A-8EAB-A061ED0BAC36}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2BDA6B8-3317-487A-8EAB-A061ED0BAC36}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2BDA6B8-3317-487A-8EAB-A061ED0BAC36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{640988D2-DD70-4B9A-B7C0-C0124D3C3D14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{640988D2-DD70-4B9A-B7C0-C0124D3C3D14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{640988D2-DD70-4B9A-B7C0-C0124D3C3D14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{640988D2-DD70-4B9A-B7C0-C0124D3C3D14}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -9,7 +9,7 @@ using System.Text;
 namespace IJson_Http
 {
     /// <summary>
-    /// Http+Json   Get请求   (Query)  此接口有IP限制
+    /// Http Get+Json     (Query)  此接口有IP限制
     /// </summary>
     class Program
     {
@@ -19,9 +19,9 @@ namespace IJson_Http
 
             #region 停开机传参
 
-            SortedDictionary<string, string> requestParams = new SortedDictionary<string, string>();//SortedDictionary默认升序排序
-            requestParams.Add("iccid", "89860617030000452329");
-            requestParams.Add("stateCode", "1");//0-停 1-开
+            SortedDictionary<string, string> query = new SortedDictionary<string, string>();//SortedDictionary默认升序排序
+            query.Add("iccid", "89860617030000452329");
+            query.Add("stateCode", "1");//0-停 1-开
 
             #endregion
 
@@ -34,12 +34,12 @@ namespace IJson_Http
             httpClient = new HttpClient(handler);
             httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));//数据交互方式JSon
             httpClient.Timeout = new TimeSpan(0, 0, 30);
-            var requestUri = UrlRequest(requestParams);
+            var requestUri = UrlRequest(query);
             httpClient.GetStringAsync(requestUri).ContinueWith((requestTask) =>
             {
                 var result = requestTask.Result;
 
-            }).Wait(30000);//调用接口，返回字符串结果。挂起操作(注意IP限制)
+            }).Wait(30000);//调用接口，返回字符串结果。挂起操作
 
             #endregion
 

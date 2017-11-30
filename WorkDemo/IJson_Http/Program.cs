@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace IJson_Http
 {
     /// <summary>
-    /// Http+Json   Get请求   (Query)
+    /// Http+Json   Get请求   (Query)  此接口有IP限制
     /// </summary>
     class Program
     {

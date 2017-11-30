@@ -5,6 +5,12 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Json的序列化和反序列化", "Josn的序列化和反序列化\Json的序列化和反序列化.csproj", "{C1A6C713-9EEB-4487-86F8-D61055806863}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "加密", "加密\加密.csproj", "{5B52C7CB-3FA8-4F77-9177-B2718DEE51B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "时间格式转换", "时间格式转换\时间格式转换.csproj", "{66BE3892-DC0E-429E-8AEE-41CA16F0AD3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "随机数", "随机数\随机数.csproj", "{EAD25FE0-9281-456E-A3AF-5594F4F1C14D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +21,18 @@ Global
 		{C1A6C713-9EEB-4487-86F8-D61055806863}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1A6C713-9EEB-4487-86F8-D61055806863}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1A6C713-9EEB-4487-86F8-D61055806863}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B52C7CB-3FA8-4F77-9177-B2718DEE51B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B52C7CB-3FA8-4F77-9177-B2718DEE51B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B52C7CB-3FA8-4F77-9177-B2718DEE51B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B52C7CB-3FA8-4F77-9177-B2718DEE51B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66BE3892-DC0E-429E-8AEE-41CA16F0AD3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66BE3892-DC0E-429E-8AEE-41CA16F0AD3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66BE3892-DC0E-429E-8AEE-41CA16F0AD3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66BE3892-DC0E-429E-8AEE-41CA16F0AD3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAD25FE0-9281-456E-A3AF-5594F4F1C14D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAD25FE0-9281-456E-A3AF-5594F4F1C14D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAD25FE0-9281-456E-A3AF-5594F4F1C14D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAD25FE0-9281-456E-A3AF-5594F4F1C14D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

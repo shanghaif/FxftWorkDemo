@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "时间格式转换", "时�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "随机数", "随机数\随机数.csproj", "{EAD25FE0-9281-456E-A3AF-5594F4F1C14D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IJson_Http", "IJson_Http\IJson_Http.csproj", "{2554AFDE-2808-4043-A5DB-658308D2DA27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IXML_Http", "IXML_Http\IXML_Http.csproj", "{7AE8B829-BFC1-4221-A6B9-BC3963B8804D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{EAD25FE0-9281-456E-A3AF-5594F4F1C14D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EAD25FE0-9281-456E-A3AF-5594F4F1C14D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EAD25FE0-9281-456E-A3AF-5594F4F1C14D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2554AFDE-2808-4043-A5DB-658308D2DA27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2554AFDE-2808-4043-A5DB-658308D2DA27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2554AFDE-2808-4043-A5DB-658308D2DA27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2554AFDE-2808-4043-A5DB-658308D2DA27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AE8B829-BFC1-4221-A6B9-BC3963B8804D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AE8B829-BFC1-4221-A6B9-BC3963B8804D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AE8B829-BFC1-4221-A6B9-BC3963B8804D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AE8B829-BFC1-4221-A6B9-BC3963B8804D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

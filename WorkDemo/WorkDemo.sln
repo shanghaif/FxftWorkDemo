@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IJson_Http_Post", "IJson_Ht
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IJson_Http_Post_上海电信接口Demo", "上海电信接口Demo\IJson_Http_Post_上海电信接口Demo.csproj", "{58A62413-0019-448B-9C26-CCD82BB04110}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemCachedDemo", "MemCachedDemo\MemCachedDemo.csproj", "{2CDC6DC4-9F63-4328-9BDC-519B3965A793}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{58A62413-0019-448B-9C26-CCD82BB04110}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58A62413-0019-448B-9C26-CCD82BB04110}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58A62413-0019-448B-9C26-CCD82BB04110}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CDC6DC4-9F63-4328-9BDC-519B3965A793}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CDC6DC4-9F63-4328-9BDC-519B3965A793}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CDC6DC4-9F63-4328-9BDC-519B3965A793}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CDC6DC4-9F63-4328-9BDC-519B3965A793}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

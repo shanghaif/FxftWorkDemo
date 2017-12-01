@@ -29,6 +29,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "缓存MemCachedDemo", "MemC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySql_Connection", "MySqlCRUD\MySql_Connection\MySql_Connection.csproj", "{BE5234AA-1362-42AA-B3EB-66D05D52155C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dapper_Using", "MySqlCRUD\Dapper_Using\Dapper_Using.csproj", "{F44CD2A2-1E71-4FD2-89B4-671A71C9A27D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dapper_MySql", "MySqlCRUD\Dapper_MySql\Dapper_MySql.csproj", "{E37874A9-0B37-4E15-85A4-6B930593A026}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperExtensionsUsing", "MySqlCRUD\DapperExtensionsUsing\DapperExtensionsUsing.csproj", "{F39ACE91-8DFC-4E2F-A4BF-BE377331C2B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +93,18 @@ Global
 		{BE5234AA-1362-42AA-B3EB-66D05D52155C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE5234AA-1362-42AA-B3EB-66D05D52155C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE5234AA-1362-42AA-B3EB-66D05D52155C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F44CD2A2-1E71-4FD2-89B4-671A71C9A27D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F44CD2A2-1E71-4FD2-89B4-671A71C9A27D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F44CD2A2-1E71-4FD2-89B4-671A71C9A27D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F44CD2A2-1E71-4FD2-89B4-671A71C9A27D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E37874A9-0B37-4E15-85A4-6B930593A026}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E37874A9-0B37-4E15-85A4-6B930593A026}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E37874A9-0B37-4E15-85A4-6B930593A026}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E37874A9-0B37-4E15-85A4-6B930593A026}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F39ACE91-8DFC-4E2F-A4BF-BE377331C2B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F39ACE91-8DFC-4E2F-A4BF-BE377331C2B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F39ACE91-8DFC-4E2F-A4BF-BE377331C2B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F39ACE91-8DFC-4E2F-A4BF-BE377331C2B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

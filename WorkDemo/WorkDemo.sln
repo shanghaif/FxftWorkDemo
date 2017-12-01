@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IJson_Http_Post_上海电�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "缓存MemCachedDemo", "MemCachedDemo\缓存MemCachedDemo.csproj", "{2CDC6DC4-9F63-4328-9BDC-519B3965A793}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySql_Connection", "MySqlCRUD\MySql_Connection\MySql_Connection.csproj", "{BE5234AA-1362-42AA-B3EB-66D05D52155C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{2CDC6DC4-9F63-4328-9BDC-519B3965A793}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CDC6DC4-9F63-4328-9BDC-519B3965A793}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CDC6DC4-9F63-4328-9BDC-519B3965A793}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE5234AA-1362-42AA-B3EB-66D05D52155C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE5234AA-1362-42AA-B3EB-66D05D52155C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE5234AA-1362-42AA-B3EB-66D05D52155C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE5234AA-1362-42AA-B3EB-66D05D52155C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

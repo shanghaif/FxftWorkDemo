@@ -27,8 +27,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IJson_Http_Post_上海电�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "缓存MemCachedDemo", "MemCachedDemo\缓存MemCachedDemo.csproj", "{2CDC6DC4-9F63-4328-9BDC-519B3965A793}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MysqlCRUD", "MysqlCRUD", "{DA2A4EAC-CA32-43C9-800A-A325FA34D9F7}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

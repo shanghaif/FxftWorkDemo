@@ -15,32 +15,32 @@ namespace DapperExtensionsUsing
 
         static void Main(string[] args)
         {
-            using (MySqlConnection cn = new MySqlConnection(_connectionString))
-            {
-                cn.Open();
-                var predicate = Predicates.Field<Person>(f => f.Active, Operator.Eq, true);
-                IEnumerable<Person> list = cn.GetList<Person>(predicate);
-                cn.Close();
-            }
+            //using (MySqlConnection cn = new MySqlConnection(_connectionString))
+            //{
+            //    cn.Open();
+            //    var predicate = Predicates.Field<Person>(f => f.Active, Operator.Eq, true);
+            //    IEnumerable<Person> list = cn.GetList<Person>(predicate);
+            //    cn.Close();
+            //}
 
-            using (MySqlConnection cn = new MySqlConnection(_connectionString))
-            {
-                cn.Open();
-                Person person = new Person { FirstName = "Foo", LastName = "Bar" };
-                int id = cn.Insert(person);
-                cn.Close();
-            }
+            //using (MySqlConnection cn = new MySqlConnection(_connectionString))
+            //{
+            //    cn.Open();
+            //    Person person = new Person { FirstName = "Foo", LastName = "Bar" };
+            //    int id = cn.Insert(person);
+            //    cn.Close();
+            //}
 
 
-            using (MySqlConnection cn = new MySqlConnection(_connectionString))
-            {
-                cn.Open();
-                var predicate = Predicates.Field<Person>(f => f.FirstName, Operator.Eq,"小白");
-                IEnumerable<Person> list = cn.GetList<Person>(predicate);
-                cn.Close();
-            }
+            //using (MySqlConnection cn = new MySqlConnection(_connectionString))
+            //{
+            //    cn.Open();
+            //    var predicate = Predicates.Field<Person>(f => f.FirstName, Operator.Eq, "小白");
+            //    IEnumerable<Person> list = cn.GetList<Person>(predicate);
+            //    cn.Close();
+            //}
 
-          
+
         }
     }
 }

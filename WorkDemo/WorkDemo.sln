@@ -37,6 +37,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperExtensionsUsing", "My
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AliLogUsingDemo", "AliLogUsingDemo\AliLogUsingDemo.csproj", "{E52DD302-C29B-4ADA-B081-323A19E8AD11}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLogUsingDemo", "NLogUsingDemo\NLogUsingDemo.csproj", "{4A00950A-4E82-44C7-9D37-F943E88BBF64}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +113,10 @@ Global
 		{E52DD302-C29B-4ADA-B081-323A19E8AD11}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E52DD302-C29B-4ADA-B081-323A19E8AD11}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E52DD302-C29B-4ADA-B081-323A19E8AD11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A00950A-4E82-44C7-9D37-F943E88BBF64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A00950A-4E82-44C7-9D37-F943E88BBF64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A00950A-4E82-44C7-9D37-F943E88BBF64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A00950A-4E82-44C7-9D37-F943E88BBF64}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

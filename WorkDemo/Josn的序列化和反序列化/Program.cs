@@ -1,4 +1,6 @@
-﻿using Josn的序列化和反序列化.Entity;
+﻿using System;
+using System.Collections.Generic;
+using Josn的序列化和反序列化.Entity;
 using Newtonsoft.Json;
 using static System.Console;
 
@@ -11,6 +13,14 @@ namespace Josn的序列化和反序列化
     {
         static void Main(string[] args)
         {
+            var cmdType = "9012";
+            //dynamic body = new
+            //{
+            //    phonenum = "1111"
+            //};
+            //object[] objBody = { body };
+            object[] objBody = {};
+            Post( cmdType, objBody);
 
             var jsonStr = "{ \"resultInfo\":{ \"respCode\":\"0003\",\"respDesc\":\"IP not applied:121.34.131.146\"}}";
 
@@ -72,6 +82,25 @@ namespace Josn的序列化和反序列化
 
             ReadKey();
 
+        }
+
+        public static string Post( string cmdType, object[] body)
+        {
+            Dictionary<string, object> bodys = new Dictionary<string, object>();
+
+            dynamic head = new
+            {
+                reqTime = $"{DateTime.Now:yyyyMMddhhmmss}",
+                cmdType = cmdType,
+             
+            };
+
+            bodys.Add("head", head);
+            bodys.Add("body", body);
+         
+            var content = JsonConvert.SerializeObject(bodys);
+           
+            return "";
         }
 
     }

@@ -4,7 +4,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Josn的序列化和反序列化.Entity;
 using NLog;
+using NLog.Fluent;
 
 namespace NLogUsingDemo
 {
@@ -22,6 +24,8 @@ namespace NLogUsingDemo
             logger.Debug("Debug Message");
             logger.Info("Info Message");
             logger.Error("Error Message");
+          
+           
         
         }
     }

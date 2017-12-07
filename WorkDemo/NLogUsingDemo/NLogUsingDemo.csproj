@@ -56,7 +56,12 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Josn的序列化和反序列化\Json的序列化和反序列化.csproj">
+      <Project>{c1a6c713-9eeb-4487-86f8-d61055806863}</Project>
+      <Name>Json的序列化和反序列化</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

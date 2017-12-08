@@ -25,6 +25,101 @@
         </p>
     </div>
 </div>
+
 <script>
-    
+    function getAll() {
+        $.ajax({
+            url: "api/Values/",
+            type: 'GET',
+            success: function (data) {
+                document.getElementById("modes").innerHTML = "";
+                $.each(data, function (key, val) {
+                    var str = val.ModeKey + ': ' + val.ModeValue;
+                    $('<li/>', { html: str }).appendTo($('#modes'));
+                });
+            }
+        }).fail(
+        function (xhr, textStatus, err) {
+            alert('Error: ' + err);
+        });
+    }
+
+    function add() {
+
+        $.ajax({
+            url: "api/Values/",
+            type: "POST",
+            dataType: "json",
+            data: { "ModeKey": document.getElementById("txtKey").value, "ModeValue": document.getElementById("txtValue").value },
+            success: function (data) {
+                getAll();
+            }
+        }).fail(
+        function (xhr, textStatus, err) {
+            alert('Error: ' + err);
+        });
+
+    }
+
+    function find() {
+
+        $.ajax({
+            url: "api/Values/" + document.getElementById("txtFindKey").value,
+            type: 'GET',
+            success: function (data) {
+                document.getElementById("modes").innerHTML = "";
+                $.each(data, function (key, val) {
+                    var str = val.ModeKey + ': ' + val.ModeValue;
+                    $('<li/>', { html: str }).appendTo($('#modes'));
+                });
+            }
+        }).fail(
+        function (xhr, textStatus, err) {
+            alert('Error: ' + err);
+        });
+    }
+
+    function removeAll() {
+        $.ajax({
+            url: "api/Values/",
+            type: 'DELETE',
+            success: function (data) {
+                document.getElementById("modes").innerHTML = "";
+                getAll();
+            }
+        }).fail(
+        function (xhr, textStatus, err) {
+            alert('Error: ' + err);
+        });
+    }
+
+    function remove() {
+        $.ajax({
+            url: "api/Values/" + document.getElementById("txtRemoveKey").value,
+            type: 'DELETE',
+            success: function (data) {
+                document.getElementById("modes").innerHTML = "";
+                getAll();
+            }
+        }).fail(
+        function (xhr, textStatus, err) {
+            alert('Error: ' + err);
+        });
+    }
+
+    function update() {
+        $.ajax({
+            url: "api/Values/",
+            type: 'PUT',
+            dataType: "json",
+            data: { "key": document.getElementById("txtUpdateKey").value, "value": document.getElementById("txtUpdateValue").value },
+            success: function (data) {
+                document.getElementById("modes").innerHTML = "";
+                getAll();
+            }
+        }).fail(
+        function (xhr, textStatus, err) {
+            alert('Error: ' + err);
+        });
+    }
 </script>

@@ -25,8 +25,22 @@
         </p>
     </div>
 </div>
-
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script>
+    $(document).ready(function() {
+        Get();
+    });
+
+    function Get() {
+        //$.get("api/Values");
+        $.ajax({
+            url: "/Values/Get",
+            type: "GET"
+            
+        });
+    }
+
+   
     function getAll() {
         $.ajax({
             url: "api/Values/",
@@ -39,9 +53,9 @@
                 });
             }
         }).fail(
-        function (xhr, textStatus, err) {
-            alert('Error: ' + err);
-        });
+            function (xhr, textStatus, err) {
+                alert('Error: ' + err);
+            });
     }
 
     function add() {
@@ -55,9 +69,9 @@
                 getAll();
             }
         }).fail(
-        function (xhr, textStatus, err) {
-            alert('Error: ' + err);
-        });
+            function (xhr, textStatus, err) {
+                alert('Error: ' + err);
+            });
 
     }
 
@@ -74,9 +88,9 @@
                 });
             }
         }).fail(
-        function (xhr, textStatus, err) {
-            alert('Error: ' + err);
-        });
+            function (xhr, textStatus, err) {
+                alert('Error: ' + err);
+            });
     }
 
     function removeAll() {
@@ -88,9 +102,9 @@
                 getAll();
             }
         }).fail(
-        function (xhr, textStatus, err) {
-            alert('Error: ' + err);
-        });
+            function (xhr, textStatus, err) {
+                alert('Error: ' + err);
+            });
     }
 
     function remove() {
@@ -102,9 +116,9 @@
                 getAll();
             }
         }).fail(
-        function (xhr, textStatus, err) {
-            alert('Error: ' + err);
-        });
+            function (xhr, textStatus, err) {
+                alert('Error: ' + err);
+            });
     }
 
     function update() {
@@ -118,8 +132,8 @@
                 getAll();
             }
         }).fail(
-        function (xhr, textStatus, err) {
-            alert('Error: ' + err);
-        });
+            function (xhr, textStatus, err) {
+                alert('Error: ' + err);
+            });
     }
 </script>

@@ -16,13 +16,15 @@ namespace WebApiUsingDemo.Controllers
 
         public IEnumerable<TestUseMode> GetAll()
         {
+            TestUseMode testMode=new TestUseMode();
+            testMode.ModeKey = "1";
             return allModeList;
         }
 
-        public IEnumerable<TestUseMode> GetOne(string key)
-        {
-            return allModeList.FindAll((mode) => { if (mode.ModeKey.Equals(key)) return true; return false; });
-        }
+        //public IEnumerable<TestUseMode> GetOne(string key)
+        //{
+        //    return allModeList.FindAll((mode) => { if (mode.ModeKey.Equals(key)) return true; return false; });
+        //}
 
         public bool PostNew(TestUseMode mode)
         {

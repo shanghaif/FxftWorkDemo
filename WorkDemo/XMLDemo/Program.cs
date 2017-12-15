@@ -9,7 +9,7 @@ namespace XMLDemo
         {
             XmlDocument xmlDoc = new XmlDocument();
             XmlReaderSettings settings = new XmlReaderSettings();
-            settings.IgnoreComments = true;//忽略文档里面的注释
+            settings.IgnoreComments = true;//忽略XML文档里面的注释
             XmlReader reader = XmlReader.Create(@"C:\Users\zyy\Desktop\2017-9-27Demo\Book.xml", settings);
             xmlDoc.Load(reader);
 

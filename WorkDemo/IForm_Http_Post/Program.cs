@@ -20,12 +20,9 @@ namespace IForm_Http_Post
             dynamic body = new
             {
                 phonenum = "1064927583245"
-
-
             };
             object[] objBody = { body };
             Post(cmdType, objBody);
-
         }
 
         public static string Post(string cmdtype, object[] body)

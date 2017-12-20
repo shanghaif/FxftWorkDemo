@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using TelSDK;
 
 namespace IForm_Http_Post
 {
@@ -16,13 +18,15 @@ namespace IForm_Http_Post
     {
         static void Main(string[] args)
         {
-            var cmdType = "9012";
+            var cmdType = "9028";
             dynamic body = new
             {
                 phonenum = "1064927583245"
             };
             object[] objBody = { body };
-            Post(cmdType, objBody);
+        var res=    Post(cmdType, objBody);
+            var resJson = JsonConvert.DeserializeObject<FjTelComRescs>(res);
+          
         }
 
         public static string Post(string cmdtype, object[] body)

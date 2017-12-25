@@ -17,11 +17,7 @@ namespace WebApi查询接口.Controllers
             return "成功测试get";
         }
 
-        //[HttpPost]
-        //public string Post(string aa)
-        //{
-        //    return "Post请求测试";
-        //}
+
 
         /// <summary>
         /// 福建电信消息通知接口

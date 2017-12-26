@@ -12,6 +12,8 @@ namespace WebApi查询接口.Controllers
 {
     public class FJTelNoticeInfoController : ApiController
     {
+
+
         public string Get()
         {
             return "成功测试get";
@@ -26,8 +28,7 @@ namespace WebApi查询接口.Controllers
         [HttpPost]
         public string Post([FromBody] FJTelNoticeInfoItem fjNInfo)
         {
-            #region 
-            if (fjNInfo.body[0].result_code == "0")//单独断网接口操作类型码
+            if (fjNInfo.body[0].result_code == "0")
             {
                 var returnMessage = new Dictionary<string, object>();
                 var head = new
@@ -60,7 +61,6 @@ namespace WebApi查询接口.Controllers
                 var bodyContent = JsonConvert.SerializeObject(returnMessage);
                 return bodyContent;
             }
-            #endregion
 
            
         }

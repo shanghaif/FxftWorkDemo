@@ -1,3 +1,4 @@
 ﻿Nuget安装：1，Swashbuckle  2，Swagger-Net
+页面路径示例:http://localhost:51911/swagger
 
 参考文章：http://blog.csdn.net/qq_31766265/article/details/51952564

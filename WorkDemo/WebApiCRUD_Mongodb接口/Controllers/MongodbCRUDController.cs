@@ -19,7 +19,7 @@ namespace WebApiCRUD_Mongodb接口.Controllers
        /// <param name="pageIndex"></param>
        /// <param name="pageSize"></param>
        /// <returns></returns>
-        public IEnumerable<VehicleItem> Get(int pageIndex,int pageSize)
+        public IEnumerable<VehicleItem> GetPage(int pageIndex,int pageSize)
         {
             var readPreference = new ReadPreference(ReadPreferenceMode.SecondaryPreferred);
             MongoDatabaseSettings mdSetting = new MongoDatabaseSettings();
@@ -36,21 +36,64 @@ namespace WebApiCRUD_Mongodb接口.Controllers
             return pageData;
         }
 
-        // GET: api/MongodbCRUD/5
-        public string Get(int id)
+        /// <summary>
+        /// 查询单条记录
+        /// </summary>
+        /// <param name="cNo"></param>
+        /// <returns></returns>
+        public VehicleItem GetOne(int citycode)
         {
-            return "value";
+            var readPreference = new ReadPreference(ReadPreferenceMode.SecondaryPreferred);
+            MongoDatabaseSettings mdSetting = new MongoDatabaseSettings();
+            mdSetting.ReadPreference = readPreference;
+            var connectionString = ConfigurationManager.AppSettings["dbCon"];
+            var database = ConfigurationManager.AppSettings["dbName"];
+            MongoClient client = new MongoClient(connectionString);//连接mogodb数据库
+            IMongoDatabase db = client.GetDatabase(database, mdSetting);//数据库
+            var vehicle = db.GetCollection<VehicleItem>("tblCrud");//表
+            BsonArray querys = new BsonArray();
+            querys.Add(new BsonDocument("citycode", citycode));
+            querys.Add(new BsonDocument("lng", citycode));
+            BsonDocument query = new BsonDocument("$or", querys);
+            var pageData = vehicle.Find(query).FirstOrDefault();
+            return pageData;
         }
+     
 
         // POST: api/MongodbCRUD
-        public void Post([FromBody]string value)
+        public void Post([FromBody]VehicleItem vehicleItem)
         {
+            var readPreference = new ReadPreference(ReadPreferenceMode.SecondaryPreferred);
+            MongoDatabaseSettings mdSetting = new MongoDatabaseSettings();
+            mdSetting.ReadPreference = readPreference;
+            var connectionString = ConfigurationManager.AppSettings["dbCon"];
+            var database = ConfigurationManager.AppSettings["dbName"];
+            MongoClient client = new MongoClient(connectionString);//连接mogodb数据库
+            IMongoDatabase db = client.GetDatabase(database, mdSetting);//数据库
+            var vehicle = db.GetCollection<VehicleItem>("tblCrud");//表
 
+            #region 创建或者更新
+
+            List<WriteModel<BsonDocument>> requests = new List<WriteModel<BsonDocument>>();
+            var update0 = new BsonDocument() { { "$set", BsonDocumentWrapper.Create(vehicleItem) } };
+            requests.Add(new UpdateOneModel<BsonDocument>(new BsonDocument(), update0) { IsUpsert = true });
+
+            //var updateSet = new BsonDocument() { { "$addToSet", new BsonDocument() { { "wxInfo", BsonDocumentWrapper.Create(vehicleItem) } } } };
+            //BsonDocument query = new BsonDocument();
+            //requests.Add(new UpdateOneModel<BsonDocument>(query, updateSet) { IsUpsert = true });
+
+            if (requests.Count > 0)
+            {
+                db.GetCollection<BsonDocument>("tblCrud").BulkWrite(requests);
+            }
+            #endregion
+          
         }
 
         // PUT: api/MongodbCRUD/5
         public void Put(int id, [FromBody]string value)
         {
+
         }
 
         // DELETE: api/MongodbCRUD/5

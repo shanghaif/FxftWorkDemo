@@ -163,6 +163,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\VehicleItem.cs" />
+    <Compile Include="Models\Wechat.cs" />
+    <Compile Include="Models\WxInfo.cs" />
+    <Compile Include="Models\WxItem.cs" />
+    <Compile Include="Models\WxOItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -6,8 +6,10 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using MongoDB.Bson;
+using MongoDB.Bson.IO;
 using MongoDB.Driver;
 using WebApiCRUD_Mongodb接口.Models;
+using JsonConvert = Newtonsoft.Json.JsonConvert;
 
 namespace WebApiCRUD_Mongodb接口.Controllers
 {
@@ -60,7 +62,10 @@ namespace WebApiCRUD_Mongodb接口.Controllers
         }
      
 
-        // POST: api/MongodbCRUD
+        /// <summary>
+        /// 新增
+        /// </summary>
+        /// <param name="vehicleItem"></param>
         public void Post([FromBody]VehicleItem vehicleItem)
         {
             var readPreference = new ReadPreference(ReadPreferenceMode.SecondaryPreferred);
@@ -75,7 +80,8 @@ namespace WebApiCRUD_Mongodb接口.Controllers
             #region 创建或者更新
 
             List<WriteModel<BsonDocument>> requests = new List<WriteModel<BsonDocument>>();
-            var update0 = new BsonDocument() { { "$set", BsonDocumentWrapper.Create(vehicleItem) } };
+            
+            var update0 = new BsonDocument() { { "$set", BsonDocumentWrapper.Create(BsonDocument.Parse(JsonConvert.SerializeObject(vehicleItem))) } };
             requests.Add(new UpdateOneModel<BsonDocument>(new BsonDocument(), update0) { IsUpsert = true });
 
             //var updateSet = new BsonDocument() { { "$addToSet", new BsonDocument() { { "wxInfo", BsonDocumentWrapper.Create(vehicleItem) } } } };
@@ -84,7 +90,8 @@ namespace WebApiCRUD_Mongodb接口.Controllers
 
             if (requests.Count > 0)
             {
-                db.GetCollection<BsonDocument>("tblCrud").BulkWrite(requests);
+          db.GetCollection<BsonDocument>("tblCrud").BulkWrite(requests);
+                
             }
             #endregion
           

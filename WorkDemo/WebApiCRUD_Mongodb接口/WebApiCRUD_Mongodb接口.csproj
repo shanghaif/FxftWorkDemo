@@ -159,6 +159,10 @@
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\MongodbCRUDController.cs" />
+    <Compile Include="Filters\OutResultAttribute.cs" />
+    <Compile Include="Formatter\Class1.cs" />
+    <Compile Include="Formatter\OutCode.cs" />
+    <Compile Include="Formatter\OutResult.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

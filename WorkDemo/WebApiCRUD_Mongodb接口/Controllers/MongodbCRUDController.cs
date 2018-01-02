@@ -15,13 +15,13 @@ namespace WebApiCRUD_Mongodb接口.Controllers
 {
     public class MongodbCRUDController : ApiController
     {
-       /// <summary>
-       /// 分页查询
-       /// </summary>
-       /// <param name="pageIndex"></param>
-       /// <param name="pageSize"></param>
-       /// <returns></returns>
-        public IEnumerable<VehicleItem> GetPage(int pageIndex,int pageSize)
+        /// <summary>
+        /// 分页查询
+        /// </summary>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageSize"></param>
+        /// <returns></returns>
+        public IEnumerable<VehicleItem> GetPage(int pageIndex, int pageSize)
         {
             var readPreference = new ReadPreference(ReadPreferenceMode.SecondaryPreferred);
             MongoDatabaseSettings mdSetting = new MongoDatabaseSettings();
@@ -60,13 +60,13 @@ namespace WebApiCRUD_Mongodb接口.Controllers
             var pageData = vehicle.Find(query).FirstOrDefault();
             return pageData;
         }
-     
+
 
         /// <summary>
         /// 新增
         /// </summary>
         /// <param name="vehicleItem"></param>
-        public void Post([FromBody]VehicleItem vehicleItem)
+        public void PostOne([FromBody]VehicleItem vehicleItem)
         {
             var readPreference = new ReadPreference(ReadPreferenceMode.SecondaryPreferred);
             MongoDatabaseSettings mdSetting = new MongoDatabaseSettings();
@@ -77,35 +77,113 @@ namespace WebApiCRUD_Mongodb接口.Controllers
             IMongoDatabase db = client.GetDatabase(database, mdSetting);//数据库
             var vehicle = db.GetCollection<VehicleItem>("tblCrud");//表
 
-            #region 创建或者更新
+            #region 创建或者更新  批量 似乎没有什么参考意义，但不建议删除
 
+            //List<WriteModel<BsonDocument>> requests = new List<WriteModel<BsonDocument>>();
+
+            //var key = new Random(Environment.TickCount).Next(100000, 999999);
+            //BsonDocument query = new BsonDocument("key", key);
+            //var update = new BsonDocument() { { "$set", BsonDocumentWrapper.Create(new { key = key }) } };
+            //requests.Add(new UpdateOneModel<BsonDocument>(query, update) { IsUpsert = true });//存在则更新，不存在则新增
+
+            //var update0 = new BsonDocument() { { "$addToSet",new BsonDocument() { {"111", BsonDocumentWrapper.Create(BsonDocument.Parse(JsonConvert.SerializeObject(vehicleItem))) } } } };
+            //requests.Add(new UpdateOneModel<BsonDocument>(query, update0) { IsUpsert = true });
+
+            ////var update0 = new BsonDocument() { { "$addToSet", BsonDocumentWrapper.Create(BsonDocument.Parse(JsonConvert.SerializeObject(vehicleItem))) } };
+            ////requests.Add(new UpdateOneModel<BsonDocument>(new BsonDocument(), update0) { IsUpsert = true });
+
+
+            //if (requests.Count > 0)
+            //{
+
+            //    db.GetCollection<BsonDocument>("tblCrud").BulkWrite(requests);
+
+            //}
+
+            #endregion
+
+            vehicle.InsertOne(vehicleItem);
+
+        }
+
+        /// <summary>
+        /// 批量新增
+        /// </summary>
+        /// <param name="vehicleItem"></param>
+        public void PostMany([FromBody]IEnumerable<VehicleItem> vehicleItem)
+        {
+            var readPreference = new ReadPreference(ReadPreferenceMode.SecondaryPreferred);
+            MongoDatabaseSettings mdSetting = new MongoDatabaseSettings();
+            mdSetting.ReadPreference = readPreference;
+            var connectionString = ConfigurationManager.AppSettings["dbCon"];
+            var database = ConfigurationManager.AppSettings["dbName"];
+            MongoClient client = new MongoClient(connectionString);//连接mogodb数据库
+            IMongoDatabase db = client.GetDatabase(database, mdSetting);//数据库
+            var vehicle = db.GetCollection<VehicleItem>("tblCrud");//表
+            vehicle.InsertMany(vehicleItem);
+
+        }
+
+        /// <summary>
+        /// 更新
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="vehicleItem"></param>
+        public void Put(int id, [FromBody]VehicleItem vehicleItem)
+        {
+            var readPreference = new ReadPreference(ReadPreferenceMode.SecondaryPreferred);
+            MongoDatabaseSettings mdSetting = new MongoDatabaseSettings();
+            mdSetting.ReadPreference = readPreference;
+            var connectionString = ConfigurationManager.AppSettings["dbCon"];
+            var database = ConfigurationManager.AppSettings["dbName"];
+            MongoClient client = new MongoClient(connectionString);//连接mogodb数据库
+            IMongoDatabase db = client.GetDatabase(database, mdSetting);//数据库
             List<WriteModel<BsonDocument>> requests = new List<WriteModel<BsonDocument>>();
-            
-            var update0 = new BsonDocument() { { "$set", BsonDocumentWrapper.Create(BsonDocument.Parse(JsonConvert.SerializeObject(vehicleItem))) } };
-            requests.Add(new UpdateOneModel<BsonDocument>(new BsonDocument(), update0) { IsUpsert = true });
-
-            //var updateSet = new BsonDocument() { { "$addToSet", new BsonDocument() { { "wxInfo", BsonDocumentWrapper.Create(vehicleItem) } } } };
-            //BsonDocument query = new BsonDocument();
-            //requests.Add(new UpdateOneModel<BsonDocument>(query, updateSet) { IsUpsert = true });
-
+            BsonDocument query = new BsonDocument("citycode", id);
+            //var update = new BsonDocument() { { "$set", BsonDocumentWrapper.Create(new { citycode = vehicleItem.citycode , speed = vehicleItem.speed}) } };
+            var update = new BsonDocument() { { "$set", BsonDocumentWrapper.Create(vehicleItem) } };
+            //requests.Add(new UpdateOneModel<BsonDocument>(query, update) { IsUpsert = true });//存在则更新，不存在则新增,更新单个符合查询条件的数据
+            requests.Add(new UpdateManyModel<BsonDocument>(query, update) { IsUpsert = true });//存在则更新，不存在则新增，更新多个符合查询条件的数据
             if (requests.Count > 0)
             {
-          db.GetCollection<BsonDocument>("tblCrud").BulkWrite(requests);
-                
+                db.GetCollection<BsonDocument>("tblCrud").BulkWrite(requests);
             }
-            #endregion
-          
         }
 
-        // PUT: api/MongodbCRUD/5
-        public void Put(int id, [FromBody]string value)
+        /// <summary>
+        /// 单个删除
+        /// </summary>
+        /// <param name="id"></param>
+        public void DeleteOne(int id)
         {
-
+            var readPreference = new ReadPreference(ReadPreferenceMode.SecondaryPreferred);
+            MongoDatabaseSettings mdSetting = new MongoDatabaseSettings();
+            mdSetting.ReadPreference = readPreference;
+            var connectionString = ConfigurationManager.AppSettings["dbCon"];
+            var database = ConfigurationManager.AppSettings["dbName"];
+            MongoClient client = new MongoClient(connectionString);//连接mogodb数据库
+            IMongoDatabase db = client.GetDatabase(database, mdSetting);//数据库
+            var vehicle = db.GetCollection<VehicleItem>("tblCrud");//表
+            BsonDocument query = new BsonDocument("citycode", id);
+            vehicle.DeleteOne(query);
         }
 
-        // DELETE: api/MongodbCRUD/5
-        public void Delete(int id)
+        /// <summary>
+        /// 批量删除
+        /// </summary>
+        /// <param name="id"></param>
+        public void DeleteMany(int id)
         {
+            var readPreference = new ReadPreference(ReadPreferenceMode.SecondaryPreferred);
+            MongoDatabaseSettings mdSetting = new MongoDatabaseSettings();
+            mdSetting.ReadPreference = readPreference;
+            var connectionString = ConfigurationManager.AppSettings["dbCon"];
+            var database = ConfigurationManager.AppSettings["dbName"];
+            MongoClient client = new MongoClient(connectionString);//连接mogodb数据库
+            IMongoDatabase db = client.GetDatabase(database, mdSetting);//数据库
+            var vehicle = db.GetCollection<VehicleItem>("tblCrud");//表
+            BsonDocument query = new BsonDocument("citycode", id);
+            vehicle.DeleteMany(query);
         }
     }
 }

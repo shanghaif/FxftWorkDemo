@@ -159,13 +159,20 @@
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\MongodbCRUDController.cs" />
+    <Compile Include="Controllers\SMSQueryController.cs" />
     <Compile Include="Filters\OutResultAttribute.cs" />
-    <Compile Include="Formatter\Class1.cs" />
     <Compile Include="Formatter\OutCode.cs" />
     <Compile Include="Formatter\OutResult.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\SMDestType、.cs" />
+    <Compile Include="Models\SMSourceType.cs" />
+    <Compile Include="Models\SmsPageQuery.cs" />
+    <Compile Include="Models\SMType.cs" />
+    <Compile Include="Models\SMState.cs" />
+    <Compile Include="Models\SmsInfo.cs" />
+    <Compile Include="Models\SmsQuery.cs" />
     <Compile Include="Models\VehicleItem.cs" />
     <Compile Include="Models\Wechat.cs" />
     <Compile Include="Models\WxInfo.cs" />

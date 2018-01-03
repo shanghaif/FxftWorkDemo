@@ -18,8 +18,6 @@ namespace WebApiCRUD_Mongodb接口.Controllers
     public class SMSQueryController : ApiController
     {
 
-
-
         /// <summary>
         /// 短信记录分页索引，从0起始
         /// 短信记录分页大小,最大是1000

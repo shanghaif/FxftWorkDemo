@@ -33,6 +33,7 @@ namespace WebApiCRUD_Mongodb接口.Controllers
             MongoClient client = new MongoClient(connectionString);//连接mogodb数据库
             IMongoDatabase db = client.GetDatabase(database, mdSetting);//数据库
             var smsCollection = db.GetCollection<SmsInfo>("tblSMS");//表
+
             var query = new BsonDocument("cNo", sms.cNo);
             var sort = sms.sort == 0 ? new BsonDocument("oDate", 1) : new BsonDocument("oDate", -1);
             if (sms.pageSize > 1000)
@@ -43,11 +44,11 @@ namespace WebApiCRUD_Mongodb接口.Controllers
             {
                 sms.pageIndex = 0;
             }
-            //分页需要进一步优化
+           
             var pageData = smsCollection.Find(query).Sort(sort).Skip(sms.pageSize * sms.pageIndex).Limit(sms.pageSize).ToList().ToArray();
             SmsPageQuery smsPageQuery = new SmsPageQuery();
             smsPageQuery.pageIndex = sms.pageIndex;
-            smsPageQuery.total = smsCollection.CountAsync(new BsonDocument()).Result;
+            smsPageQuery.total = smsCollection.CountAsync(query).Result;
             smsPageQuery.SmsInfos = pageData;
             return smsPageQuery;
         }

@@ -61,6 +61,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sqlserver_R_1", "EF\Sqlserv
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sqlserver_R_2", "EF\Sqlserver_R_2\Sqlserver_R_2.csproj", "{F093F5C7-1714-4A66-BC73-56511A8D26A1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisDemo", "RedisDemo\RedisDemo.csproj", "{590B9DD7-B84C-4BD7-886D-174A0A2B3209}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -183,6 +185,10 @@ Global
 		{F093F5C7-1714-4A66-BC73-56511A8D26A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F093F5C7-1714-4A66-BC73-56511A8D26A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F093F5C7-1714-4A66-BC73-56511A8D26A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{590B9DD7-B84C-4BD7-886D-174A0A2B3209}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{590B9DD7-B84C-4BD7-886D-174A0A2B3209}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{590B9DD7-B84C-4BD7-886D-174A0A2B3209}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{590B9DD7-B84C-4BD7-886D-174A0A2B3209}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

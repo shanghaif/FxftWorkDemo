@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Aliyun.Api.SLS;
 using Aliyun.Api.SLS.Data;
 using Aliyun.Api.SLS.Request;
@@ -10,6 +7,9 @@ using Aliyun.Api.SLS.Response;
 
 namespace AliLogUsingDemo
 {
+    /// <summary>
+    /// 使用教程查看官网
+    /// </summary>
     class Program
     {
         static void Main(string[] args)

@@ -1,0 +1,4 @@
+﻿1，经典桌面-Windows服务
+2，引用所需的dll：NRails.Core，NRails.Service，System.Windows.Forms,System.Runtime.InteropServices.RuntimeInformation。不要依靠工具去引用。
+3，复制代码过来
+4,创建ServiceTimeSync类库:config文件<add key="ServiceAssembly" value="ServiceTimeSync.dll,DataSyncService"/>

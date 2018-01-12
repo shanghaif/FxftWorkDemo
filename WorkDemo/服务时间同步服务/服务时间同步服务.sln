@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "服务时间同步服务", "服务时间同步服务\服务时间同步服务.csproj", "{5188AA11-1BA1-4BB1-827C-0F11ACC421D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceTimeSync", "ServiceTimeSync\ServiceTimeSync.csproj", "{43C3975C-B329-49E9-9F6E-BEADD1BBDA86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AliLog", "..\..\..\..\公共组件\AliLog\AliLog\AliLog.csproj", "{B52F5B39-CBCE-464E-B953-5DD1C0377343}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5188AA11-1BA1-4BB1-827C-0F11ACC421D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5188AA11-1BA1-4BB1-827C-0F11ACC421D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5188AA11-1BA1-4BB1-827C-0F11ACC421D6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5188AA11-1BA1-4BB1-827C-0F11ACC421D6}.Debug|x86.Build.0 = Debug|Any CPU
+		{5188AA11-1BA1-4BB1-827C-0F11ACC421D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5188AA11-1BA1-4BB1-827C-0F11ACC421D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5188AA11-1BA1-4BB1-827C-0F11ACC421D6}.Release|x86.ActiveCfg = Release|Any CPU
+		{5188AA11-1BA1-4BB1-827C-0F11ACC421D6}.Release|x86.Build.0 = Release|Any CPU
+		{43C3975C-B329-49E9-9F6E-BEADD1BBDA86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43C3975C-B329-49E9-9F6E-BEADD1BBDA86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43C3975C-B329-49E9-9F6E-BEADD1BBDA86}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{43C3975C-B329-49E9-9F6E-BEADD1BBDA86}.Debug|x86.Build.0 = Debug|Any CPU
+		{43C3975C-B329-49E9-9F6E-BEADD1BBDA86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43C3975C-B329-49E9-9F6E-BEADD1BBDA86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43C3975C-B329-49E9-9F6E-BEADD1BBDA86}.Release|x86.ActiveCfg = Release|Any CPU
+		{43C3975C-B329-49E9-9F6E-BEADD1BBDA86}.Release|x86.Build.0 = Release|Any CPU
+		{B52F5B39-CBCE-464E-B953-5DD1C0377343}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B52F5B39-CBCE-464E-B953-5DD1C0377343}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B52F5B39-CBCE-464E-B953-5DD1C0377343}.Debug|x86.ActiveCfg = Debug|x86
+		{B52F5B39-CBCE-464E-B953-5DD1C0377343}.Debug|x86.Build.0 = Debug|x86
+		{B52F5B39-CBCE-464E-B953-5DD1C0377343}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B52F5B39-CBCE-464E-B953-5DD1C0377343}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B52F5B39-CBCE-464E-B953-5DD1C0377343}.Release|x86.ActiveCfg = Release|x86
+		{B52F5B39-CBCE-464E-B953-5DD1C0377343}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://code.fxft.net:8080/tfs/defaultcollection
+		SccProjectUniqueName0 = ..\\..\\..\\..\\公共组件\\AliLog\\AliLog\\AliLog.csproj
+		SccProjectName0 = ../../../../公共组件/AliLog/AliLog
+		SccLocalPath0 = ..\\..\\..\\..\\公共组件\\AliLog\\AliLog
+		SccLocalPath1 = .
+		SccProjectUniqueName2 = ServiceTimeSync\\ServiceTimeSync.csproj
+		SccProjectName2 = ServiceTimeSync
+		SccLocalPath2 = ServiceTimeSync
+		SccProjectUniqueName3 = 服务时间同步服务\\服务时间同步服务.csproj
+		SccProjectName3 = 服务时间同步服务
+		SccLocalPath3 = 服务时间同步服务
+	EndGlobalSection
+EndGlobal

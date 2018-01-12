@@ -9,6 +9,9 @@ using MongoOfficialCrudUsingDemo.Entity;
 
 namespace MongoOfficialCrudUsingDemo
 {
+    /// <summary>
+    /// 此demo失败，未完成
+    /// </summary>
     public class Program
     {
         static void Main(string[] args)
@@ -30,7 +33,7 @@ namespace MongoOfficialCrudUsingDemo
             };
    
 
-            collection.InsertOne(document);
+            //collection.InsertOne(document);
         }
 
     }

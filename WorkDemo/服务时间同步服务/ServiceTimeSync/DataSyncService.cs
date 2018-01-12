@@ -111,7 +111,7 @@ namespace ServiceTimeSync
 
 
                
-                string constr = setting.MySqlCon_JPT;
+                string constr = setting.MySqlCon;
 
                 #region 分页入库、Mysql事务的使用 
 

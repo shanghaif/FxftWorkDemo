@@ -86,8 +86,7 @@ namespace ServiceTimeSync
                 List<CardInfo> tblCards = new List<CardInfo>();
                 collection.Find(query).ForEachAsync((doc) =>
                 {
-                    var result = doc;
-                    tblCards.Add(result);
+                    tblCards.Add(doc);
                 }).Wait();
 
                 #region 用于检查数据是否同步
@@ -131,8 +130,14 @@ namespace ServiceTimeSync
                         MySqlCommand cmd = con.CreateCommand();
                         cmd.Transaction = transaction;
 
+                        #region 执行mysql的两种方法
+
+                        //StringBuilder sb = new StringBuilder();
                         foreach (var data in subDatas)
                         {
+
+                            //sb.Append(
+                            //    $"UPDATE card set ServiceStartDate='{data.pEffDate:yyyy-MM-dd}',ServiceEndDate='{data.pInvDate:yyyy-MM-dd} 'where sim='{data.cNo}';");
                             cmd.CommandText = $"UPDATE card set ServiceStartDate='{data.pEffDate:yyyy-MM-dd HH:mm:ss}',ServiceEndDate='{data.pInvDate:yyyy-MM-dd HH:mm:ss} 'where sim='{data.cNo}';";
                             int code = cmd.ExecuteNonQuery();
                             if (code == 1)
@@ -149,6 +154,8 @@ namespace ServiceTimeSync
                         log.Debug($"服务时间同步第{i + 1}页,同步数据量:{synCount},成功数:{sucCount},失败数:{synCount - sucCount}");
 
                         transaction.Commit();
+
+                        #endregion
 
                     }
 

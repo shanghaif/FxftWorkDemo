@@ -71,6 +71,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsServiceDemo", "Windo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC框架理解", "MVC框架理解\MVC框架理解.csproj", "{A1C8180E-4827-46C3-9461-5428F178B57A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "广东揭阳API3.0", "广东揭阳API3.0\广东揭阳API3.0.csproj", "{9621F596-1B01-4A69-B554-C7CA375E354B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -343,6 +345,14 @@ Global
 		{A1C8180E-4827-46C3-9461-5428F178B57A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A1C8180E-4827-46C3-9461-5428F178B57A}.Release|x86.ActiveCfg = Release|Any CPU
 		{A1C8180E-4827-46C3-9461-5428F178B57A}.Release|x86.Build.0 = Release|Any CPU
+		{9621F596-1B01-4A69-B554-C7CA375E354B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9621F596-1B01-4A69-B554-C7CA375E354B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9621F596-1B01-4A69-B554-C7CA375E354B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9621F596-1B01-4A69-B554-C7CA375E354B}.Debug|x86.Build.0 = Debug|Any CPU
+		{9621F596-1B01-4A69-B554-C7CA375E354B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9621F596-1B01-4A69-B554-C7CA375E354B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9621F596-1B01-4A69-B554-C7CA375E354B}.Release|x86.ActiveCfg = Release|Any CPU
+		{9621F596-1B01-4A69-B554-C7CA375E354B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

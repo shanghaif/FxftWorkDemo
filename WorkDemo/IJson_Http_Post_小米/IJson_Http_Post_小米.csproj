@@ -62,12 +62,16 @@
     <None Include="java引用包\commons-codec-1.11-bin.zip" />
     <None Include="java引用包\httpcomponents-client-4.5.4-bin.zip" />
     <None Include="java引用包\javabase64-1.3.1.zip" />
+    <None Include="java源码\java帮助文档\jdk api 1.8_google\jdk api 1.8_google.CHM" />
+    <None Include="java源码\java帮助文档\jdk api 1.8_google\使用说明.docx" />
     <None Include="java引用包\json-java.rar" />
     <None Include="java源码\HellWord.rar" />
     <None Include="java源码\小米移动商户服务器对接文档.docx" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="参考文档.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

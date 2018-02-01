@@ -5,18 +5,34 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Security.Cryptography;
-using System.Text;
 using Newtonsoft.Json;
+using StringBuilder = System.Text.StringBuilder;
 
 namespace IJson_Http_Post_小米
 {
     class Program
     {
+
+        /// <summary>  
+        /// 将c# DateTime时间格式转换为Unix时间戳格式  
+        /// </summary>  
+        /// <param name="time">时间</param>  
+        /// <returns>long</returns>  
+        public static long ConvertDateTimeToInt(DateTime time)
+        {
+            DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(new DateTime(1970, 1, 1, 0, 0, 0, 0));
+            long t = (time.Ticks - startTime.Ticks);//17位
+            //long t = (time.Ticks - startTime.Ticks) / 10000;   //除10000调整为13位      
+            return t;
+        }
         static void Main(string[] args)
         {
-            #region 翻译测试
+          var logger = NLog.LogManager.GetCurrentClassLogger();
 
-            var aesTest = new AESTest();
+
+        #region 翻译测试
+
+        var aesTest = new AESTest();
             var rsaTest = new RSATest();
             RSAExtensionsTest();
             #endregion
@@ -24,12 +40,20 @@ namespace IJson_Http_Post_小米
 
             #region 这个部分放在数据适配层
 
+            //var merchantId = "100016";
+            //var logId = AESHelper.getLogId(merchantId);
+            //var data = new Dictionary<string, object>();
+            //data.Add("log_id", logId);
+            //data.Add("phone_number_type", 12);
+            //data.Add("phone_number", "1064776352047");
+            //var body = JsonConvert.SerializeObject(data);
+
             var merchantId = "100016";
-            var logId = getLogId(merchantId);
+            var logId = AESHelper.getLogId(merchantId);
             var data = new Dictionary<string, object>();
             data.Add("log_id", logId);
-            data.Add("phone_number_type", 12);
-            data.Add("phone_number", "1064776352047");
+            data.Add("phone_number", "1064867369745"); //1064867369745
+            data.Add("validate_timestamp", ConvertDateTimeToInt(DateTime.Now));
             var body = JsonConvert.SerializeObject(data);
 
             #endregion
@@ -76,17 +100,19 @@ namespace IJson_Http_Post_小米
             var postBody = new Dictionary<string, object>();
             postBody.Add("merchant_id", merchantId);
             postBody.Add("requestData", requestData);
-            var urlRequest = "http://preview.exapi.10046.mi.com/v1/query";
-
+            var urlRequest = "http://preview.exapi.10046.mi.com/v1/activate";
+            var test = JsonConvert.SerializeObject(postBody);
             HttpClient httpClient = new HttpClient();
             HttpContent httpContent = new StringContent(JsonConvert.SerializeObject(postBody));
             httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
             var task = httpClient.PostAsync(urlRequest, httpContent).Result;
             string res = null;
+            logger.Debug("我什么也没听到");
             if (task.StatusCode == HttpStatusCode.OK)
             {
 
                 res = task.Content.ReadAsStringAsync().Result;
+                logger.Debug($"{res}");
             }
 
             Console.Read();
@@ -117,29 +143,6 @@ namespace IJson_Http_Post_小米
 
      
 
-        /// <summary>
-        /// 日志ID log_id
-        /// </summary>
-        /// <param name="merchantId">商户ID</param>
-        /// <returns></returns>
-        public static String getLogId(string merchantId)
-        {
-            // String code = UUID.randomUUID().toString();
-            string code = System.Guid.NewGuid().ToString();
-            // 一句话即可，但此时id中有“-”符号存在，使用下面语句可变为纯字母 + 数字。
-            //string code = System.Guid.NewGuid().ToString("N");
-
-            if (string.IsNullOrEmpty(merchantId))
-            {
-                return code;
-            }
-
-            //SimpleDateFormat formatDate = new SimpleDateFormat("yyyyMMddHHmmss");
-            //Date d = new Date(System.currentTimeMillis());
-            //String date = formatDate.format(d);
-            string date = $"{DateTime.Now:yyyyMMddHHmmss}";
-
-            return merchantId + "-" + date + code.GetHashCode();
-        }
+      
     }
 }

@@ -25,6 +25,30 @@ namespace IJson_Http_Post_小米
     /// </summary>
     public class AESHelper
     {
+        /// <summary>
+        /// 日志ID log_id
+        /// </summary>
+        /// <param name="merchantId">商户ID</param>
+        /// <returns></returns>
+        public static String getLogId(string merchantId)
+        {
+            // String code = UUID.randomUUID().toString();
+            string code = System.Guid.NewGuid().ToString();
+            // 一句话即可，但此时id中有“-”符号存在，使用下面语句可变为纯字母 + 数字。
+            //string code = System.Guid.NewGuid().ToString("N");
+
+            if (string.IsNullOrEmpty(merchantId))
+            {
+                return code;
+            }
+
+            //SimpleDateFormat formatDate = new SimpleDateFormat("yyyyMMddHHmmss");
+            //Date d = new Date(System.currentTimeMillis());
+            //String date = formatDate.format(d);
+            string date = $"{DateTime.Now:yyyyMMddHHmmss}";
+
+            return merchantId + "-" + date + code.GetHashCode();
+        }
 
         /// <summary>
         /// 解密

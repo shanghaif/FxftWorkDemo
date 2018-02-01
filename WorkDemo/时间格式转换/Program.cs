@@ -5,10 +5,13 @@ namespace 时间格式转换
 {
     class Program
     {
-
+       
 
         static void Main(string[] args)
         {
+
+           var ts =    ConvertDateTimeToInt(DateTime.Now);
+           
             Program program=new Program();
 
             #region DateTime 格式转换成任意其它格式
@@ -45,6 +48,20 @@ namespace 时间格式转换
             #endregion
 
             ReadKey();
+        }
+
+        /// <summary>  
+        ///参考文档: https://www.cnblogs.com/testsec/p/6095945.html
+        /// 将c# DateTime时间格式转换为Unix时间戳格式  
+        /// </summary>  
+        /// <param name="time">时间</param>  
+        /// <returns>long</returns>  
+        public static long ConvertDateTimeToInt(DateTime time)
+        {
+            DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(new DateTime(1970, 1, 1, 0, 0, 0, 0));
+            long t = (time.Ticks - startTime.Ticks);//17位
+            //long t = (time.Ticks - startTime.Ticks) / 10000;   //除10000调整为13位      
+            return t;
         }
 
         /// <summary>

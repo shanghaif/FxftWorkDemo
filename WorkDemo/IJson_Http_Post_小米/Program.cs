@@ -51,8 +51,9 @@ namespace IJson_Http_Post_小米
             var merchantId = "100016";
             var logId = AESHelper.getLogId(merchantId);
             var data = new Dictionary<string, object>();
+            var phone_number = "1064867369749";
             data.Add("log_id", logId);
-            data.Add("phone_number", "1064867369745"); //1064867369745
+            data.Add("phone_number", phone_number); //1064867369745
             data.Add("validate_timestamp", ConvertDateTimeToInt(DateTime.Now));
             var body = JsonConvert.SerializeObject(data);
 
@@ -107,12 +108,11 @@ namespace IJson_Http_Post_小米
             httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
             var task = httpClient.PostAsync(urlRequest, httpContent).Result;
             string res = null;
-            logger.Debug("我什么也没听到");
             if (task.StatusCode == HttpStatusCode.OK)
             {
 
                 res = task.Content.ReadAsStringAsync().Result;
-                logger.Debug($"{res}");
+                logger.Debug($"卡号:{phone_number},{res}");
             }
 
             Console.Read();

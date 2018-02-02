@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace IJson_Http_Post
+﻿namespace IJson_Http_Post
 {
     public class CardRealTimeInfo
     {

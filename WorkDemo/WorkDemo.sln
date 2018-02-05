@@ -69,8 +69,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceTimeSync", "服务�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsServiceDemo", "WindowsServiceDemo\WindowsServiceDemo.csproj", "{D29710B3-25D2-4B30-8E6E-7F31FBBBCA8F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC框架理解", "MVC框架理解\MVC框架理解.csproj", "{A1C8180E-4827-46C3-9461-5428F178B57A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "广东揭阳API3.0", "广东揭阳API3.0\广东揭阳API3.0.csproj", "{9621F596-1B01-4A69-B554-C7CA375E354B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebUploadUsingDemo", "WebUploadUsingDemo\WebUploadUsingDemo.csproj", "{A0B194BD-1EE3-4A56-9871-DA1E264EBB38}"
@@ -341,14 +339,6 @@ Global
 		{D29710B3-25D2-4B30-8E6E-7F31FBBBCA8F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D29710B3-25D2-4B30-8E6E-7F31FBBBCA8F}.Release|x86.ActiveCfg = Release|Any CPU
 		{D29710B3-25D2-4B30-8E6E-7F31FBBBCA8F}.Release|x86.Build.0 = Release|Any CPU
-		{A1C8180E-4827-46C3-9461-5428F178B57A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A1C8180E-4827-46C3-9461-5428F178B57A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A1C8180E-4827-46C3-9461-5428F178B57A}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{A1C8180E-4827-46C3-9461-5428F178B57A}.Debug|x86.Build.0 = Debug|Any CPU
-		{A1C8180E-4827-46C3-9461-5428F178B57A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A1C8180E-4827-46C3-9461-5428F178B57A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A1C8180E-4827-46C3-9461-5428F178B57A}.Release|x86.ActiveCfg = Release|Any CPU
-		{A1C8180E-4827-46C3-9461-5428F178B57A}.Release|x86.Build.0 = Release|Any CPU
 		{9621F596-1B01-4A69-B554-C7CA375E354B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9621F596-1B01-4A69-B554-C7CA375E354B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9621F596-1B01-4A69-B554-C7CA375E354B}.Debug|x86.ActiveCfg = Debug|Any CPU

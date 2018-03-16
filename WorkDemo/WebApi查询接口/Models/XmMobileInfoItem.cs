@@ -32,12 +32,17 @@ namespace WebApi查询接口.Models
        
         public int int_value { get; set; }
         public string string_value { get; set; }
-        public string extra_data { get; set; }
+        public ExtraData extra_data { get; set; }
         #endregion
 
         public override string ToString()
         {
             return JsonConvert.SerializeObject(this);
         }
+    }
+
+    public class ExtraData
+    {
+        
     }
 }

@@ -7,7 +7,7 @@ using System.Xml;
 namespace XMLRequest
 {
     /// <summary>
-    /// Http Post +XML  (Body) 此接口调用无IP限制
+    /// Http Post +XML  (Body) 此接口调用IP限制
     /// </summary>
     class Program
     {

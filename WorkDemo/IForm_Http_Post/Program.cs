@@ -8,7 +8,7 @@ using TelSDK;
 namespace IForm_Http_Post
 {
     /// <summary>
-    ///post多段传参  此demo刚好只有一段  无IP限制
+    ///post多段传参  此demo刚好只有一段  IP限制
     /// </summary>
     class Program
     {

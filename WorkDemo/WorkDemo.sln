@@ -11,9 +11,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "时间格式转换", "时�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "随机数", "随机数\随机数.csproj", "{EAD25FE0-9281-456E-A3AF-5594F4F1C14D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IJson_Http全球智联平台服务接口协议", "IJson_Http\IJson_Http全球智联平台服务接口协议.csproj", "{2554AFDE-2808-4043-A5DB-658308D2DA27}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IJson_Http(全球智联平台服务接口协议)", "IJson_Http\IJson_Http(全球智联平台服务接口协议).csproj", "{2554AFDE-2808-4043-A5DB-658308D2DA27}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IXml_Http", "XMLRequest\IXml_Http.csproj", "{C42F3BCC-7F89-4638-9CDF-E3D7094BED67}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IXml_Http(江苏移动物联网能力开放接口协议V1 0 5 1（发布版）)", "XMLRequest\IXml_Http(江苏移动物联网能力开放接口协议V1 0 5 1（发布版）).csproj", "{C42F3BCC-7F89-4638-9CDF-E3D7094BED67}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateXML", "CreateXML\CreateXML.csproj", "{55BA6F53-820E-4B9C-ADD9-DE3FB89F1B7A}"
 EndProject
@@ -43,7 +43,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPIDemo1", "WebAPIDemo1\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPIDemo1ServiceClientApp", "WebAPIDemo1ServiceClientApp\WebAPIDemo1ServiceClientApp.csproj", "{C90F1312-EDBC-428F-A5B6-2B92692F033E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IForm_Http_Post福建电信接口文档", "IForm_Http_Post\IForm_Http_Post福建电信接口文档.csproj", "{01540D97-0CC3-4444-836D-BB58F38A262D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IForm_Http_Post(福建电信接口文档)", "IForm_Http_Post\IForm_Http_Post(福建电信接口文档).csproj", "{01540D97-0CC3-4444-836D-BB58F38A262D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dll", "Dll\Dll.csproj", "{6D91CC2F-F8A6-43BD-A38E-A18B8C1F13E0}"
 EndProject

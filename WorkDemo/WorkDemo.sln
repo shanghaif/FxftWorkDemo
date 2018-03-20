@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "时间格式转换", "时�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "随机数", "随机数\随机数.csproj", "{EAD25FE0-9281-456E-A3AF-5594F4F1C14D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IJson_Http", "IJson_Http\IJson_Http.csproj", "{2554AFDE-2808-4043-A5DB-658308D2DA27}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IJson_Http全球智联平台服务接口协议", "IJson_Http\IJson_Http全球智联平台服务接口协议.csproj", "{2554AFDE-2808-4043-A5DB-658308D2DA27}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IXml_Http", "XMLRequest\IXml_Http.csproj", "{C42F3BCC-7F89-4638-9CDF-E3D7094BED67}"
 EndProject
@@ -21,9 +21,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XMLDemo", "XMLDemo\XMLDemo.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XMLTest", "TEST\XMLTest.csproj", "{A2BDA6B8-3317-487A-8EAB-A061ED0BAC36}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IJson_Http_Post", "IJson_Http_Post\IJson_Http_Post.csproj", "{640988D2-DD70-4B9A-B7C0-C0124D3C3D14}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IJson_Http_Post(公田接口文档)", "IJson_Http_Post\IJson_Http_Post(公田接口文档).csproj", "{640988D2-DD70-4B9A-B7C0-C0124D3C3D14}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IJson_Http_Post_上海电信接口Demo", "上海电信接口Demo\IJson_Http_Post_上海电信接口Demo.csproj", "{58A62413-0019-448B-9C26-CCD82BB04110}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IJson_Http_Post_上海电信接口Demo(车联网对外接口服务定义)", "上海电信接口Demo\IJson_Http_Post_上海电信接口Demo(车联网对外接口服务定义).csproj", "{58A62413-0019-448B-9C26-CCD82BB04110}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "缓存MemCachedDemo", "MemCachedDemo\缓存MemCachedDemo.csproj", "{2CDC6DC4-9F63-4328-9BDC-519B3965A793}"
 EndProject
@@ -43,7 +43,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPIDemo1", "WebAPIDemo1\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPIDemo1ServiceClientApp", "WebAPIDemo1ServiceClientApp\WebAPIDemo1ServiceClientApp.csproj", "{C90F1312-EDBC-428F-A5B6-2B92692F033E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IForm_Http_Post", "IForm_Http_Post\IForm_Http_Post.csproj", "{01540D97-0CC3-4444-836D-BB58F38A262D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IForm_Http_Post福建电信接口文档", "IForm_Http_Post\IForm_Http_Post福建电信接口文档.csproj", "{01540D97-0CC3-4444-836D-BB58F38A262D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dll", "Dll\Dll.csproj", "{6D91CC2F-F8A6-43BD-A38E-A18B8C1F13E0}"
 EndProject
@@ -73,7 +73,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "广东揭阳API3.0", "广�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebUploadUsingDemo", "WebUploadUsingDemo\WebUploadUsingDemo.csproj", "{A0B194BD-1EE3-4A56-9871-DA1E264EBB38}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IJson_Http_Post_小米", "IJson_Http_Post_小米\IJson_Http_Post_小米.csproj", "{B3A14537-A009-4B3D-ABDA-F8830F3CC59D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IJson_Http_Post_小米(小米移动商户服务器对接文档）", "IJson_Http_Post_小米\IJson_Http_Post_小米(小米移动商户服务器对接文档）.csproj", "{B3A14537-A009-4B3D-ABDA-F8830F3CC59D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

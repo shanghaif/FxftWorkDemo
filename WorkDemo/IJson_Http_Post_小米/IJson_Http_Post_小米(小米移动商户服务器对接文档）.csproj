@@ -182,7 +182,6 @@
     <None Include="java源码\java帮助文档\jdk api 1.8_google\使用说明.docx" />
     <None Include="java引用包\json-java.rar" />
     <None Include="java源码\HellWord.rar" />
-    <None Include="java源码\小米移动商户服务器对接文档.docx" />
     <None Include="NLog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

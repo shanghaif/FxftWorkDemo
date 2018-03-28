@@ -38,9 +38,10 @@ namespace IJson_Http
             httpClient.GetStringAsync(requestUri).ContinueWith((requestTask) =>
             {
                 var result = requestTask.Result;
-
+                Console.WriteLine(result);
+                Console.ReadKey();
             }).Wait(30000);//调用接口，返回字符串结果。挂起操作
-
+           
             #endregion
 
         }

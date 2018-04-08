@@ -12,6 +12,19 @@ namespace 调用本地的接口
         static void Main(string[] args)
         {
 
+            HttpClient client = new HttpClient();
+
+            var forms = new Dictionary<string, string>();
+            forms.Add("eventId", "SIM_CUSTOM_FIELD_CHANGE-151888917");
+            forms.Add("eventType", "SIM_CUSTOM_FIELD_CHANGE");
+            forms.Add("timestamp", "2015-07-01T11:00:03.812Z");
+            forms.Add("data", "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><SimFieldChange xmlns=\"http://api.jasperwireless.com/ws/schema \"><iccid>8986061569000000161</iccid><oldValue>testForPush1</oldValue><newValue>testForPush2</newValue><fieldName>OPERATORCUSTOM1</fieldName></SimFieldChange>");
+
+            var content = new FormUrlEncodedContent(forms);
+
+            client.PostAsync("http://localhost:8033/swagger/ui/index/Jkfl/Post", content);
+            
+
             #region Post_Json 调用WebAPI原生版本
 
             var rnd = new Random(Environment.TickCount);

@@ -7,7 +7,7 @@ using System.Xml;
 namespace XMLRequest
 {
     /// <summary>
-    /// Http Post +XML  (Body) 此接口调用IP限制
+    /// Http Post +XML  (Body) 此接口调用无IP限制
     /// </summary>
     class Program
     {
@@ -54,7 +54,7 @@ namespace XMLRequest
             HttpContent httpContent = new StringContent(body);
             httpContent.Headers.ContentType = new MediaTypeHeaderValue("text/xml");
             var task = httpClient.PostAsync(urlRequest, httpContent).Result;//可通过详细信息查看出来是否地址可以正常连接
-
+         
             if (task.StatusCode == HttpStatusCode.OK)
             {
                 var res = task.Content.ReadAsStringAsync().Result;

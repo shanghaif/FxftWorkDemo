@@ -22,8 +22,11 @@ namespace 调用本地的接口
 
             var content = new FormUrlEncodedContent(forms);
 
-            client.PostAsync("http://localhost:8033/swagger/ui/index/Jkfl/Post", content);
-            
+      var qq=      client.PostAsync("http://localhost:8033/api/Jkfl/Post", content).Result;
+            if (qq.StatusCode == HttpStatusCode.OK)
+            {
+                var res = qq.Content.ReadAsStringAsync().Result;
+            }
 
             #region Post_Json 调用WebAPI原生版本
 

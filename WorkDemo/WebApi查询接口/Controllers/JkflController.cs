@@ -32,17 +32,24 @@ namespace WebApi查询接口.Controllers
         //}
 
         // POST: api/Jkfl
-        public void Post([FromBody]PushItem value)
+        public string Post([FromBody]PushItem value)
         {
-            var qq = ToString();
+            //var qq = ToString();
             Logger logger = LogManager.GetCurrentClassLogger();
-            logger.Debug($"{qq}{value}");
+            //logger.Debug($"{qq}{value}");
             XmlDocument doc = new XmlDocument();
-            doc.LoadXml(value.data);
+      //doc.LoadXml(value.data);
+            var data = value.data;
+            logger.Debug($"{data}");
+            data = data.Replace("http://api.jasperwireless.com/ws/schema", "");
+            data = data.Replace("Past24HDataUsage", "CtdUsage");
+            logger.Debug($"{data}");
+            //CtdUsage obj = Common.XmlDeserialize<CtdUsage>(data);
 
+        return "ok";
         }
 
-   
+
     }
 
     public class PushItem
@@ -50,7 +57,7 @@ namespace WebApi查询接口.Controllers
         public  string eventId { get; set; }
         public string eventType { get; set; }
         public string timestamp { get; set; }
-        public string signature { get; set; }
+        //public string signature { get; set; }
         public string data { get; set; }
         //public override string ToString()
         //{

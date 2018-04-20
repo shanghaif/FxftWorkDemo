@@ -20,9 +20,9 @@ namespace IForm_Http_Post
                 phonenum = "1064927583245"
             };
             object[] objBody = { body };
-        var res=    Post(cmdType, objBody);
+            var res = Post(cmdType, objBody);
             var resJson = JsonConvert.DeserializeObject<FjTelComRescs>(res);
-          
+
         }
 
         public static string Post(string cmdtype, object[] body)
